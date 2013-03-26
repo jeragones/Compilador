@@ -4,11 +4,14 @@
  */
 package Ventana;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Utilities;
 
@@ -44,7 +47,9 @@ public class Ventana extends javax.swing.JFrame {
         btnEjecutar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        mnuNuevo = new javax.swing.JMenuItem();
         mnuAbrir = new javax.swing.JMenuItem();
+        mnuGuardar = new javax.swing.JMenuItem();
         mnuCerrar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnuCompilar = new javax.swing.JMenuItem();
@@ -58,18 +63,6 @@ public class Ventana extends javax.swing.JFrame {
         txtTexto.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtTextoCaretUpdate(evt);
-            }
-        });
-        txtTexto.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-                txtTextoCaretPositionChanged(evt);
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
-        });
-        txtTexto.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtTextoKeyTyped(evt);
             }
         });
         jScrollPane1.setViewportView(txtTexto);
@@ -98,6 +91,14 @@ public class Ventana extends javax.swing.JFrame {
 
         jMenu1.setText("Archivo");
 
+        mnuNuevo.setText("Nuevo");
+        mnuNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuNuevoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuNuevo);
+
         mnuAbrir.setText("Abrir");
         mnuAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +106,14 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         jMenu1.add(mnuAbrir);
+
+        mnuGuardar.setText("Guardar");
+        mnuGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuGuardarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuGuardar);
 
         mnuCerrar.setText("Cerrar");
         mnuCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +185,7 @@ public class Ventana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
+    private File fileName = null;
     
     private void mnuCompilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCompilarActionPerformed
         // TODO add your handling code here:
@@ -184,16 +194,45 @@ public class Ventana extends javax.swing.JFrame {
     private void mnuAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAbrirActionPerformed
         // TODO add your handling code here:
         fileChooser.showOpenDialog(this);
-        if (fileChooser.getSelectedFile() != null) {
-            try {
-                txtTexto.setText(new Scanner(fileChooser.getSelectedFile()).useDelimiter("\\Z").next());
-            } catch (Exception ex) {
+        //if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            if (fileChooser.getSelectedFile() != null) {
+                try {
+                    txtTexto.setText(new Scanner(fileChooser.getSelectedFile()).useDelimiter("\\Z").next());
+                } catch (Exception ex) {}
             }
-        }
+        //}
     }//GEN-LAST:event_mnuAbrirActionPerformed
 
     private void btnCompilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompilarActionPerformed
-        // compilar
+        fileChooser.setCurrentDirectory(new File( "./"));
+        //if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            //File fileName = new File( fileChooser.getSelectedFile( ) + ".java" );
+            BufferedWriter outFile;
+            if(fileName != null) {
+                try {
+                    outFile = new BufferedWriter( new FileWriter(fileName));
+                    outFile.write(txtTexto.getText()); //put in textfile
+                    outFile.flush(); // redundant, done by close()
+                    outFile.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+                    fileName = new File( fileChooser.getSelectedFile( ) + ".java");
+                    try {
+                        outFile = new BufferedWriter( new FileWriter(fileName));
+                        outFile.write(txtTexto.getText()); //put in textfile
+                        outFile.flush(); // redundant, done by close()
+                        outFile.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+            
+            
+        //}
     }//GEN-LAST:event_btnCompilarActionPerformed
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
@@ -203,14 +242,6 @@ public class Ventana extends javax.swing.JFrame {
     private void mnuCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_mnuCerrarActionPerformed
-
-    private void txtTextoCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtTextoCaretPositionChanged
-        
-    }//GEN-LAST:event_txtTextoCaretPositionChanged
-
-    private void txtTextoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTextoKeyTyped
-        
-    }//GEN-LAST:event_txtTextoKeyTyped
 
     private void txtTextoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTextoCaretUpdate
         int caretPos = txtTexto.getCaretPosition();
@@ -234,6 +265,27 @@ public class Ventana extends javax.swing.JFrame {
         int colNum = caretPos - offset + 1;
         lblColumna.setText(String.valueOf(colNum));
     }//GEN-LAST:event_txtTextoCaretUpdate
+
+    private void mnuGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuGuardarActionPerformed
+        fileChooser.setCurrentDirectory(new File( "./"));
+        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            fileName = new File( fileChooser.getSelectedFile( ) + ".java");
+            BufferedWriter outFile;
+            try {
+                outFile = new BufferedWriter( new FileWriter(fileName));
+                outFile.write(txtTexto.getText()); //put in textfile
+                outFile.flush(); // redundant, done by close()
+                outFile.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_mnuGuardarActionPerformed
+
+    private void mnuNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuNuevoActionPerformed
+        fileName = null;
+        txtTexto.setText("");
+    }//GEN-LAST:event_mnuNuevoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,6 +344,8 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuCerrar;
     private javax.swing.JMenuItem mnuCompilar;
     private javax.swing.JMenuItem mnuEjecutar;
+    private javax.swing.JMenuItem mnuGuardar;
+    private javax.swing.JMenuItem mnuNuevo;
     private javax.swing.JTextArea txtTexto;
     // End of variables declaration//GEN-END:variables
 }
