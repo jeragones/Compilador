@@ -247,9 +247,9 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             Scanner scanner = new Scanner(fileName);
-            System.out.println("Compilación exitosa.");
+            System.out.println("Analisis Sintactico Exitoso.");
         } catch (FileNotFoundException ex) {
-            System.out.println("Error de compilación.");
+            System.out.println("Error de Sintaxis.");
         }
     }//GEN-LAST:event_btnEjecutarActionPerformed
 
