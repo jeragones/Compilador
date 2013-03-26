@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package compilador.Ventana;
+package Ventana;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -85,6 +85,11 @@ public class Ventana extends javax.swing.JFrame {
         jMenu1.add(mnuAbrir);
 
         mnuCerrar.setText("Cerrar");
+        mnuCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuCerrarActionPerformed(evt);
+            }
+        });
         jMenu1.add(mnuCerrar);
 
         jMenuBar1.add(jMenu1);
@@ -173,6 +178,10 @@ public class Ventana extends javax.swing.JFrame {
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEjecutarActionPerformed
+
+    private void mnuCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCerrarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_mnuCerrarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,7 +1,23 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Defines the Symbol class, which is used to represent all terminals
+ * and nonterminals while parsing.  The lexer should pass CUP Symbols 
+ * and CUP returns a Symbol.
+ *
+ * @version last updated: 7/3/96
+ * @author  Frank Flannery
  */
+
+/* ****************************************************************
+  Class Symbol
+  what the parser expects to receive from the lexer. 
+  the token is identified as follows:
+  sym:    the symbol type
+  parse_state: the parse state.
+  value:  is the lexical value of type Object
+  left :  is the left position in the original input file
+  right:  is the right position in the original input file
+******************************************************************/
+
 package Scanner;
 
 /**
