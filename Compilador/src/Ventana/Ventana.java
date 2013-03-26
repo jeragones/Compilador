@@ -241,7 +241,8 @@ public class Ventana extends javax.swing.JFrame {
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
-         new Scanner(new StringReader(txtTexto.getText()));
+         Scanner s=new Scanner(new StringReader(txtTexto.getText()));
+         System.out.print(s);
     }//GEN-LAST:event_btnEjecutarActionPerformed
 
     private void mnuCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCerrarActionPerformed
