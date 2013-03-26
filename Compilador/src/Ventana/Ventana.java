@@ -14,6 +14,8 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Utilities;
+import java.io.StringReader;
+import Scanner.*;
 
 /**
  *
@@ -204,6 +206,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuAbrirActionPerformed
 
     private void btnCompilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompilarActionPerformed
+        
         fileChooser.setCurrentDirectory(new File( "./"));
         //if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
             //File fileName = new File( fileChooser.getSelectedFile( ) + ".java" );
@@ -230,13 +233,15 @@ public class Ventana extends javax.swing.JFrame {
                     }
                 }
             }
-            
-            
+    
+    
+        
         //}
     }//GEN-LAST:event_btnCompilarActionPerformed
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
+         new Scanner(new StringReader(txtTexto.getText()));
     }//GEN-LAST:event_btnEjecutarActionPerformed
 
     private void mnuCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCerrarActionPerformed
