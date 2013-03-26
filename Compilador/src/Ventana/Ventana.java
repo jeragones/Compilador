@@ -4,6 +4,7 @@
  */
 package Ventana;
 
+import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -153,21 +154,21 @@ public class Ventana extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
+    
     private void mnuCompilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCompilarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuCompilarActionPerformed
 
     private void mnuAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAbrirActionPerformed
         // TODO add your handling code here:
-        JFileChooser chooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("txt", "png");
-        chooser.setFileFilter(filter);
-        chooser.setSize(200, 100);
-        int returnVal = chooser.showOpenDialog(txtTexto);
-        if(returnVal == JFileChooser.APPROVE_OPTION) {
-        System.out.println("You chose to open this file: " +
-                chooser.getSelectedFile().getName());
+        fileChooser.showOpenDialog(this);
+        if (fileChooser.getSelectedFile() != null) {
+            try {
+                txtTexto.setText(new Scanner(fileChooser.getSelectedFile()).useDelimiter("\\Z").next());
+                //reportMessage("File loaded: " + fileChooser.getSelectedFile().getName());
+            } catch (Exception ex) {
+            }
         }
     }//GEN-LAST:event_mnuAbrirActionPerformed
 
