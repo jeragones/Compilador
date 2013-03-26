@@ -16,6 +16,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.Utilities;
 import java.io.StringReader;
 import Scanner.*;
+import java.io.*;
 
 /**
  *
@@ -197,10 +198,13 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
         fileChooser.showOpenDialog(this);
         //if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
-            if (fileChooser.getSelectedFile() != null) {
+        fileName = fileChooser.getSelectedFile();    
+        if (fileName != null) {
                 try {
-                    txtTexto.setText(new Scanner(fileChooser.getSelectedFile()).useDelimiter("\\Z").next());
-                } catch (Exception ex) {}
+                    txtTexto.setText(new Scanner(fileName).useDelimiter("\\Z").next());
+                } catch (Exception ex) {
+                    System.out.println("Error.");
+                }
             }
         //}
     }//GEN-LAST:event_mnuAbrirActionPerformed
@@ -241,8 +245,12 @@ public class Ventana extends javax.swing.JFrame {
 
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
-         Scanner s=new Scanner(new StringReader(txtTexto.getText()));
-         System.out.print(s);
+        try {
+            Scanner scanner = new Scanner(fileName);
+            System.out.println("Compilación exitosa.");
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error de compilación.");
+        }
     }//GEN-LAST:event_btnEjecutarActionPerformed
 
     private void mnuCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCerrarActionPerformed
@@ -260,7 +268,7 @@ public class Ventana extends javax.swing.JFrame {
             }
             rowNum++;
         }
-        lblFila.setText(String.valueOf(rowNum));
+        lblFila.setText(String.valueOf(rowNum-1));
         
         int offset=0;
         try {
@@ -268,7 +276,7 @@ public class Ventana extends javax.swing.JFrame {
         } catch (BadLocationException ex) {
             Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int colNum = caretPos - offset + 1;
+        int colNum = caretPos - offset;
         lblColumna.setText(String.valueOf(colNum));
     }//GEN-LAST:event_txtTextoCaretUpdate
 
