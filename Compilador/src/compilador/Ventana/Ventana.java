@@ -30,64 +30,80 @@ public class Ventana extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtTexto = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblFila = new javax.swing.JLabel();
+        lblColumna = new javax.swing.JLabel();
+        btnCompilar = new javax.swing.JButton();
+        btnEjecutar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnuAbrir = new javax.swing.JMenuItem();
+        mnuCerrar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        mnuCompilar = new javax.swing.JMenuItem();
+        mnuEjecutar = new javax.swing.JMenuItem();
+        mnuASM = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtTexto.setColumns(20);
+        txtTexto.setRows(5);
+        jScrollPane1.setViewportView(txtTexto);
 
         jLabel1.setText("Fila:");
 
         jLabel2.setText("Columna:");
 
-        jLabel3.setText("0");
+        lblFila.setText("0");
 
-        jLabel4.setText("0");
+        lblColumna.setText("0");
+
+        btnCompilar.setText("Compilar");
+        btnCompilar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompilarActionPerformed(evt);
+            }
+        });
+
+        btnEjecutar.setText("Ejecutar");
+        btnEjecutar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEjecutarActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Archivo");
 
-        jMenuItem1.setText("Abrir");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mnuAbrir.setText("Abrir");
+        mnuAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mnuAbrirActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(mnuAbrir);
 
-        jMenuItem2.setText("Cerrar");
-        jMenu1.add(jMenuItem2);
+        mnuCerrar.setText("Cerrar");
+        jMenu1.add(mnuCerrar);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Compilar");
 
-        jMenuItem3.setText("Compilar");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        mnuCompilar.setText("Compilar");
+        mnuCompilar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                mnuCompilarActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenu2.add(mnuCompilar);
 
-        jMenuItem4.setText("Correr");
-        jMenu2.add(jMenuItem4);
+        mnuEjecutar.setText("Correr");
+        jMenu2.add(mnuEjecutar);
 
-        jMenuItem5.setText("Código ASM");
-        jMenu2.add(jMenuItem5);
+        mnuASM.setText("Código ASM");
+        jMenu2.add(mnuASM);
 
         jMenuBar1.add(jMenu2);
 
@@ -100,50 +116,63 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCompilar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEjecutar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblFila, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblColumna, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCompilar)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)))
+                    .addComponent(lblFila)
+                    .addComponent(lblColumna)
+                    .addComponent(btnEjecutar)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void mnuCompilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCompilarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_mnuCompilarActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mnuAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAbrirActionPerformed
         // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("txt", "png");
         chooser.setFileFilter(filter);
         chooser.setSize(200, 100);
-        int returnVal = chooser.showOpenDialog(jTextArea1);
+        int returnVal = chooser.showOpenDialog(txtTexto);
         if(returnVal == JFileChooser.APPROVE_OPTION) {
         System.out.println("You chose to open this file: " +
                 chooser.getSelectedFile().getName());
         }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mnuAbrirActionPerformed
+
+    private void btnCompilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompilarActionPerformed
+        // compilar
+    }//GEN-LAST:event_btnCompilarActionPerformed
+
+    private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEjecutarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,19 +216,21 @@ public class Ventana extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCompilar;
+    private javax.swing.JButton btnEjecutar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblColumna;
+    private javax.swing.JLabel lblFila;
+    private javax.swing.JMenuItem mnuASM;
+    private javax.swing.JMenuItem mnuAbrir;
+    private javax.swing.JMenuItem mnuCerrar;
+    private javax.swing.JMenuItem mnuCompilar;
+    private javax.swing.JMenuItem mnuEjecutar;
+    private javax.swing.JTextArea txtTexto;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,15 +9,15 @@
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuAbrir">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abrir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuAbrirActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuCerrar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cerrar"/>
               </Properties>
@@ -29,20 +29,20 @@
             <Property name="text" type="java.lang.String" value="Compilar"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuCompilar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Compilar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuCompilarActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuEjecutar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Correr"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuASM">
               <Properties>
                 <Property name="text" type="java.lang.String" value="C&#xf3;digo ASM"/>
               </Properties>
@@ -77,16 +77,19 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jScrollPane1" pref="552" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="551" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btnCompilar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnEjecutar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="lblFila" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="lblColumna" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -97,13 +100,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="299" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="302" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnCompilar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblFila" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblColumna" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEjecutar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -117,7 +122,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
+        <Component class="javax.swing.JTextArea" name="txtTexto">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
@@ -135,15 +140,31 @@
         <Property name="text" type="java.lang.String" value="Columna:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="lblFila">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="lblColumna">
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCompilar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Compilar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCompilarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEjecutar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ejecutar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEjecutarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
