@@ -246,7 +246,8 @@ public class Ventana extends javax.swing.JFrame {
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
         // TODO add your handling code here:
         try {
-            Scanner scan = new Scanner.analisis(fileName.getName());
+            Scanner scan = new Scanner(fileName.getName());
+            //Scanner scan = new Scanner.analisis(fileName.getName());
             System.out.println(scan);
             System.out.println("Analisis Sintactico Exitoso.");
         } catch (Exception ex) {
