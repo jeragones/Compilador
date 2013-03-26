@@ -5,8 +5,12 @@
 package Ventana;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Utilities;
 
 /**
  *
@@ -51,6 +55,23 @@ public class Ventana extends javax.swing.JFrame {
 
         txtTexto.setColumns(20);
         txtTexto.setRows(5);
+        txtTexto.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtTextoCaretUpdate(evt);
+            }
+        });
+        txtTexto.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                txtTextoCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
+        txtTexto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTextoKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(txtTexto);
 
         jLabel1.setText("Fila:");
@@ -166,7 +187,6 @@ public class Ventana extends javax.swing.JFrame {
         if (fileChooser.getSelectedFile() != null) {
             try {
                 txtTexto.setText(new Scanner(fileChooser.getSelectedFile()).useDelimiter("\\Z").next());
-                //reportMessage("File loaded: " + fileChooser.getSelectedFile().getName());
             } catch (Exception ex) {
             }
         }
@@ -183,6 +203,37 @@ public class Ventana extends javax.swing.JFrame {
     private void mnuCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_mnuCerrarActionPerformed
+
+    private void txtTextoCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtTextoCaretPositionChanged
+        
+    }//GEN-LAST:event_txtTextoCaretPositionChanged
+
+    private void txtTextoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTextoKeyTyped
+        
+    }//GEN-LAST:event_txtTextoKeyTyped
+
+    private void txtTextoCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtTextoCaretUpdate
+        int caretPos = txtTexto.getCaretPosition();
+        int rowNum = (caretPos == 0) ? 1 : 0;
+        for (int offset = caretPos; offset > 0;) {
+            try {
+                offset = Utilities.getRowStart(txtTexto, offset) - 1;
+            } catch (BadLocationException ex) {
+                Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            rowNum++;
+        }
+        lblFila.setText(String.valueOf(rowNum));
+        
+        int offset=0;
+        try {
+            offset = Utilities.getRowStart(txtTexto, caretPos);
+        } catch (BadLocationException ex) {
+            Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        int colNum = caretPos - offset + 1;
+        lblColumna.setText(String.valueOf(colNum));
+    }//GEN-LAST:event_txtTextoCaretUpdate
 
     /**
      * @param args the command line arguments
