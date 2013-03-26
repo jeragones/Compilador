@@ -1,13 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Scanner para la gramática de prueba del curso de Compiladores e Intérpretes.
  */
+
 package Scanner;
 
 /**
  *
  * @author GeOrge
  */
+
 public class Scanner {
     
     
