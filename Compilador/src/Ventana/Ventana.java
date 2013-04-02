@@ -243,16 +243,25 @@ public class Ventana extends javax.swing.JFrame {
         //}
     }//GEN-LAST:event_btnCompilarActionPerformed
 
-    private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
-        // TODO add your handling code here:
+    public static void scan(File argv){
+        
+        
         try {
-            Scanner scan = new Scanner(fileName.getName());
+            System.out.println("Proceso de scanning sobre el archivo ["+argv+"]");
+            Scanner s = new Scanner(new FileReader(argv));
             //Scanner scan = new Scanner.analisis(fileName.getName());
-            System.out.println(scan);
-            System.out.println("Analisis Sintactico Exitoso.");
+           
+           
         } catch (Exception ex) {
             System.out.println("Error de Sintaxis.");
         }
+            }
+    private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
+        // TODO add your handling code here:
+        fileChooser.showOpenDialog(this);
+        //if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+        fileName = fileChooser.getSelectedFile();    
+        scan(fileName);
     }//GEN-LAST:event_btnEjecutarActionPerformed
 
     private void mnuCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCerrarActionPerformed
