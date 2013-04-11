@@ -1,0 +1,490 @@
+import java_cup.runtime.*;
+
+parser code {:
+	
+	Scanner scanner;
+	
+	public parser(java.io.Reader input){
+	scanner = new Scanner(input);
+	}
+
+public String errores(int sys)
+{
+	if (sys == 0)
+		return("Class");
+	else if (sys == 1)
+		return("ID");
+	else if (sys == 2)
+		return("Llave_on");
+	else if (sys == 3)
+		return("Llave_off");
+	else if (sys == 4)
+		return("Public");
+	else if (sys == 5)
+		return("Static");
+	else if (sys == 6)
+		return("Else");
+	else if (sys == 7)
+		return("Void");
+	else if (sys == 8)
+		return("Main");
+	else if (sys == 9)
+		return("PARENT_on");
+	else if (sys == 10)
+		return("PARENT_off");
+	else if (sys == 11)
+		return("Corchete_on");
+	else if (sys == 12)
+		return("Corchete_off");
+	else if (sys == 13)
+		return("STRING");
+	else if (sys == 14 )
+		return("Extends");
+	else if (sys ==15 )
+		return("Return");
+	else if (sys == 16)
+		return("INT");
+	else if (sys == 17)
+		return("BOOLEAN");
+	else if (sys == 18)
+		return("If");
+	else if (sys ==19 )
+		return("DOTCOMMA");
+	else if (sys ==20 )
+		return("COMA");
+	else if (sys == 21)
+		return("Punto");
+	else if (sys == 22)
+		return("While");
+	else if (sys == 23)
+		return("System");
+	else if (sys == 24)
+		return("Out");
+	else if (sys == 25)
+		return("Println");
+	else if (sys == 26)
+		return("Lenght");
+	else if (sys == 27)
+		return("INTEGER_LITERAL");
+	else if (sys ==28 )
+		return("True");
+	else if (sys == 29)
+		return("False");
+	else if (sys ==30 )
+		return("This");
+	else if (sys ==31 )
+		return("New");
+	else if (sys == 32)
+		return("Negacion");
+	else if (sys == 33)
+		return("STRING_CONSTANT");
+	else if (sys == 34)
+		return("Suma");
+	else if (sys == 35)
+		return("Resta");
+	else if (sys ==36 )
+		return("MULT");
+	else if (sys ==37 )
+		return("Div");
+	else if (sys ==38 )
+		return("Diferencia");
+	else if (sys == 39)
+		return("Igual_Comp");
+	else if (sys == 40)
+		return("Igual_Asig");
+	else if (sys == 41)
+		return("Menor");
+	else if (sys == 42)
+		return("Menor_Igual");
+	else if (sys ==43 )
+		return("Mayor");
+	else if (sys == 44)
+		return("Mayor_Igual");
+	else if (sys ==45 )
+		return("OR");
+	else if (sys ==46 )
+		return("AND");
+	else if (sys == 47)
+		return("EOF");
+	else if (sys == 48)
+		return("ERROR");
+	else if (sys == 49)
+		return("NUM");
+	else if (sys == 50)
+		return("STR");
+	else if (sys == 51)
+		return("In");
+	else if (sys == 52)
+		return("Read");
+	else if (sys == 53)
+		return("Import");
+	else if (sys == 54)
+		return("Implements");
+	else if (sys == 55)
+		return("Exit");		
+	else 
+		return("error");
+}
+
+public void syntax_error(Symbol cur_token2)
+{
+	if (cur_token.sym == 0)
+		report_error("No se esperaba un class", cur_token2);
+	else if (cur_token.sym == 2)
+		report_error("No se esperaba un ID", cur_token2);
+	else if (cur_token.sym == 3)
+		report_error("No se esperaba una llave abierta", cur_token2);
+	else if (cur_token.sym == 4)
+		report_error("No se esperaba una llave cerrada", cur_token2);
+	else if (cur_token.sym == 5)
+		report_error("No se esperaba un public", cur_token2);
+	else if (cur_token.sym == 6)
+		report_error("No se esperaba un else", cur_token2);
+	else if (cur_token.sym == 7)
+		report_error("No se esperaba un void", cur_token2);
+	else if (cur_token.sym == 8)
+		report_error("No se esperaba un main", cur_token2);
+	else if (cur_token.sym == 9)
+		report_error("No se esperaba un parentesis abierto", cur_token2);
+	else if (cur_token.sym == 10)
+		report_error("No se esperaba un parentesis cerrado", cur_token2);
+	else if (cur_token.sym == 11)
+		report_error("No se esperaba un corchete abierto", cur_token2);
+	else if (cur_token.sym == 12)
+		report_error("No se esperaba un cochete cerrado", cur_token2);
+	else if (cur_token.sym == 13)
+		report_error("No se esperaba un string", cur_token2);
+	else if (cur_token.sym == 14)
+		report_error("No se esperaba un extendes", cur_token2);
+	else if (cur_token.sym == 15)
+		report_error("No se esperaba un return", cur_token2);
+	else if (cur_token.sym == 16)
+		report_error("No se esperaba un int", cur_token2);
+	else if (cur_token.sym == 17)
+		report_error("No se esperaba un boolean", cur_token2);
+	else if (cur_token.sym == 18)
+		report_error("No se esperaba un if", cur_token2);
+	else if (cur_token.sym == 19)
+		report_error("No se esperaba un punto y coma", cur_token2);
+	else if (cur_token.sym == 20)
+		report_error("No se esperaba una coma", cur_token2);
+	else if (cur_token.sym == 21)
+		report_error("No se esperaba un punto", cur_token2);
+	else if (cur_token.sym == 22)
+		report_error("No se esperaba un while", cur_token2);
+	else if (cur_token.sym == 23)
+		report_error("No se esperaba un system", cur_token2);
+	else if (cur_token.sym == 24)
+		report_error("No se esperaba un out", cur_token2);
+	else if (cur_token.sym == 25)
+		report_error("No se esperaba un println", cur_token2);
+	else if (cur_token.sym == 26)
+		report_error("No se esperaba un length", cur_token2);
+	else if (cur_token.sym == 27)
+		report_error("No se esperaba un INTEGER_LITERAL", cur_token2);
+	else if (cur_token.sym == 28)
+		report_error("No se esperaba un true", cur_token2);
+	else if (cur_token.sym == 29)
+		report_error("No se esperaba un false", cur_token2);
+	else if (cur_token.sym == 30)
+		report_error("No se esperaba un this", cur_token2);
+	else if (cur_token.sym == 31)
+		report_error("No se esperaba una new", cur_token2);
+	else if (cur_token.sym == 32)
+		report_error("No se esperaba una negacion ", cur_token2);
+	else if (cur_token.sym == 33)
+		report_error("No se esperaba un STRING_CONSTANT", cur_token2);
+	else if (cur_token.sym == 34)
+		report_error("No se esperaba una suma", cur_token2);
+	else if (cur_token.sym == 35)
+		report_error("No se esperaba una resta ", cur_token2);
+	else if (cur_token.sym == 36)
+		report_error("No se esperaba una multiplicacion", cur_token2);
+	else if (cur_token.sym == 37)
+		report_error("No se esperaba una division", cur_token2);
+	else if (cur_token.sym == 38)
+		report_error("No se esperaba una diferencia", cur_token2);
+	else if (cur_token.sym == 39)
+		report_error("No se esperaba una comparacion", cur_token2);
+	else if (cur_token.sym == 40)
+		report_error("No se esperaba una asignacion", cur_token2);
+	else if (cur_token.sym == 41)
+		report_error("No se esperaba un menor ", cur_token2);
+	else if (cur_token.sym == 42)
+		report_error("No se esperaba un menor igual", cur_token2);
+	else if (cur_token.sym == 43)
+		report_error("No se esperaba un mayor", cur_token2);
+	else if (cur_token.sym == 44)
+		report_error("No se esperaba un mayor igual", cur_token2);
+	else if (cur_token.sym == 45)
+		report_error("No se esperaba un or", cur_token2);
+	else if (cur_token.sym == 46)
+		report_error("No se esperaba un and", cur_token2);
+	else if (cur_token.sym == 47)
+		report_error("No se esperaba un fin de linea", cur_token2);
+	else if (cur_token.sym == 48)
+		report_error("No se esperaba un ERROR", cur_token2);
+	else if (cur_token.sym == 49)
+		report_error("No se esperaba un numero", cur_token2);
+	else if (cur_token.sym == 50)
+		report_error("No se esperaba una string", cur_token2);
+	else if (cur_token.sym == 51)
+		report_error("No se esperaba una in", cur_token2);
+	else if (cur_token.sym == 52)
+		report_error("No se esperaba una read", cur_token2);
+	else if (cur_token.sym == 53)
+		report_error("No se esperaba un import", cur_token2);
+	else if (cur_token.sym == 54)
+		report_error("No se esperaba un implements", cur_token2);
+	else if (cur_token.sym == 55)
+		report_error("No se esperaba un exit", cur_token2);		
+	else 
+		report_error("Error: ", cur_token2);	
+}
+
+public void report_error(String message, Object info) {
+	StringBuffer m = new StringBuffer("Error ");
+	
+	if (info instanceof java_cup.runtime.Symbol) {
+		m.append( "(" + errores(cur_token.sym) +")" );
+	     	m.append(" en fila "+ cur_token.left + " columna " + cur_token.right );
+	     
+	     	if (((java_cup.runtime.Symbol)info).value != null)
+	       		m.append(". Lexema: " + cur_token.value.toString()); 
+	}
+	m.append(" : "+message);
+	//m.append(" y en su lugar viene " + ((java_cup.runtime.Symbol)info).value.toString());
+
+	System.out.println(m);
+}
+
+   
+public void report_fatal_error(String message, Object info) 	{
+	report_error(message, info);
+	throw new RuntimeException("Error Fatal de Sintaxis!!!");
+}
+
+:}
+
+terminal Symbol ID;
+terminal Symbol Llave_off;
+terminal Symbol Llave_on;
+terminal Symbol PARENT_off;
+terminal Symbol PARENT_on;
+terminal Symbol BOOLEAN;
+terminal Symbol INT;
+terminal Symbol DOTCOMMA;
+terminal Symbol INTEGER_LITERAL;
+terminal Symbol Corchete_off;
+terminal Symbol Corchete_on;
+terminal Symbol True;
+terminal Symbol False;
+terminal Symbol STRING_CONSTANT;
+terminal Symbol Negacion;
+terminal Symbol Suma;
+terminal Symbol Resta;
+terminal Symbol Public;
+terminal Symbol Static;
+terminal Symbol Extends;
+terminal Symbol Return;
+terminal Symbol If;
+terminal Symbol COMA;
+terminal Symbol Punto;
+terminal Symbol While;
+terminal Symbol System;
+terminal Symbol Out;
+terminal Symbol Println;
+terminal Symbol Lenght;
+terminal Symbol Else;
+terminal Symbol Void;
+terminal Symbol Main;
+terminal Symbol STRING;
+terminal Symbol MULT;
+terminal Symbol Div;
+terminal Symbol Diferencia;
+terminal Symbol Igual_Comp;
+terminal Symbol Class;
+terminal Symbol This;
+terminal Symbol New;
+terminal Symbol Igual_Asig;
+terminal Symbol Menor;
+terminal Symbol Menor_Igual;
+terminal Symbol Mayor;
+terminal Symbol Mayor_Igual;
+terminal Symbol OR;
+terminal Symbol AND;
+terminal Symbol ERROR;
+terminal Symbol NUM;
+terminal Symbol STR;
+terminal Symbol In;
+terminal Symbol Read;
+terminal Symbol Import;
+terminal Symbol Implements;
+terminal Symbol Exit;
+
+
+non terminal Program;
+non terminal ImportDecls;
+non terminal ClassDecls;
+non terminal ImportDecl;
+non terminal ImpDecl;
+non terminal TypeName;
+non terminal MainClass;
+non terminal ClassDecl;
+non terminal ClassD;
+non terminal ClassDe;
+non terminal ClassDec;
+non terminal BodyDecls;
+non terminal VarDecls;
+non terminal ConstrDecls;
+non terminal MethodDecls; 
+non terminal VarDecl;
+non terminal ConstrDecl;
+non terminal MethodDecl;
+non terminal MethodDec;
+non terminal MethodDe;
+non terminal FormalList;
+non terminal FormalLists;
+non terminal Type;
+non terminal Statement;
+non terminal Statemen;
+non terminal Stateme;
+non terminal Statem;
+non terminal State;
+non terminal Statements;
+non terminal Exp;
+non terminal Ex;
+non terminal Exp_Simpl;
+non terminal ExpList;
+non terminal Exps;
+non terminal Op;
+
+precedence left Suma;
+precedence left Resta;
+precedence left Div;
+precedence left MULT;
+
+start with Program;
+
+// Regla 1) 
+Program ::= ImportDecls ClassDecls MainClass;
+
+// Regla 2) 
+ImportDecls ::=  | ImportDecl | ImportDecls ImportDecl;
+ 
+// Regla 3) 
+ClassDecls ::=  | ClassDecl | ClassDecls ClassDecl;  
+
+
+// Regla 4)
+ImportDecl ::= Import TypeName ImportDecl;
+
+// Regla 5)
+ImpDecl ::= Punto MULT  | ;
+
+// Regla 6)
+TypeName ::= ID |Punto TypeName;
+ 
+// Regla 7)
+MainClass ::= Class ID Llave_on Public Static Void Main PARENT_on STRING Corchete_on Corchete_off ID  PARENT_on Llave_on  Statement  Llave_off Llave_off;
+ 
+// Regla 7)
+ClassDecl ::= Class ID ClassDec Llave_on BodyDecls Llave_off;
+
+// Regla 8)
+ClassD ::= Extends | Implements;
+
+// Regla 9)
+ClassDe ::= ClassD ID;
+ 
+// Regla 10)
+ClassDec ::= ClassDe | ;
+
+// Regla 11)
+BodyDecls ::= | VarDecls | ConstrDecls  | MethodDecls | ClassDecls;
+
+ 
+// Regla 12)
+
+
+ConstrDecls ::= | ConstrDecl | ConstrDecl ConstrDecl;
+
+MethodDecls ::=  | MethodDecl| MethodDecls MethodDecl;
+
+ 
+// Regla 13)
+VarDecl ::= Type ID;
+ 
+// Regla 14)
+VarDecls ::= | VarDecl | VarDecls VarDecl;
+ 
+// Regla 15)
+ConstrDecl ::= Public ID PARENT_on FormalList PARENT_off Llave_on VarDecls Statements Llave_off;
+ 
+// Regla 16)
+MethodDecl ::= Public MethodDec ID  PARENT_on  FormalList  PARENT_off Llave_on VarDecls Statements MethodDe Llave_off;
+
+// Regla 17)
+MethodDec ::= Type | Void;
+
+// Regla 18)
+MethodDe ::= Return Exp DOTCOMMA |  ;
+
+// Regla 19)
+FormalList ::= Type ID FormalLists |  ;
+ 
+// Regla 20)
+FormalLists ::= COMA Type ID | FormalLists;
+ 
+// Regla 21)
+Type ::= INT Corchete_on Corchete_off | BOOLEAN | INT |ID;
+ 
+// Regla 22)
+Statement ::= Llave_on Statements Llave_off
+         |If PARENT_on Exp PARENT_off Statement Statemen
+   	 |While PARENT_on Exp PARENT_off Statement
+       	 | System Punto Out Punto Println PARENT_on Exp PARENT_off
+         | System Punto Exit PARENT_on INTEGER_LITERAL PARENT_off
+       	 | ID Stateme = Statem
+         | State Punto ID PARENT_on ExpList PARENT_off;
+ 
+// Regla 23)
+Statemen ::= Else Statement | ;
+
+// Regla 24)
+Stateme ::= Corchete_on Exp Corchete_off | ;
+
+// Regla 25)
+Statem ::= Exp | PARENT_on Type PARENT_off System Punto In Punto Read PARENT_on PARENT_off;
+
+// Regla 26
+State ::= This | ID;
+
+// Regla 27)
+Statements ::= Statement | Statements;
+ 
+// Regla 28)
+Exp ::= Exp_Simpl Ex;
+
+// Regla 29)
+Ex ::= Op Exp | Corchete_on Exp Corchete_off |Punto Lenght |Punto ID PARENT_on ExpList PARENT_off | Ex;
+     	
+// Regla 30)
+Exp_Simpl ::= INTEGER_LITERAL| True | False | ID | This | New INT Corchete_on Exp Corchete_off | New ID PARENT_on ExpList PARENT_off | Negacion Exp
+       	    |PARENT_on Exp PARENT_off
+            |STRING_CONSTANT;
+ 
+// Regla 31)
+ExpList ::= Exp Exps | ;
+ 
+// Regla 32)
+Exps ::= COMA Exp | Exps;
+ 
+// Regla 33)
+Op ::= Suma | Resta | MULT | Div | Diferencia | Igual_Comp | Menor | Menor_Igual | Mayor_Igual | Mayor | OR | AND;
+
+
+
+
+
+
