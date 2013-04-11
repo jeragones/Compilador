@@ -266,63 +266,95 @@ public void report_fatal_error(String message, Object info) 	{
 
 :}
 
-terminal Symbol ID;
-terminal Symbol Llave_off;
-terminal Symbol Llave_on;
-terminal Symbol PARENT_off;
-terminal Symbol PARENT_on;
+//terminal Symbol ID;
+//terminal Symbol Llave_off;
+//terminal Symbol Llave_on;
+//terminal Symbol PARENT_off;
+//terminal Symbol PARENT_on;
 terminal Symbol BOOLEAN;
 terminal Symbol INT;
-terminal Symbol DOTCOMMA;
+//terminal Symbol DOTCOMMA;
 terminal Symbol INTEGER_LITERAL;
-terminal Symbol Corchete_off;
-terminal Symbol Corchete_on;
+//terminal Symbol Corchete_off;
+//terminal Symbol Corchete_on;
 terminal Symbol True;
 terminal Symbol False;
 terminal Symbol STRING_CONSTANT;
 terminal Symbol Negacion;
-terminal Symbol Suma;
-terminal Symbol Resta;
-terminal Symbol Public;
+//terminal Symbol Suma;
+//terminal Symbol Resta;
+//terminal Symbol Public;
 terminal Symbol Static;
 terminal Symbol Extends;
-terminal Symbol Return;
-terminal Symbol If;
-terminal Symbol COMA;
-terminal Symbol Punto;
-terminal Symbol While;
-terminal Symbol System;
+//terminal Symbol Return;
+//terminal Symbol If;
+//terminal Symbol COMA;
+//terminal Symbol Punto;
+//terminal Symbol While;
+//terminal Symbol System;
 terminal Symbol Out;
 terminal Symbol Println;
 terminal Symbol Lenght;
-terminal Symbol Else;
+//terminal Symbol Else;
 terminal Symbol Void;
 terminal Symbol Main;
 terminal Symbol STRING;
-terminal Symbol MULT;
-terminal Symbol Div;
-terminal Symbol Diferencia;
-terminal Symbol Igual_Comp;
-terminal Symbol Class;
-terminal Symbol This;
-terminal Symbol New;
-terminal Symbol Igual_Asig;
-terminal Symbol Menor;
-terminal Symbol Menor_Igual;
-terminal Symbol Mayor;
-terminal Symbol Mayor_Igual;
-terminal Symbol OR;
-terminal Symbol AND;
-terminal Symbol ERROR;
-terminal Symbol NUM;
-terminal Symbol STR;
+//terminal Symbol MULT;
+//terminal Symbol Div;
+//terminal Symbol Diferencia;
+//terminal Symbol Igual_Comp;
+//terminal Symbol Class;
+//terminal Symbol This;
+//terminal Symbol New;
+//terminal Symbol Igual_Asig;
+//terminal Symbol Menor;
+//terminal Symbol Menor_Igual;
+//terminal Symbol Mayor;
+//terminal Symbol Mayor_Igual;
+//terminal Symbol OR;
+//terminal Symbol AND;
+//terminal Symbol ERROR;
+//terminal Symbol NUM;
+//terminal Symbol STR;
 terminal Symbol In;
 terminal Symbol Read;
-terminal Symbol Import;
+//terminal Symbol Import;
 terminal Symbol Implements;
 terminal Symbol Exit;
 
-
+non terminal Llave_on;
+non terminal PARENT_off;
+non terminal PARENT_on;
+non terminal DOTCOMMA;
+non terminal Corchete_off;
+non terminal Corchete_on;
+non terminal Suma;
+non terminal Resta;
+non terminal Return;
+non terminal If;
+non terminal COMA;
+non terminal Punto;
+non terminal While;
+non terminal System;
+non terminal MULT;
+non terminal Div;
+non terminal Diferencia;
+non terminal Igual_Comp;
+non terminal This;
+non terminal New;
+//non terminal Igual_Asig;
+non terminal Menor;
+non terminal Menor_Igual;
+non terminal Mayor;
+non terminal Mayor_Igual;
+non terminal OR;
+non terminal AND;
+non terminal Else;
+non terminal Import;
+non terminal Llave_off;
+non terminal Public;
+non terminal Class;
+non terminal ID;
 non terminal Program;
 non terminal ImportDecls;
 non terminal ClassDecls;
@@ -359,10 +391,14 @@ non terminal ExpList;
 non terminal Exps;
 non terminal Op;
 
-precedence left Suma;
-precedence left Resta;
-precedence left Div;
-precedence left MULT;
+
+precedence left INT;
+precedence left BOOLEAN;
+precedence ID;
+
+
+
+
 
 start with Program;
 
@@ -434,7 +470,7 @@ MethodDe ::= Return Exp DOTCOMMA |  ;
 FormalList ::= Type ID FormalLists |  ;
  
 // Regla 20)
-FormalLists ::= COMA Type ID | FormalLists;
+FormalLists ::= COMA Type ID | COMA Type ID FormalLists;
  
 // Regla 21)
 Type ::= INT Corchete_on Corchete_off | BOOLEAN | INT |ID;
@@ -458,13 +494,13 @@ Stateme ::= Corchete_on Exp Corchete_off | ;
 Statem ::= Exp | PARENT_on Type PARENT_off System Punto In Punto Read PARENT_on PARENT_off;
 
 // Regla 26
-State ::= This | ID;
+State ::= This | ID ;
 
 // Regla 27)
-Statements ::= Statement | Statements;
+Statements ::= Statement | Statement Statements;
  
 // Regla 28)
-Exp ::= Exp_Simpl Ex;
+Exp ::= Exp_Simpl Ex ;
 
 // Regla 29)
 Ex ::= Op Exp | Corchete_on Exp Corchete_off |Punto Lenght |Punto ID PARENT_on ExpList PARENT_off | Ex;
@@ -478,7 +514,7 @@ Exp_Simpl ::= INTEGER_LITERAL| True | False | ID | This | New INT Corchete_on Ex
 ExpList ::= Exp Exps | ;
  
 // Regla 32)
-Exps ::= COMA Exp | Exps;
+Exps ::= COMA Exp | COMA Exp Exps;
  
 // Regla 33)
 Op ::= Suma | Resta | MULT | Div | Diferencia | Igual_Comp | Menor | Menor_Igual | Mayor_Igual | Mayor | OR | AND;
