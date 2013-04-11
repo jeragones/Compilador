@@ -266,7 +266,7 @@ public void report_fatal_error(String message, Object info) 	{
 
 :}
 
-//terminal Symbol ID;
+terminal Symbol ID;
 //terminal Symbol Llave_off;
 //terminal Symbol Llave_on;
 //terminal Symbol PARENT_off;
@@ -354,7 +354,7 @@ non terminal Import;
 non terminal Llave_off;
 non terminal Public;
 non terminal Class;
-non terminal ID;
+//non terminal ID;
 non terminal Program;
 non terminal ImportDecls;
 non terminal ClassDecls;
@@ -391,14 +391,9 @@ non terminal ExpList;
 non terminal Exps;
 non terminal Op;
 
-
 precedence left INT;
 precedence left BOOLEAN;
-precedence ID;
-
-
-
-
+precedence left ID;
 
 start with Program;
 
@@ -406,10 +401,10 @@ start with Program;
 Program ::= ImportDecls ClassDecls MainClass;
 
 // Regla 2) 
-ImportDecls ::=  | ImportDecl | ImportDecls ImportDecl;
+ImportDecls ::=  | ImportDecl | ImportDecl ImportDecls;
  
 // Regla 3) 
-ClassDecls ::=  | ClassDecl | ClassDecls ClassDecl;  
+ClassDecls ::=  | ClassDecl | ClassDecl ClassDecls;  
 
 
 // Regla 4)
@@ -443,16 +438,16 @@ BodyDecls ::= | VarDecls | ConstrDecls  | MethodDecls | ClassDecls;
 // Regla 12)
 
 
-ConstrDecls ::= | ConstrDecl | ConstrDecl ConstrDecl;
+ConstrDecls ::= | ConstrDecl | ConstrDecl ConstrDecls;
 
-MethodDecls ::=  | MethodDecl| MethodDecls MethodDecl;
+MethodDecls ::=  | MethodDecl| MethodDecl  MethodDecls;
 
  
 // Regla 13)
 VarDecl ::= Type ID;
  
 // Regla 14)
-VarDecls ::= | VarDecl | VarDecls VarDecl;
+VarDecls ::= | VarDecl |VarDecl VarDecls;
  
 // Regla 15)
 ConstrDecl ::= Public ID PARENT_on FormalList PARENT_off Llave_on VarDecls Statements Llave_off;
