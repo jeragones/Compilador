@@ -19,7 +19,7 @@ public class sym {
     public static final int Void=7;
     public static final int Main=8;
     public static final int PARENT_on = 9; //apertura de parentesis
-    public static final int PARENT_off =10; //cierre de parentesis
+    public static final int PARENT_off  =10; //cierre de parentesis
     public static final int Corchete_on = 11; //apertura de parentesis cua
     public static final int Corchete_off =12; //cierre de parentesis cua
     public static final int STRING = 13;
