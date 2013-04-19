@@ -11,8 +11,8 @@ package AST;
 public class ASTImportDecla extends ASTImportDeclaration {
     public ASTImportDeclaration h1;
     
-    public ASTImportDecla(ASTImportDeclaration h1) {
-        super(ASTImportDecls a, ASTImportDecla m);
+    public ASTImportDecla(ASTImportDecls a, ASTImportDecla m, ASTImportDeclaration h1) {
+        super(a, m);
         this.h1 = h1;
     }
 }

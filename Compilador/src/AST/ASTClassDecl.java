@@ -12,8 +12,8 @@ public abstract class ASTClassDecl extends ASTClassDecla {
     public ASTClassDecls h1;
     public ASTClassDecla h2;
     
-    public ASTClassDecl(){
-        super(h1, h2);
+    public ASTClassDecl(ASTClassDecls c, ASTClassDecla ca, ASTClassDecl cd){
+        super(c, ca, cd);
         h1=c;
         h2=ca;
     }
