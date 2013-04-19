@@ -8,10 +8,12 @@ package AST;
  *
  * @author jdbr
  */
-public abstract class ASTCuerpoPrograma extends ASTProgram{
-    public ASTCuerpoPrograma (){
+public abstract class ASTClassDecla extends ASTProgramClass{
+    public ASTClassDecl h1;
+    
+    public ASTClassDecla(ASTClassDecl cd){
         super();
-        
+        h1=cd;
     }
     
 }
