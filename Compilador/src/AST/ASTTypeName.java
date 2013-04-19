@@ -8,6 +8,8 @@ package AST;
  *
  * @author GeOrge
  */
-class ASTTypeName {
+public abstract class ASTTypeName extends ASTImportDecls {
+    public String ID;
+    public ASTTypeNames Types;
     
 }

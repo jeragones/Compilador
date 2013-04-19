@@ -6,8 +6,8 @@ package AST;
 
 /**
  *
- * @author GeOrge
+ * @author jdbr
  */
-public abstract class ASTBodyDecl extends ASTClassDecls{
+public abstract class ASTTypeNames extends ASTTypeName{
     
 }

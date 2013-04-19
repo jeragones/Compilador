@@ -8,6 +8,6 @@ package AST;
  *
  * @author GeOrge
  */
-class ASTClassDeclsc {
+public abstract class ASTClassDeclsc extends ASTClassDecls{
     
 }
