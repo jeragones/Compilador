@@ -8,6 +8,6 @@ package AST;
  *
  * @author jdbr
  */
-public class ASTStatement extends ASTMainClass{
+public abstract class ASTStatement extends ASTMainClass{
     
 }

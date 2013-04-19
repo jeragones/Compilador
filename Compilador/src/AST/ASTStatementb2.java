@@ -6,9 +6,8 @@ package AST;
 
 /**
  *
- * @author jdbr
+ * @author GeOrge
  */
-public abstract class ASTMethodDeclb extends ASTMethodDecl{
-    String ret;
-    ASTExp1 exp;
+public class ASTStatementb2 extends ASTStatementb{
+    String ID;
 }

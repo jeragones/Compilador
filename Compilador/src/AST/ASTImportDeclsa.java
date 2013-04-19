@@ -12,11 +12,9 @@ public class ASTImportDeclsa extends ASTImportDecls{
     public String Punto;
     public String Asterisco;
     
-    public ASTImportDeclsa(String p,String a){
-        super();
-        Punto=p;
-        Asterisco=a;
-        
-    }
+//    public ASTImportDeclsa(String p,String a){
+//        Punto=p;
+//        Asterisco=a;
+//    }
     
 }

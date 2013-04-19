@@ -10,8 +10,9 @@ package AST;
  */
 public abstract class ASTMainClass extends ASTCuerpoPrograma{
     public String Class;
-    public String ID;
+    public String ID1;
     public String Llave_on;
+    public String Public;
     public String Static; 
     public String Void;
     public String Main;

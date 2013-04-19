@@ -9,10 +9,21 @@ package AST;
  * @author GeOrge
  */
 public abstract class ASTBodyDecl extends ASTClassDecls{
-    public ASTVarDecl vd;
-    public ASTConstrDecl cd;
-    public ASTMethodDecl md;
-    public ASTClassDecl2 cld;
-    
+    public ASTBodyDecl() {
+        ASTClassDecls c;
+        ASTClassDecla ca;
+        String cl;
+        String id;
+        ASTClassDeclsc cd;
+        String ll_on;
+        ASTBodyDecl bd;
+        String ll_off;
+        super( c, ca, cl, id, cd, ll_on, bd, ll_off);
+    }
+    //public ASTVarDecl vd;
+    //public ASTConstrDecl cd;
+    //public ASTMethodDecl md;
+    //public ASTClassDecl2 cld;
+    public abstract Object Interface(Interface v,Object arg);
     
 }
