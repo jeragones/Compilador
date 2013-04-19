@@ -17,4 +17,5 @@ public abstract class ASTClassDecl extends ASTClassDecla{
         h2=ca;
     }
     
+    
 }
