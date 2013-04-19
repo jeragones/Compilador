@@ -18,6 +18,7 @@ public abstract class ASTMethodDecl extends ASTBodyDecl{
     public String Llave_on;
     public ASTVarDecl_Method vdm;
     public ASTStatements_Method state;
+    public ASTMethodDeclb cdb;
     public String Llave_off;
     public ASTMethodDecls_Method mdm;
     
