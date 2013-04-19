@@ -8,7 +8,8 @@ package AST;
  *
  * @author jdbr
  */
-public abstract class ASTTypeNamesa extends ASTTypeNames{
-    public ASTTypeNames tn;
+public abstract class ASTVarDecla extends ASTVarDecl {
+    public ASTVarDecl vd;
+    public String DOTCOMMA;
+    
 }
- 

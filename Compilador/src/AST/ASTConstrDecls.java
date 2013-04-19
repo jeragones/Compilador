@@ -8,7 +8,7 @@ package AST;
  *
  * @author jdbr
  */
-public abstract class ASTTypeNamesa extends ASTTypeNames{
-    public ASTTypeNames tn;
+public class ASTConstrDecls extends ASTConstrDecl {
+    public ASTConstrDecl cd;
+    
 }
- 

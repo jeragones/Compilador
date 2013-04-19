@@ -8,7 +8,9 @@ package AST;
  *
  * @author jdbr
  */
-public abstract class ASTTypeNamesa extends ASTTypeNames{
-    public ASTTypeNames tn;
+public abstract class ASTVarDecl extends ASTBodyDecl {
+    public ASTType t;
+    public String ID;
+    public ASTVarDecla vd;
+    
 }
- 
