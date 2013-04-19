@@ -8,11 +8,12 @@ package AST;
  *
  * @author jdbr
  */
-public abstract class ASTClassDecl extends ASTClassDecla{
+public abstract class ASTClassDecl extends ASTClassDecla {
     public ASTClassDecls h1;
     public ASTClassDecla h2;
     
-    public ASTClassDecl(ASTClassDecls c, ASTClassDecla ca){
+    public ASTClassDecl(){
+        super(h1, h2);
         h1=c;
         h2=ca;
     }

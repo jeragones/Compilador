@@ -8,15 +8,15 @@ package AST;
  *
  * @author jdbr
  */
-public abstract class ASTClassDecls extends ASTProgramClass{
+public abstract class ASTClassDecls extends ASTProgramClass {
     public String Class;
     public ASTID h1;
     public ASTClassDeclsc h2;
     public String Llave_on;
     public ASTBodyDecl h3;
     public String Llave_off;
-    public ASTClassDecls(String cl,ASTID id,ASTClassDeclsc cd,String ll_on,ASTBodyDecl bd,String ll_off){
-        super();
+    public ASTClassDecls(ASTClassDecls c, ASTClassDecla ca, String cl,ASTID id,ASTClassDeclsc cd,String ll_on,ASTBodyDecl bd,String ll_off){
+        super(c, ca);
         Class=cl;
         h1=id;
         h2=cd;

@@ -16,10 +16,11 @@ public class ASTImportDecls extends ASTImportDeclaration {
     public ASTTypeName h1;
     public ASTImportDeclsa h2;
     
-    public ASTImportDecls(String Imp, String PC, ASTTypeName h1, ASTImportDeclsa h2) {
+    public ASTImportDecls(ASTImportDecls h1, ASTImportDecla h2, String Imp, String PC, ASTTypeName hi1, ASTImportDeclsa hi2) {
+        super(h1, h2);
         Import = Imp;
         PunComa = PC;
-        this.h1 = h1;
-        this.h2 = h2;
+        this.h1 = hi1;
+        this.h2 = hi2;
     }
 }

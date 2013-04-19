@@ -8,7 +8,7 @@ package AST;
  *
  * @author GeOrge
  */
-public abstract class ASTImportDeclaration extends ASTCuerpoPrograma {    
+public class ASTImportDeclaration extends ASTCuerpoPrograma {    
     public ASTImportDecls h1;
     public ASTImportDecla h2;
     
