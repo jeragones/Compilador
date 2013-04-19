@@ -8,7 +8,7 @@ package AST;
  *
  * @author jdbr
  */
-public abstract class ASTOp extends Expsa{
+public abstract class ASTOp extends ASTExpsa{
     public String Suma;
     public String Resta;
     public String Mult;

@@ -8,9 +8,6 @@ package AST;
  *
  * @author jdbr
  */
-public abstract class ASTVarDecl extends ASTBodyDecl {
-    public ASTType_V t;
-    public String ID;
-    public ASTVarDecla vd;
+public class ASTFormalList_Constr extends ASTConstrDecl {
     
 }

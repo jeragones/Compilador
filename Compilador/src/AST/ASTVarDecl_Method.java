@@ -9,7 +9,7 @@ package AST;
  * @author jdbr
  */
 public abstract class ASTVarDecl_Method extends ASTBodyDecl {
-    public ASTType t;
+    public ASTType_Var t;
     public String ID;
     public ASTVarDecla vd;
     
