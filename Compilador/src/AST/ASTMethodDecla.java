@@ -6,8 +6,9 @@ package AST;
 
 /**
  *
- * @author GeOrge
+ * @author jdbr
  */
-class ASTID {
+public class ASTMethodDecla extends ASTMethodDecl{
+    public ASTMethodDecl md;
     
 }

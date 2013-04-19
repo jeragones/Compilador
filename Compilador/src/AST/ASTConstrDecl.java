@@ -12,7 +12,7 @@ public abstract class ASTConstrDecl extends ASTBodyDecl{
     public String Public;
     public String ID;
     public String Parent_on;
-    public ASTFormalList fl;
+    public ASTFormalList_Constr fl;
     public String Parent_off;
     public String Llave_on;
     public ASTVarDecl vd;
