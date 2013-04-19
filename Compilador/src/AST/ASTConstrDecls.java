@@ -8,7 +8,7 @@ package AST;
  *
  * @author jdbr
  */
-public class ASTConstrDecls extends ASTConstrDecl {
+public abstract class ASTConstrDecls extends ASTConstrDecl {
     public ASTConstrDecl cd;
     
 }

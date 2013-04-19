@@ -8,6 +8,6 @@ package AST;
  *
  * @author jdbr
  */
-public class ASTType_Var extends ASTVarDecl_Method{
+public abstract class ASTType_Var extends ASTVarDecl_Method{
     
 }

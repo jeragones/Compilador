@@ -6,8 +6,8 @@ package AST;
 
 /**
  *
- * @author jdbr
+ * @author GeOrge
  */
-public abstract class ASTType_V extends ASTVarDecl{
+public class ASTVarDecl1 {
     
 }

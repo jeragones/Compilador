@@ -8,6 +8,6 @@ package AST;
  *
  * @author jdbr
  */
-public class ASTStatements_Method extends ASTMethodDecl{
+public abstract class ASTStatements_Method extends ASTMethodDecl{
     
 }

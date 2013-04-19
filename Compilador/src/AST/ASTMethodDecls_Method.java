@@ -8,7 +8,7 @@ package AST;
  *
  * @author jdbr
  */
-public class ASTMethodDecls_Method extends ASTMethodDecl {
+public abstract class ASTMethodDecls_Method extends ASTMethodDecl {
     String ret;
     
     

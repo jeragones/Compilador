@@ -8,6 +8,6 @@ package AST;
  *
  * @author jdbr
  */
-public class ASTFormalList_Method extends ASTMethodDecl{
+public abstract class ASTFormalList_Method extends ASTMethodDecl{
     
 }

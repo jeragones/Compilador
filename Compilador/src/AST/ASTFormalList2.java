@@ -8,6 +8,6 @@ package AST;
  *
  * @author jdbr
  */
-public class ASTFormalList2 extends ASTClassDecl2{
+public abstract class ASTFormalList2 extends ASTClassDecl2{
     
 }

@@ -8,7 +8,7 @@ package AST;
  *
  * @author jdbr
  */
-public class ASTMethodDecla extends ASTMethodDecl{
+public abstract class ASTMethodDecla extends ASTMethodDecl{
     public String Type;
     public String Void;
     
