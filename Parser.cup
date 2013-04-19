@@ -392,151 +392,387 @@ precedence left ID;
 start with Program;
 
 // Regla 01)
-Program ::= ImportDecl ClassDecl MainClass ;
+Program ::= ImportDecl:i ClassDecl:c MainClass:m {:
+	parser.raiz = new ASTCuerpoPrograma(i,c,m);
+:} ;
 
 // Regla 02)
-ImportDecl ::= ImportDecls ImportDecla ;
+ImportDecl ::= ImportDecls:x ImportDecla:y  {:
+	parser.raiz = new ***********************  
+:} ;
 
 // Regla 03)
-ImportDecla ::= ImportDecl | ;
+ImportDecla ::= ImportDecl:i {:
+	parser.raiz = new ***********************
+:} 
+|  {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 04)
-ImportDecls ::= Import TypeName ImportDeclsa DOTCOMMA ;
+ImportDecls ::= Import TypeName:t ImportDeclsa:i DOTCOMMA {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 05)
-ImportDeclsa ::= Punto MULT | ;
+ImportDeclsa ::= Punto MULT:m {:
+	parser.raiz = new ***********************
+:} ;
+ | {:
+	parser.raiz = new ***********************
+:} ;
  
 // Regla 06)
-TypeName ::= ID TypeNames ;
+TypeName ::= ID:i TypeNames:t {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 07)
-TypeNames ::= Punto ID TypeNamesa ;
+TypeNames ::= Punto ID:i TypeNamesa:t {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 08)
-TypeNamesa ::= TypeNames | ;
+TypeNamesa ::= TypeNames:T {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 09)
-MainClass ::= Class ID Llave_on Public Static Void Main  PARENT_on  STRING Corchete_on  Corchete_off  ID PARENT_off Llave_on Statement Llave_off Llave_off  ;
+MainClass ::= Class:c ID:id1 Llave_on:llo Public:p Static:s Void:v Main:m  PARENT_on:po  STRING:str Corchete_on:con  Corchete_off:cof  ID:id2 PARENT_off Llave_on Statement:s Llave_off:llo Llave_off {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 10)
-ClassDecl ::= ClassDecls ClassDecla ;
+ClassDecl ::= ClassDecls:cs ClassDecla:ca {:
+	parser.raiz = new ***********************
+:} ;
+
 
 // Regla 11)
-ClassDecla ::= | ClassDecl ;
+ClassDecla ::= | ClassDecl:c {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 12)
-ClassDecls ::= Class ID ClassDeclsc Llave_on BodyDecl Llave_off  ;
+ClassDecls ::= Class:c ID:id ClassDeclsc:cc Llave_on:llo BodyDecl:b Llave_off:llf {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 13)
-ClassDeclsa ::= Extends | Implements ;
+ClassDeclsa ::= Extends:e {:
+	parser.raiz = new ***********************
+:}
+ | Implements:i {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 14)
-ClassDeclsb ::= ClassDeclsa ID ;
+ClassDeclsb ::= ClassDeclsa:c ID:i {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 15)
-ClassDeclsc ::= ClassDeclsb | ;
+ClassDeclsc ::= ClassDeclsb:c {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 16)
-BodyDecl ::= VarDecl | ConstrDecl | MethodDecl | ClassDecl ;
+BodyDecl ::= VarDecl:v {:
+	parser.raiz = new ASTBodyDecl(v);
+:}
+ | ConstrDecl:c {:
+	parser.raiz = new ***********************
+:}  
+ | MethodDecl:m {:
+	parser.raiz = new ***********************
+:}
+ | ClassDecl:c {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 17)
-VarDecl ::= Type ID  VarDecla ;
+VarDecl ::= Type:t ID:i  VarDecla:v {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 18)
-VarDecla ::= VarDecl DOTCOMMA | ;
+VarDecla ::= VarDecl:v DOTCOMMA:d {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 19)
-ConstrDecl ::= Public ID PARENT_on  FormalList PARENT_off Llave_on VarDecl Statement Llave_off  ConstrDecls ;
+ConstrDecl ::= Public ID:id PARENT_on  FormalList:f PARENT_off Llave_on VarDecl:v Statement:s Llave_off  ConstrDecls:c {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 20)
-ConstrDecls ::= ConstrDecl | ;
+ConstrDecls ::= ConstrDecl:c {:
+	parser.raiz = new ***********************
+:} 
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 21)
-MethodDecl ::= Public MethodDecla ID PARENT_on  FormalList  PARENT_off Llave_on VarDecl Statements MethodDeclb Llave_off  MethodDecls ;
+MethodDecl ::= Public MethodDecla:m1 ID:i PARENT_on  FormalList:f  PARENT_off Llave_on VarDecl:v Statements:s MethodDeclb:m2 Llave_off  MethodDecls:m3 {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 22)
-MethodDecla ::= Type | Void ;
+MethodDecla ::= Type:t {:
+	parser.raiz = new ***********************
+:} 
+ | Void:v {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 23)
-MethodDeclb ::= Return Exp DOTCOMMA | ;
+MethodDeclb ::= Return Exp:e DOTCOMMA {:
+	parser.raiz = new ***********************
+:} 
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 24)
-MethodDecls ::= MethodDecl | ;
+MethodDecls ::= MethodDecl:m {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 25)
-FormalList ::= Type ID Types | ;
+FormalList ::= Type:t1 ID:i Types:t2 {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 26)
-Type ::= INT  Corchete_on  Corchete_off 
-     | BOOLEAN
-     | INT
-     | ID ;
+Type ::= INT:i  Corchete_on  Corchete_off {:
+	parser.raiz = new ***********************
+:} 
+ | BOOLEAN:b {:
+	parser.raiz = new ***********************
+:}
+ | INT:i {:
+	parser.raiz = new ***********************
+:}
+ | ID:i {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 27)
-Types ::= COMA Type ID Typesa ;
+Types ::= COMA Type:t1 ID:i Typesa:t2 {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 28)
-Typesa ::= | Types ;
+Typesa ::= Types:t {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 29)
-Statement ::= Llave_on Statements Llave_off 
-	  | If PARENT_on  Exp PARENT_off Statement Statementa
-       	  | While PARENT_on  Exp PARENT_off Statement
-       	  | System Punto Out Punto Println PARENT_on  Exp PARENT_off DOTCOMMA 
-	  | System Punto Exit PARENT_on INTEGER_LITERAL PARENT_off DOTCOMMA
-          | ID Statementc Igual_Asig Statementd 
-	  | Statementb Punto ID  PARENT_on  ExpList PARENT_off ;
+Statement ::= Llave_on Statements:s Llave_off {:
+	parser.raiz = new ***********************
+:} 
+ | If PARENT_on  Exp:e PARENT_off Statement:s1 Statementa:s2 {:
+	parser.raiz = new ***********************
+:}
+ | While:w PARENT_on  Exp:e PARENT_off Statement:s {:
+	parser.raiz = new ***********************
+:}
+ | System:s Punto Out:o Punto Println PARENT_on  Exp:e PARENT_off DOTCOMMA {:
+	parser.raiz = new ***********************
+:}
+ | System:s Punto Exit:e PARENT_on INTEGER_LITERAL PARENT_off DOTCOMMA {:
+	parser.raiz = new ***********************
+:}
+ | ID:i Statementc:s1 Igual_Asig Statementd:s2 {:
+	parser.raiz = new ***********************
+:}
+ | Statementb:s Punto ID:i  PARENT_on  ExpList:e PARENT_off {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 30)
-Statementa ::= Else Statement | ;
+Statementa ::= Else:e Statement:s {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 31)
-Statementb ::= This | ID ;
+Statementb ::= This:T {:
+	parser.raiz = new ***********************
+:}
+ | ID:i {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 32)
-Statementc ::= Corchete_on  Exp  Corchete_off | ; 
+Statementc ::= Corchete_on  Exp:e  Corchete_off {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ; 
 
 // Regla 33)
-Statementd ::= Exp | PARENT_on  Type PARENT_off System Punto In Punto Read PARENT_on PARENT_off DOTCOMMA ;
+Statementd ::= Exp:e {:
+	parser.raiz = new ***********************
+:}
+ | PARENT_on  Type:t PARENT_off System:s Punto In Punto Read PARENT_on PARENT_off DOTCOMMA {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 34)
-Statements ::= Statement Statementsa ;
+Statements ::= Statement:s1 Statementsa:s2 {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 35)
-Statementsa ::= | Statements ;
+Statementsa ::= Statements:s {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 36)
-Exp ::= Exp_Simpl Exps ;
+Exp ::= Exp_Simpl:es Exps:e {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 37)
-Exps ::= PARENT_on Expsa PARENT_off Expsb ;
+Exps ::= PARENT_on Expsa:e1 PARENT_off Expsb:e2 {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 38)
-Expsa ::= Op Exp |  Corchete_on  Exp  Corchete_off  |  Punto  Length |  Punto  ID  PARENT_on  ExpList PARENT_off ;
+Expsa ::= Op:o Exp:e {:
+	parser.raiz = new ***********************
+:}
+ | Corchete_on  Exp:e  Corchete_off {:
+	parser.raiz = new ***********************
+:}
+ | Punto:p  Length:l {:
+	parser.raiz = new ***********************
+:}
+ | Punto:p  ID:i  PARENT_on  ExpList:e PARENT_off {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 39)
-Expsb ::= Exps | ;
+Expsb ::= Exps:e {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ;
          
 // Regla 40)
-Exp_Simpl ::= INTEGER_LITERAL
-          | True
-          | False
-          | ID
-          | This
-          | New INT  Corchete_on  Exp  Corchete_off 
-          | New ID  PARENT_on ExpList PARENT_off
-          | Negacion Exp
-          | PARENT_on  Exp PARENT_off
-	  | STRING_CONSTANT ;
+Exp_Simpl ::= INTEGER_LITERAL:i {:
+	parser.raiz = new ***********************
+:}
+ | True:t {:
+	parser.raiz = new ***********************
+:}
+ | False:f {:
+	parser.raiz = new ***********************
+:}
+ | ID:i {:
+	parser.raiz = new ***********************
+:}
+ | This:t {:
+	parser.raiz = new ***********************
+:}
+ | New:n INT:i  Corchete_on  Exp:e  Corchete_off {:
+	parser.raiz = new ***********************
+:} 
+ | New:n ID:i  PARENT_on ExpList:e PARENT_off {:
+	parser.raiz = new ***********************
+:}
+ | Negacion:n Exp:e {:
+	parser.raiz = new ***********************
+:}
+ | PARENT_on  Exp:e PARENT_off {:
+	parser.raiz = new ***********************
+:}
+ | STRING_CONSTANT:s {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 41)
-ExpList ::= Exp ExpLists | ;
+ExpList ::= Exp:e1 ExpLists:e2 {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 42)
-ExpLists ::= COMA Exp ExpListsa ;
+ExpLists ::= COMA:c Exp:e1 ExpListsa:e2 {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 43)
-ExpListsa ::= | ExpLists ;
+ExpListsa ::= ExpLists:e {:
+	parser.raiz = new ***********************
+:}
+ | {:
+	parser.raiz = new ***********************
+:} ;
 
 // Regla 44)
-Op ::= Suma | Resta | MULT | Div | Diferencia | Igual_Comp | Menor | Menor_Igual | Mayor_Igual | Mayor | OR | AND ;
+Op ::= Suma:s {:
+	parser.raiz = new ***********************
+:}
+ | Resta:r {:
+	parser.raiz = new ***********************
+:}
+ | MULT:m {:
+	parser.raiz = new ***********************
+:}
+ | Div:d {:
+	parser.raiz = new ***********************
+:}
+ | Diferencia:d {:
+	parser.raiz = new ***********************
+:}
+ | Igual_Comp:ic {:
+	parser.raiz = new ***********************
+:}
+ | Menor:m {:
+	parser.raiz = new ***********************
+:}
+ | Menor_Igual:mi {:
+	parser.raiz = new ***********************
+:}
+ | Mayor_Igual:mi {:
+	parser.raiz = new ***********************
+:}
+ | Mayor:m {:
+	parser.raiz = new ***********************
+:}
+ | OR:o {:
+	parser.raiz = new ***********************
+:}
+ | AND:a  {:
+	parser.raiz = new ***********************
+:} ;
