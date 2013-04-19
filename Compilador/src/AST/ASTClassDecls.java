@@ -15,6 +15,7 @@ public abstract class ASTClassDecls extends ASTProgramClass {
     public String Llave_on;
     public ASTBodyDecl h3;
     public String Llave_off;
+    
     public ASTClassDecls(ASTClassDecls c, ASTClassDecla ca, String cl,String id,ASTClassDeclsc cd,String ll_on,ASTBodyDecl bd,String ll_off){
         super(c, ca);
         Class=cl;
