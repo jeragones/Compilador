@@ -13,5 +13,4 @@ public abstract class ASTExpListsa extends ASTExpLists{
     public ASTExpListsa(ASTExpLists e){
         Ex=e;
     }
-    
 }
