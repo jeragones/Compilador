@@ -9,5 +9,6 @@ package AST;
  * @author GeOrge
  */
 public abstract class ASTClassDeclsc extends ASTClassDecls{
+    public ASTClassDeclsb CDsb;
     
 }
