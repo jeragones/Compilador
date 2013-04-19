@@ -8,7 +8,7 @@ package Scanner;
  *
  * @author GeOrge
  */
-
+import java_cup.runtime.*;
 public class Scanner {
     
     
@@ -819,7 +819,7 @@ public class Scanner {
             case 51: 
             System.out.println("line: "+(yyline+1)+" "+"col: "+(yycolumn+1)+" "+"match: --"+yytext()+"--");
             System.out.println("action [63] { return symbol(sym.Lenght); }");
-            { return symbol(sym.Lenght);
+            { return symbol(sym.Length);
             }
             case 67: break;
             case 42: 
@@ -1013,7 +1013,7 @@ public class Scanner {
             case 6: 
             System.out.println("line: "+(yyline+1)+" "+"col: "+(yycolumn+1)+" "+"match: --"+yytext()+"--");
             System.out.println("action [86] { return symbol(sym.NUM); }");
-            { return symbol(sym.NUM);
+            { return symbol(sym.NUM); 
             }
             case 99: break;
             case 4: 
