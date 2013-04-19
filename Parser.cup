@@ -357,6 +357,7 @@ non terminal ExpListsa;
 non terminal Type;
 non terminal Types;
 non terminal Typesa;
+non terminal TypeNamesa;
 non terminal VarDecl;
 non terminal VarDecla;
 non terminal ConstrDecl;
@@ -373,6 +374,7 @@ non terminal FormalList;
 
 precedence left Return;
 precedence left COMA;
+precedence left Punto;
 precedence left Class;
 precedence left PARENT_on;
 precedence left Else;
@@ -404,76 +406,79 @@ ImportDecls ::= Import TypeName ImportDeclsa DOTCOMMA ;
 // Regla 05)
 ImportDeclsa ::= Punto MULT | ;
  
-// Regla 05)
+// Regla 06)
 TypeName ::= ID TypeNames ;
 
-// Regla 06)
-TypeNames ::= Punto ID | Punto ID TypeNames ;
-
 // Regla 07)
-MainClass ::= Class ID Llave_on Public Static Void Main  PARENT_on  STRING Corchete_on  Corchete_off  ID PARENT_off Llave_on Statement Llave_off Llave_off  ;
+TypeNames ::= Punto ID TypeNamesa ;
 
 // Regla 08)
-ClassDecl ::= ClassDecls ClassDecla ;
+TypeNamesa ::= TypeNames | ;
 
 // Regla 09)
-ClassDecla ::= | ClassDecl ;
+MainClass ::= Class ID Llave_on Public Static Void Main  PARENT_on  STRING Corchete_on  Corchete_off  ID PARENT_off Llave_on Statement Llave_off Llave_off  ;
 
 // Regla 10)
-ClassDecls ::= Class ID ClassDeclsc Llave_on BodyDecl Llave_off  ;
+ClassDecl ::= ClassDecls ClassDecla ;
 
 // Regla 11)
-ClassDeclsa ::= Extends | Implements ;
+ClassDecla ::= | ClassDecl ;
 
 // Regla 12)
-ClassDeclsb ::= ClassDeclsa ID ;
+ClassDecls ::= Class ID ClassDeclsc Llave_on BodyDecl Llave_off  ;
 
 // Regla 13)
-ClassDeclsc ::= ClassDeclsb | ;
+ClassDeclsa ::= Extends | Implements ;
 
 // Regla 14)
-BodyDecl ::= VarDecl | ConstrDecl | MethodDecl | ClassDecl ;
+ClassDeclsb ::= ClassDeclsa ID ;
 
 // Regla 15)
-VarDecl ::= Type ID  VarDecla ;
+ClassDeclsc ::= ClassDeclsb | ;
 
 // Regla 16)
-VarDecla ::= VarDecl DOTCOMMA | ;
+BodyDecl ::= VarDecl | ConstrDecl | MethodDecl | ClassDecl ;
 
 // Regla 17)
-ConstrDecl ::= Public ID PARENT_on  FormalList PARENT_off Llave_on VarDecl Statement Llave_off  ConstrDecls ;
+VarDecl ::= Type ID  VarDecla ;
 
 // Regla 18)
-ConstrDecls ::= ConstrDecl | ;
+VarDecla ::= VarDecl DOTCOMMA | ;
 
 // Regla 19)
-MethodDecl ::= Public MethodDecla ID PARENT_on  FormalList  PARENT_off Llave_on VarDecl Statements MethodDeclb Llave_off  MethodDecls ;
+ConstrDecl ::= Public ID PARENT_on  FormalList PARENT_off Llave_on VarDecl Statement Llave_off  ConstrDecls ;
 
 // Regla 20)
-MethodDecla ::= Type | Void ;
+ConstrDecls ::= ConstrDecl | ;
 
 // Regla 21)
-MethodDeclb ::= Return Exp DOTCOMMA | ;
+MethodDecl ::= Public MethodDecla ID PARENT_on  FormalList  PARENT_off Llave_on VarDecl Statements MethodDeclb Llave_off  MethodDecls ;
 
 // Regla 22)
-MethodDecls ::= MethodDecl | ;
+MethodDecla ::= Type | Void ;
 
 // Regla 23)
-FormalList ::= Type ID Types | ;
+MethodDeclb ::= Return Exp DOTCOMMA | ;
 
 // Regla 24)
+MethodDecls ::= MethodDecl | ;
+
+// Regla 25)
+FormalList ::= Type ID Types | ;
+
+// Regla 26)
 Type ::= INT  Corchete_on  Corchete_off 
      | BOOLEAN
      | INT
      | ID ;
 
-// Regla 25)
+// Regla 27)
 Types ::= COMA Type ID Typesa ;
 
-// Regla 26)
+// Regla 28)
 Typesa ::= | Types ;
 
-// Regla 27)
+// Regla 29)
 Statement ::= Llave_on Statements Llave_off 
 	  | If PARENT_on  Exp PARENT_off Statement Statementa
        	  | While PARENT_on  Exp PARENT_off Statement
@@ -482,37 +487,37 @@ Statement ::= Llave_on Statements Llave_off
           | ID Statementc Igual_Asig Statementd 
 	  | Statementb Punto ID  PARENT_on  ExpList PARENT_off ;
 
-// Regla 28)
+// Regla 30)
 Statementa ::= Else Statement | ;
 
-// Regla 29)
+// Regla 31)
 Statementb ::= This | ID ;
 
-// Regla 30)
+// Regla 32)
 Statementc ::= Corchete_on  Exp  Corchete_off | ; 
 
-// Regla 31)
+// Regla 33)
 Statementd ::= Exp | PARENT_on  Type PARENT_off System Punto In Punto Read PARENT_on PARENT_off DOTCOMMA ;
 
-// Regla 32)
+// Regla 34)
 Statements ::= Statement Statementsa ;
 
-// Regla 33)
+// Regla 35)
 Statementsa ::= | Statements ;
 
-// Regla 34)
+// Regla 36)
 Exp ::= Exp_Simpl Exps ;
 
-// Regla 35)
+// Regla 37)
 Exps ::= PARENT_on Expsa PARENT_off Expsb ;
 
-// Regla 36)
+// Regla 38)
 Expsa ::= Op Exp |  Corchete_on  Exp  Corchete_off  |  Punto  Length |  Punto  ID  PARENT_on  ExpList PARENT_off ;
 
-// Regla 37)
+// Regla 39)
 Expsb ::= Exps | ;
          
-// Regla 38)
+// Regla 40)
 Exp_Simpl ::= INTEGER_LITERAL
           | True
           | False
@@ -524,14 +529,14 @@ Exp_Simpl ::= INTEGER_LITERAL
           | PARENT_on  Exp PARENT_off
 	  | STRING_CONSTANT ;
 
-// Regla 39)
+// Regla 41)
 ExpList ::= Exp ExpLists | ;
 
-// Regla 40)
+// Regla 42)
 ExpLists ::= COMA Exp ExpListsa ;
 
-// Regla 41)
+// Regla 43)
 ExpListsa ::= | ExpLists ;
 
-// Regla 42)
+// Regla 44)
 Op ::= Suma | Resta | MULT | Div | Diferencia | Igual_Comp | Menor | Menor_Igual | Mayor_Igual | Mayor | OR | AND ;
