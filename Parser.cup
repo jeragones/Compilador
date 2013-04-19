@@ -328,38 +328,54 @@ terminal Symbol Exit;
 
 non terminal Program;
 non terminal ImportDecl;
-non terminal Tmp1;
+non terminal ImportDecla;
+non terminal ImportDecls;
+non terminal ImportDeclsa;
 non terminal TypeName;
+non terminal TypeNames;
 non terminal MainClass;
 non terminal ClassDecl;
-non terminal Tmp2;
-non terminal Tmp3;
+non terminal ClassDecla;
+non terminal ClassDeclsa;
+non terminal ClassDeclsb;
+non terminal ClassDeclsc;
 non terminal Statement;
-non terminal Tmp4;
-non terminal Tmp5;
-non terminal Tmp6;
-non terminal Tmp7;
+non terminal Statementa;
+non terminal Statementb;
+non terminal Statementc;
+non terminal Statementd;
+non terminal Statements;
+non terminal Statementsa;
 non terminal BodyDecl;
 non terminal Exp;
+non terminal Exps;
+non terminal Expsa;
+non terminal Expsb;
 non terminal ExpList;
-non terminal Tmp8;
-non terminal Tmp9;
+non terminal ExpLists;
+non terminal ExpListsa;
 non terminal Type;
+non terminal Types;
+non terminal Typesa;
 non terminal VarDecl;
+non terminal VarDecla;
 non terminal ConstrDecl;
+non terminal ConstrDecls;
+non terminal ClassDecls;
 non terminal MethodDecl;
-non terminal Tmp10;
-non terminal Tmp11;
+non terminal MethodDecls;
+non terminal MethodDecla;
+non terminal MethodDeclb;
 non terminal Exp_Simpl;
 non terminal Op;
 non terminal FormalList;
-non terminal Tmp12;
-non terminal Tmp13;
-non terminal Tmp14;
+
 
 precedence left Return;
 precedence left COMA;
 precedence left Class;
+precedence left PARENT_on;
+precedence left Else;
 precedence left Llave_off;
 precedence left Llave_on;
 precedence left INT;
@@ -368,129 +384,154 @@ precedence left Resta;
 precedence left Div;
 precedence left MULT;
 precedence left Public;
-precedence left ID;
 precedence left BOOLEAN;
+precedence left ID;
 
 start with Program;
 
-// Regla 1) 
+// Regla 01)
 Program ::= ImportDecl ClassDecl MainClass ;
 
-// Regla 2)
-ImportDecl ::= Import TypeName Tmp1 DOTCOMMA ImportDecl | ;
+// Regla 02)
+ImportDecl ::= ImportDecls ImportDecla ;
 
-// Regla 3)
-Tmp1 ::= Punto MULT | ;
+// Regla 03)
+ImportDecla ::= ImportDecl | ;
+
+// Regla 04)
+ImportDecls ::= Import TypeName ImportDeclsa DOTCOMMA ;
+
+// Regla 05)
+ImportDeclsa ::= Punto MULT | ;
  
-// Regla 4)
-TypeName ::= ID | Punto TypeName ;
+// Regla 05)
+TypeName ::= ID TypeNames ;
 
-// Regla 5)
-MainClass ::= Class ID Llave_on Public Static Void Main PARENT_on STRING Corchete_on Corchete_off ID PARENT_off Llave_on Statement Llave_off Llave_off ;
+// Regla 06)
+TypeNames ::= Punto ID | Punto ID TypeNames ;
 
-// Regla 6)
-ClassDecl ::= ClassDecl Class ID Tmp3 Llave_on BodyDecl Llave_off | ;
+// Regla 07)
+MainClass ::= Class ID Llave_on Public Static Void Main  PARENT_on  STRING Corchete_on  Corchete_off  ID PARENT_off Llave_on Statement Llave_off Llave_off  ;
 
-// Regla 7)
-Tmp2 ::= Extends | Implements ;
+// Regla 08)
+ClassDecl ::= ClassDecls ClassDecla ;
 
-// Regla 8)
-Tmp3 ::= Tmp2 ID | ;
-
-// Regla 9)
-Statement ::= Llave_on Statement Llave_off
-	  | If PARENT_on Exp PARENT_off Llave_on Statement Llave_off Tmp4 
-       	  | While PARENT_on Exp PARENT_off Llave_on Statement Llave_off
-          | System Punto Out Punto Println PARENT_on Exp PARENT_off DOTCOMMA
-          | System Punto Exit PARENT_on INTEGER_LITERAL PARENT_off DOTCOMMA
-          | ID Tmp5 Igual_Asig Tmp6 DOTCOMMA
-          | Tmp7 Punto ID PARENT_on ExpList PARENT_off ;
+// Regla 09)
+ClassDecla ::= | ClassDecl ;
 
 // Regla 10)
-Tmp4 ::= Else Llave_on Statement Llave_off | ;
+ClassDecls ::= Class ID ClassDeclsc Llave_on BodyDecl Llave_off  ;
 
 // Regla 11)
-Tmp5 ::= Corchete_on Exp Corchete_off | ;
+ClassDeclsa ::= Extends | Implements ;
 
 // Regla 12)
-Tmp6 ::=  Exp | PARENT_on Type PARENT_off System Punto In Punto Read PARENT_on PARENT_off ;
+ClassDeclsb ::= ClassDeclsa ID ;
 
 // Regla 13)
-Tmp7 ::= This | ID ;
+ClassDeclsc ::= ClassDeclsb | ;
 
 // Regla 14)
-BodyDecl ::= BodyDecl Tmp14 ; 
+BodyDecl ::= VarDecl | ConstrDecl | MethodDecl | ClassDecl ;
 
 // Regla 15)
-Exp ::= Exp_Simpl Tmp8 ;
+VarDecl ::= Type ID  VarDecla ;
 
 // Regla 16)
-Tmp8 ::= Op Exp 
-     | Corchete_on Exp Corchete_off 
-     | Punto Length 
-     | Punto ID PARENT_on ExpList PARENT_off ;
+VarDecla ::= VarDecl DOTCOMMA | ;
 
 // Regla 17)
-ExpList ::= Exp Tmp9 | ;
+ConstrDecl ::= Public ID PARENT_on  FormalList PARENT_off Llave_on VarDecl Statement Llave_off  ConstrDecls ;
 
 // Regla 18)
-Tmp9 ::= COMA Exp ;
+ConstrDecls ::= ConstrDecl | ;
 
 // Regla 19)
-Type ::= INT Corchete_on Corchete_off
-     | BOOLEAN
-     | INT ;
-//     | ID ;
+MethodDecl ::= Public MethodDecla ID PARENT_on  FormalList  PARENT_off Llave_on VarDecl Statements MethodDeclb Llave_off  MethodDecls ;
 
 // Regla 20)
-VarDecl ::= Type ID Tmp13 ;
+MethodDecla ::= Type | Void ;
 
 // Regla 21)
-ConstrDecl ::= Public ID PARENT_on FormalList PARENT_off Llave_on VarDecl Statement Llave_off ;
+MethodDeclb ::= Return Exp DOTCOMMA | ;
 
 // Regla 22)
-MethodDecl ::= Public Tmp10 ID PARENT_on FormalList PARENT_off Llave_on VarDecl Statement Tmp11 Llave_off ;
+MethodDecls ::= MethodDecl | ;
 
 // Regla 23)
-Tmp10 ::= Type | Void ;
+FormalList ::= Type ID Types | ;
 
 // Regla 24)
-Tmp11 ::= Return Exp DOTCOMMA | ;
+Type ::= INT  Corchete_on  Corchete_off 
+     | BOOLEAN
+     | INT
+     | ID ;
 
 // Regla 25)
-Exp_Simpl ::= INTEGER_LITERAL
-           | True
-           | False
-           | ID
-           | This
-           | New INT Corchete_on Exp Corchete_off
-           | New ID PARENT_on ExpList PARENT_off
-           | Negacion Exp
-           | PARENT_on Exp PARENT_off
-	   | STRING_CONSTANT ;
+Types ::= COMA Type ID Typesa ;
 
 // Regla 26)
-Op ::= Suma 
-   | Resta 
-   | MULT 
-   | Div 
-   | Diferencia 
-   | Igual_Comp 
-   | Menor 
-   | Menor_Igual 
-   | Mayor_Igual 
-   | Mayor 
-   | OR 
-   | AND ;
+Typesa ::= | Types ;
 
 // Regla 27)
-FormalList ::= Type ID Tmp12 | ;
+Statement ::= Llave_on Statements Llave_off 
+	  | If PARENT_on  Exp PARENT_off Statement Statementa
+       	  | While PARENT_on  Exp PARENT_off Statement
+       	  | System Punto Out Punto Println PARENT_on  Exp PARENT_off DOTCOMMA 
+	  | System Punto Exit PARENT_on INTEGER_LITERAL PARENT_off DOTCOMMA
+          | ID Statementc Igual_Asig Statementd 
+	  | Statementb Punto ID  PARENT_on  ExpList PARENT_off ;
 
 // Regla 28)
-Tmp12 ::= COMA Type ID Tmp12 | ;
+Statementa ::= Else Statement | ;
 
 // Regla 29)
-Tmp13 ::= COMA VarDecl | ;
+Statementb ::= This | ID ;
 
 // Regla 30)
-Tmp14 ::= VarDecl | ConstrDecl | MethodDecl | ClassDecl ;
+Statementc ::= Corchete_on  Exp  Corchete_off | ; 
+
+// Regla 31)
+Statementd ::= Exp | PARENT_on  Type PARENT_off System Punto In Punto Read PARENT_on PARENT_off DOTCOMMA ;
+
+// Regla 32)
+Statements ::= Statement Statementsa ;
+
+// Regla 33)
+Statementsa ::= | Statements ;
+
+// Regla 34)
+Exp ::= Exp_Simpl Exps ;
+
+// Regla 35)
+Exps ::= PARENT_on Expsa PARENT_off Expsb ;
+
+// Regla 36)
+Expsa ::= Op Exp |  Corchete_on  Exp  Corchete_off  |  Punto  Length |  Punto  ID  PARENT_on  ExpList PARENT_off ;
+
+// Regla 37)
+Expsb ::= Exps | ;
+         
+// Regla 38)
+Exp_Simpl ::= INTEGER_LITERAL
+          | True
+          | False
+          | ID
+          | This
+          | New INT  Corchete_on  Exp  Corchete_off 
+          | New ID  PARENT_on ExpList PARENT_off
+          | Negacion Exp
+          | PARENT_on  Exp PARENT_off
+	  | STRING_CONSTANT ;
+
+// Regla 39)
+ExpList ::= Exp ExpLists | ;
+
+// Regla 40)
+ExpLists ::= COMA Exp ExpListsa ;
+
+// Regla 41)
+ExpListsa ::= | ExpLists ;
+
+// Regla 42)
+Op ::= Suma | Resta | MULT | Div | Diferencia | Igual_Comp | Menor | Menor_Igual | Mayor_Igual | Mayor | OR | AND ;
