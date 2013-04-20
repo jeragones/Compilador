@@ -8,6 +8,9 @@ package AST;
  *
  * @author GeOrge
  */
-public class ASTStatementc {
+public class ASTStatementc extends ASTStatementAsig {
+    String Corchete_on;
+    String Corchete_off;
+    ASTExp4 Exp;
     
 }

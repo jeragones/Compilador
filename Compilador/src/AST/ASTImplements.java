@@ -8,6 +8,6 @@ package AST;
  *
  * @author GeOrge
  */
-class ASTImplements {
-    
+class ASTImplements extends ASTClassDeclsa {
+    String Implements;
 }

@@ -8,6 +8,6 @@ package AST;
  *
  * @author GeOrge
  */
-public class ASTTypesa {
-    
+public class ASTTypesa extends ASTTypes {
+    ASTTypes Types;
 }

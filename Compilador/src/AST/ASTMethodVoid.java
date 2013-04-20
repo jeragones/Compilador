@@ -8,6 +8,6 @@ package AST;
  *
  * @author GeOrge
  */
-public class ASTMethodVoid {
-    
+public abstract class ASTMethodVoid extends ASTMethodDecla {
+    String Void;
 }

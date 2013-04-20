@@ -8,6 +8,9 @@ package AST;
  *
  * @author GeOrge
  */
-public class ASTTypes {
-    
+public class ASTTypes extends ASTFormalList{
+    String Coma;
+    ASTType_Var Type;
+    String ID;
+    ASTTypesa 
 }

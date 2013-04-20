@@ -9,5 +9,7 @@ package AST;
  * @author GeOrge
  */
 public class ASTFormalList {
-    ASTTy
+    String Type;
+    String ID;
+    
 }

@@ -10,7 +10,8 @@ package AST;
  */
 public abstract class ASTBodyDecl extends ASTClassDecls{
 //    public ASTBodyDecl() {
-//        ASTClassDecls c;
+        //ASTClassDecls c;
+        
 //        ASTClassDecla ca;
 //        String cl;
 //        String id;

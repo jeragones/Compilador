@@ -9,6 +9,6 @@ package AST;
  * @author jdbr
  */
 public abstract class ASTClassDeclsa extends ASTClassDeclsb {
-    public String Extends;
-    public String Implements;
+    public ASTExtends Extends;
+    public ASTImplements Implements;
 }

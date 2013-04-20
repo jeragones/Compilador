@@ -2,12 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package AST;
+package Scanner;
 
 /**
  *
  * @author GeOrge
  */
-public class ASTExp4 extends ASTStatementc  {
-    
+public class Error extends Exception {
+    public Error(String mensaje) {
+        super(mensaje); 
+    }
 }
+

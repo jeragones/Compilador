@@ -8,6 +8,6 @@ package AST;
  *
  * @author GeOrge
  */
-class ASTStatementsa {
-    
+public class ASTStatementsa extends ASTStatements {
+    ASTStatements Statement;
 }

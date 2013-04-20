@@ -8,6 +8,6 @@ package AST;
  *
  * @author GeOrge
  */
-public class ASTMethodType {
-    
+public abstract class ASTMethodType extends ASTMethodDecla {
+ ASTType_Var tipo;
 }

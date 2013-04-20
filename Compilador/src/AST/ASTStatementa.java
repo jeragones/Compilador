@@ -9,5 +9,6 @@ package AST;
  * @author GeOrge
  */
 public class ASTStatementa extends ASTStatementPrint {
-    
+    String Else;
+    ASTStatement Statement;
 }
