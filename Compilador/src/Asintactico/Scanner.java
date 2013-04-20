@@ -2,14 +2,15 @@
  * Scanner para la gramática de prueba del curso de Compiladores e Intérpretes.
  */
 
-package Scanner;
+package Asintactico;
 
 /**
  *
  * @author GeOrge
  */
 import java_cup.runtime.*;
-public class Scanner {
+
+public class Scanner implements java_cup.runtime.Scanner {
     
     
         /** This character denotes the end of file */
@@ -1243,5 +1244,10 @@ public class Scanner {
                 }
             }
         }
+    }
+
+    @Override
+    public Symbol next_token() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
