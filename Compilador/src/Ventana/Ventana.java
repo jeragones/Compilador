@@ -4,6 +4,7 @@
  */
 package Ventana;
 
+import Asintactico.Driver;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -15,7 +16,6 @@ import javax.swing.JFileChooser;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Utilities;
 import java.io.StringReader;
-import Scanner.*;
 import java.io.*;
 
 /**
