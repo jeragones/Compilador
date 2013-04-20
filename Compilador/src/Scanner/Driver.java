@@ -20,19 +20,11 @@ public class Driver {
     for (int i = 0; i < argv.length; i++) {
       try {
         System.out.println("Proceso de parsing sobre el archivo ["+argv[i]+"]");
-        
         Scanner s = new Scanner(new FileReader(argv[i]));
-        
         parser p = new parser(s);
         p.parse();
-        System.out.println("No hay Errores!!!");
-//        System.out.println("IMPRESION DEL ARBOL:");
-//        System.out.println("");
-//        PrettyPrintAST printer = new PrettyPrintAST();
-//        printer.imprimir(p.raiz);
-//        System.out.println("");
-//        System.out.println("FIN DE IMPERSION");
         
+        System.out.println("No hay Errores!!!");
       }
       catch (Exception e) {
         e.printStackTrace(System.out);
