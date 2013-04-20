@@ -10,11 +10,11 @@ import java.beans.Statement;
  *
  * @author GeOrge
  */
-public class ASTStatementFunc extends ASTStatement {
-    Statementb Statement;
-    String Punto;
-    String ID;
-    String PARENT_on;
-    ASTExplist lista;
-    String PARENT_off;
-}
+//public abstract class ASTStatementFunc extends ASTStatement {
+//    Statementb Statement;
+//    String Punto;
+//    String ID;
+//    String PARENT_on;
+//    ASTExplist lista;
+//    String PARENT_off;
+//}

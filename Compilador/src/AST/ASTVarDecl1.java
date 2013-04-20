@@ -8,6 +8,6 @@ package AST;
  *
  * @author GeOrge
  */
-public class ASTVarDecl1 extends ASTVarDecla {
+public abstract  class ASTVarDecl1 extends ASTVarDecla {
     ASTVarDecl variable;
 }

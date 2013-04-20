@@ -8,6 +8,7 @@ import AST.AST;
 import Ventana.Ventana;
 import java.io.FileReader;
 import java.io.StringReader;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -15,14 +16,27 @@ import java.io.StringReader;
  */
 public class Driver {
 
+    JTextArea Source;
+    
+    public Driver(JTextArea source) {
+        Source = source;
+    }
+    
+    public void Ejecutar() throws Exception {
+        Scanner s = new Scanner(new StringReader(Source.getText()));
+        parser p = new parser(s);
+        p.parse();
+
+    }
+    
     public static void main(String argv[]) {
 
     for (int i = 0; i < argv.length; i++) {
       try {
         System.out.println("Proceso de parsing sobre el archivo ["+argv[i]+"]");
         Scanner s = new Scanner(new FileReader(argv[i]));
-        parser p = new parser(s);
-        p.parse();
+        //parser p = new parser(s);
+//        p.parse();
         
         System.out.println("No hay Errores!!!");
       }

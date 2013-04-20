@@ -8,6 +8,7 @@ package AST;
  *
  * @author GeOrge
  */
-public class ASTPuntComa extends ASTVarDecla {
+public abstract  class ASTPuntComa extends ASTVarDecla {
     String PunComa;
+
 }

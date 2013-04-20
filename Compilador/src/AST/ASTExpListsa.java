@@ -8,9 +8,9 @@ package AST;
  *
  * @author jdbr
  */
-public abstract class ASTExpListsa extends ASTExpLists{
+public class ASTExpListsa {
     public ASTExpLists  Ex;
-    public ASTExpListsa(ASTExpLists e){
-        Ex=e;
-    }
+//    public ASTExpListsa(ASTExpLists e){
+//        Ex=e;
+//    }
 }

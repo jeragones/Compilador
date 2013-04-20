@@ -4,7 +4,6 @@
  */
 package AST;
 
-import Scanner.Symbol;
 
 /**
  *

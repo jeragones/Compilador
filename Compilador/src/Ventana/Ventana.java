@@ -237,6 +237,7 @@ public class Ventana extends javax.swing.JFrame {
                     }
                 }
             }
+            Driver d = new Driver(txtTexto);
     
     
         
