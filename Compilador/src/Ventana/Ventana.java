@@ -31,6 +31,9 @@ public class Ventana extends javax.swing.JFrame {
         initComponents();
     }
 
+    public static void Error(String e) {
+        txtErrores.setText(txtErrores.getText() +"\n"+ e);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,6 +51,8 @@ public class Ventana extends javax.swing.JFrame {
         lblColumna = new javax.swing.JLabel();
         btnCompilar = new javax.swing.JButton();
         btnEjecutar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtErrores = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuNuevo = new javax.swing.JMenuItem();
@@ -91,6 +96,10 @@ public class Ventana extends javax.swing.JFrame {
                 btnEjecutarActionPerformed(evt);
             }
         });
+
+        txtErrores.setColumns(20);
+        txtErrores.setRows(5);
+        jScrollPane2.setViewportView(txtErrores);
 
         jMenu1.setText("Archivo");
 
@@ -152,10 +161,11 @@ public class Ventana extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCompilar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -174,15 +184,18 @@ public class Ventana extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCompilar)
+                    .addComponent(btnEjecutar)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFila)
-                    .addComponent(lblColumna)
-                    .addComponent(btnEjecutar)))
+                    .addComponent(lblColumna))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -311,6 +324,7 @@ public class Ventana extends javax.swing.JFrame {
     private void mnuNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuNuevoActionPerformed
         fileName = null;
         txtTexto.setText("");
+        txtErrores.setText("");
     }//GEN-LAST:event_mnuNuevoActionPerformed
 
     /**
@@ -363,6 +377,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblColumna;
     private javax.swing.JLabel lblFila;
     private javax.swing.JMenuItem mnuASM;
@@ -372,6 +387,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuEjecutar;
     private javax.swing.JMenuItem mnuGuardar;
     private javax.swing.JMenuItem mnuNuevo;
+    private static javax.swing.JTextArea txtErrores;
     private javax.swing.JTextArea txtTexto;
     // End of variables declaration//GEN-END:variables
 }

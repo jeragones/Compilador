@@ -6,6 +6,7 @@ package Asintactico;
 
 import java_cup.runtime.*;
 import AST.*;
+import Ventana.Ventana;
 
 /** CUP v0.11a beta 20060608 generated parser.
   * @version Fri Apr 19 19:28:18 CST 2013
@@ -618,6 +619,7 @@ public void syntax_error(Symbol cur_token2)
 		report_error("Error: ", cur_token2);	
 }
 
+    
 public void report_error(String message, Object info) {
 	StringBuffer m = new StringBuffer("Error ");
 	
@@ -631,12 +633,15 @@ public void report_error(String message, Object info) {
 	m.append(" : "+message);
 	//m.append(" y en su lugar viene " + ((java_cup.runtime.Symbol)info).value.toString());
 
-	System.out.println(m);
+        System.out.println(m);
+        Ventana.Error(m.toString());
 }
+
 
    
 public void report_fatal_error(String message, Object info) 	{
 	report_error(message, info);
+        Ventana.Error("Error Fatal de Sintaxis!!!");
 	throw new RuntimeException("Error Fatal de Sintaxis!!!");
 }
 
