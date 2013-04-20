@@ -636,16 +636,17 @@ public class Scanner {
     * @param   errorCode  the code of the errormessage to display
     */
     private void zzScanError(int errorCode) {
-        String message;
-        try {
-        message = ZZ_ERROR_MSG[errorCode];
-        }
-        catch (ArrayIndexOutOfBoundsException e) {
-        message = ZZ_ERROR_MSG[ZZ_UNKNOWN_ERROR];
-        }
+    String message;
+    try {
+      message = ZZ_ERROR_MSG[errorCode];
+    }
+    catch (ArrayIndexOutOfBoundsException e) {
+      message = ZZ_ERROR_MSG[ZZ_UNKNOWN_ERROR];
+    }
 
-        throw new Error(message);
-    } 
+    throw new java.lang.Error(message);
+  } 
+
 
 
     /**
