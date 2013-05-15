@@ -271,11 +271,17 @@ public class Ventana extends javax.swing.JFrame {
         }
             }
     private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
-        // TODO add your handling code here:
-        fileChooser.showOpenDialog(this);
-        //if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
-        fileName = fileChooser.getSelectedFile();    
-        scan(fileName);
+        Driver temp = new Driver(txtTexto);
+        try {
+            temp.Ejecutar();
+            //        // TODO add your handling code here:
+    //        fileChooser.showOpenDialog(this);
+    //        //if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+    //        scan(fileName);
+    //        scan(fileName);
+        } catch (Exception ex) {
+            Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEjecutarActionPerformed
 
     private void mnuCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCerrarActionPerformed

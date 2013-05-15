@@ -24,8 +24,9 @@ public class Driver {
     
     public void Ejecutar() throws Exception {
         Scanner s = new Scanner(new StringReader(Source.getText()));
-        parser p = new parser(s);
-        p.parse();
+        String g="";
+//        parser p = new parser(s);
+//        p.parse();
 
     }
     
