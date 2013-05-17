@@ -24,9 +24,9 @@ public class Driver {
     
     public void Ejecutar() throws Exception {
         Scanner s = new Scanner(new StringReader(Source.getText()));
-        String g="";
-//        parser p = new parser(s);
-//        p.parse();
+        //String g="";
+        //parser p = new parser(s);
+        //p.parse();
 
     }
     
@@ -36,8 +36,8 @@ public class Driver {
       try {
         System.out.println("Proceso de parsing sobre el archivo ["+argv[i]+"]");
         Scanner s = new Scanner(new FileReader(argv[i]));
-        //parser p = new parser(s);
-//        p.parse();
+        parser p = new parser(s);
+        p.parse();
         
         System.out.println("No hay Errores!!!");
       }
