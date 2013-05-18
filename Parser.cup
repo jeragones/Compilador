@@ -256,7 +256,7 @@ public void report_error(String message, Object info) {
 	       		m.append(". Lexema: " + cur_token.value.toString()); 
 	}
 	m.append(" : "+message);
-	//m.append(" y en su lugar viene " + ((java_cup.runtime.Symbol)info).value.toString());
+	m.append(" y en su lugar viene " + ((java_cup.runtime.Symbol)info).value.toString());
 
 	System.out.println(m);
 }
@@ -392,151 +392,444 @@ precedence left ID;
 start with Program;
 
 // Regla 01)
-Program ::= ImportDecl ClassDecl MainClass ;
+Program ::= ImportDecls:id ClassDecls:cd MainClass:mc
+    {:
+        parser.raiz = new ImpClssMnAST(id,cd,mc); ******************************************************
+    :}
+;
 
 // Regla 02)
-ImportDecl ::= ImportDecls ImportDecla ;
+ImportDecls ::= ImportDecls:ids ImportDecl:id ; 
+    {:
+        RESULT = new varImportAST(s,d); ************************************************
+    :} 
+    | 
+    {:
+        RESULT = null;
+    :}
+;
 
 // Regla 03)
-ImportDecla ::= ImportDecl | ;
+ImportDecl ::= Import TypeName:tn ImportDeclA:id DOTCOMMA
+    {:
+        RESULT = new impTypeAST(tn,imp1); ***********************************************		
+    :} 
+;
 
 // Regla 04)
-ImportDecls ::= Import TypeName ImportDeclsa DOTCOMMA ;
+TypeName ::= ID:i TypeNames:tn
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i);  ************************************
+        RESULT = new varTypeNameAST(id,tn);         ****************
+    :}
+;
 
 // Regla 05)
-ImportDeclsa ::= Punto MULT | ;
- 
-// Regla 06)
-TypeName ::= ID TypeNames ;
+TypeNames ::= TypeNames:tn Punto ID:i
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i);  *******************************
+        RESULT = new TNamesAST(id,tns); ***************
+    :}
+    |
+    {:
+        RESULT = null;
+    :}
+;
 
-// Regla 07)
-TypeNames ::= Punto ID TypeNamesa ;
+// Regla 06)
+ImportDeclA ::= PuntoMULT     -> ImportDecl_1
+    {:
+        RESULT= new conPuntoAsteriscoAST();    *******************************************
+    :}
+    |
+    {:
+        RESULT= null;
+    :}
+;
+
+// Regla 07) 
+ClassDecls ::=  ClassDecls:cds ClassDecl:cd
+    {:
+        RESULT = new varClassDeclsAST(cd,cds); ****************************************
+    :}
+    | 
+    {:
+        RESULT = null;
+    :}
+;
 
 // Regla 08)
-TypeNamesa ::= TypeNames | ;
+ClassDecl ::= ClassDeclA:cd Llave_on BodyDecl:bd Llave_off  ;
+    {:
+        RESULT = new BodyCD1AST(cd,bd);    ******************************************
+    :}
+;
 
 // Regla 09)
-MainClass ::= Class ID Llave_on Public Static Void Main  PARENT_on  STRING Corchete_on  Corchete_off  ID PARENT_off Llave_on Statement Llave_off Llave_off  ;
+ClassDeclA ::= _class _id:i ClassDeclB:cd    -> ClassDecl_1
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i); ******************************** 
+        RESULT = new CD2AST(id,cd);  **************************
+    :}
+    |
+    {:
+        RESULT = null;
+    :}
+;
 
 // Regla 10)
-ClassDecl ::= ClassDecls ClassDecla ;
+ClassDeclB ::= ClassDeclC:cd ID:i  -> ClassDecl_2
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i); ********************************
+        RESULT = new CD3AST(id,cd); ******************************************
+    :}
+;
 
 // Regla 11)
-ClassDecla ::= | ClassDecl ;
+ClassDeclC ::= Extends   -> ClassDecl_3
+    {:
+        RESULT = new conExtendsAST();  *****************************
+    :}	
+    | Implements
+    {:
+        RESULT = new conImplementsAST();  **************************
+    :}
+;
 
 // Regla 12)
-ClassDecls ::= Class ID ClassDeclsc Llave_on BodyDecl Llave_off  ;
+BodyDecl ::= BodyDecl:bd BodyDeclA:bda
+    {:
+        RESULT = new varBodyDeclAST(bda,bd);   *****************************
+    :} 
+    |
+    {:	
+        RESULT = null;
+    :}
+;
 
 // Regla 13)
-ClassDeclsa ::= Extends | Implements ;
+BodyDeclA ::= VarDecl:vd     -> BodyDecl_1
+    {:
+        RESULT = new VariableDAST(vd);  ************************
+    :}
+    | ConstrDecl:cd
+    {:
+        RESULT = new ConstructorDAST(cd);  ***************************
+    :} 
+    | MethodDecl:md
+    {:
+        RESULT = new MethodDAST(md);   ***********************
+    :}
+    | ClassDecl:cd
+    {:
+        RESULT = new ClassDAST(cd);   ****************************
+    :}
+;
 
 // Regla 14)
-ClassDeclsb ::= ClassDeclsa ID ;
+VarDecl ::= Type:t ID:i  _puntoycoma  **************************************
+    {:
+        Symbol id = new Symbol(sym._id,i2left,i2right,i);  **********************
+        RESULT = new TididAST(tp,id);   *********************
+    :}
+;
 
 // Regla 15)
-ClassDeclsc ::= ClassDeclsb | ;
+Type ::= _intcc
+    {:
+        RESULT = new TypeconIntccAST();
+    :}
+    | _boolean
+    {:
+        RESULT = new TypeconBooleanAST();
+    :}
+    | _int
+    {:
+        RESULT = new TypeconIntAST();
+    :}       
+    | _idT:i
+    {:
+        Symbol id = new Symbol(sym._idT,ileft,iright,i);
+        RESULT = new TypeconIdAST(id);
+    :}
+;
 
 // Regla 16)
-BodyDecl ::= VarDecl | ConstrDecl | MethodDecl | ClassDecl ;
+ConstrDecl ::= Public ID:i PARENT_on  FormalList:fl PARENT_off Llave_on VarDecl:vd Statement:s Llave_off
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i); *****************
+        RESULT = new DefConstrAST(id,fl,vd,s); ***************************
+    :}	
+;
 
 // Regla 17)
-VarDecl ::= Type ID  VarDecla ;
+VarDecls ::=	VarDecls:vds VarDecl:vd 
+    {:
+        RESULT = new varVarDeclsAST(vd,vds);   ********************************
+    :}
+    |
+    {:
+        RESULT = null;   
+    :}
+;
 
 // Regla 18)
-VarDecla ::= VarDecl DOTCOMMA | ;
+FormalList ::= Type:t ID:i FormalLists:fl
+    {:
+        Symbol id = new Symbol(sym._id,i2left,i2right,i); *********************************
+        RESULT = new varFormalListAST(t,id,fl);       ***************************************
+    :} 
+    |
+    {:
+        RESULT = null;
+    :}   
+;
 
 // Regla 19)
-ConstrDecl ::= Public ID PARENT_on  FormalList PARENT_off Llave_on VarDecl Statement Llave_off  ConstrDecls ;
+FormalLists ::=	 FormalLists:fl _coma Type:t _id:i
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i);
+        RESULT = new varFormalListsAST(t,id,fl);
+    :} 
+    |  
+    {:
+        RESULT = null; 
+    :} 
+;
 
 // Regla 20)
-ConstrDecls ::= ConstrDecl | ;
+MethodDecl ::= Public IdAux:ia ID:i PARENT_on  FormalList:fl  PARENT_off Llave_on VarDecls:vd Statements:s Auxiliar:a Llave_off
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i);  **********************************
+        RESULT = new DefMethodDeclAST(id,ia,fl,vd,s,a);   ******************************** 
+    :} 	
+;
 
 // Regla 21)
-MethodDecl ::= Public MethodDecla ID PARENT_on  FormalList  PARENT_off Llave_on VarDecl Statements MethodDeclb Llave_off  MethodDecls ;
+IdAux ::=  Type:t
+    {:
+        RESULT = new conIdAST(t);
+    :} 
+    | _void
+    {:
+        RESULT = new conVoidAST();
+    :}
+;
 
 // Regla 22)
-MethodDecla ::= Type | Void ;
+Auxiliar ::=  _return Exp:e _puntoycoma
+    {:
+        RESULT = new DefReturnAST(e);
+    :}  
+    | 
+    {:
+        RESULT = null;
+    :}
+;
 
 // Regla 23)
-MethodDeclb ::= Return Exp DOTCOMMA | ;
+MainClass ::= Class ID:i1 Llave_on Public Static Void Main  PARENT_on  STRING Corchete_on ID:i2 PARENT_off Llave_on Statement:s Llave_off Llave_off
+    {:
+        Symbol i1 = new Symbol(sym._id,i1left,i1right,i1);    ************************************
+        Symbol i2 = new Symbol(sym._id,i2left,i2right,i2); **************
+        RESULT = new DefMainAST(i1,i2,s);  *************
+    :}
+;
 
 // Regla 24)
-MethodDecls ::= MethodDecl | ;
+Statement ::=	_id:i _igual ExpA:ea _puntoycoma
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i);
+        RESULT = new asigStatAST(id,ea);
+    :} 
+    | IDAux:ia _punto _id:i _redondoizq ExpList:el _redondoder _puntoycoma
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i);
+        RESULT = new ExplistStatAST(id,ia,el);
+    :}     | _id:i Cuad_Exp:ce _igual Exp_Demas:ed _puntoycoma
+    | _id:i ExpB:eb _igual ExpA:ea _puntoycoma
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i);
+        RESULT = new ExpStatAST(id,eb,ea);
+    :} 
+    | _System _punto _exit _redondoizq _numero:n _redondoder _puntoycoma
+    {:
+        Symbol n = new Symbol(sym._numero,nleft,nright,n);
+        RESULT = new exitStatAST(n1);
+    :}
+    |_corcheteizq Statements:s _corcheteder
+    {:
+        RESULT = new varStatAST(s);
+    :}
+    | _if _redondoizq Exp:e _redondoder Statement:s StatementA:ea
+    {:
+        RESULT = new ifelseStatAST(e,s,ea);
+    :} 
+    | _while _redondoizq Exp:e _redondoder Statement:s
+    {:
+        RESULT = new whileStatAST(e,s);
+    :}
+    | _System _punto _out _punto _println _redondoizq Exp:e _redondoder _puntoycoma
+    {:
+        RESULT = new printlnStatAST(e);
+    :} 
+;
 
 // Regla 25)
-FormalList ::= Type ID Types | ;
+ExpA ::=  Exp:e
+    {:
+        RESULT = new  solaExpAST(e);
+    :}  
+    | _redondoizq Type:t _redondoder _System _punto _in _punto _read _redondoizq _redondoder
+    {:
+        RESULT = new ExpReadAST(t);
+    :}
+;
 
 // Regla 26)
-Type ::= INT  Corchete_on  Corchete_off 
-     | BOOLEAN
-     | INT
-     | ID ;
+Exp ::= ExpSimpl:es ExpI:ei
+    {:
+            RESULT = new DefExpAST(es,ei);
+    :} 
+;
 
 // Regla 27)
-Types ::= COMA Type ID Typesa ;
+ExpSimpl ::= _id:i
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i);
+        RESULT = new Exp_SimplIdAST(id);
+    :}
+    | _true
+    {:
+        RESULT= new Exp_SimpltrueAST();
+    :}
+    | _false
+    {:
+        RESULT= new Exp_SimplfalseAST();
+    :}
+    | _numero:n
+    {:
+        Symbol nn = new Symbol(sym._numero,nleft,nright,n);
+        RESULT= new Exp_SimplNumeroAST(nn);
+    :}
+    | _this
+    {:
+        RESULT= new Exp_SimplthisAST();
+    :}
+    | _new _TInt _cuadradoizq Exp:e _cuadradoder
+    {:
+        RESULT = new ExpnewIntAST(e);
+    :} 
+    | _new _id:i _redondoizq ExpList:e _redondoder
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i);
+        RESULT = new ExpnewidAST(id,e);
+    :} 
+    | _negacion Exp:e
+    {:
+        RESULT = new ExpnegAST(e);
+    :} 
+    | _redondoizq Exp:e _redondoder
+    {:
+        RESULT = new ExpredAST(e);
+    :} 
+    | _String:s
+    {:
+        Symbol ss = new Symbol(sym._String,sleft,sright,s);
+        RESULT = new Exp_SimplStringAST(ss);
+    :}
+;
 
 // Regla 28)
-Typesa ::= | Types ;
+ExpList ::= Exp:e ExpLists:el
+    {:
+        RESULT = new  ExplAST(e,el); 
+    :} 
+    | 
+    {:
+        RESULT = null;
+    :} 
+;
 
 // Regla 29)
-Statement ::= Llave_on Statements Llave_off 
-	  | If PARENT_on  Exp PARENT_off Statement Statementa
-       	  | While PARENT_on  Exp PARENT_off Statement
-       	  | System Punto Out Punto Println PARENT_on  Exp PARENT_off DOTCOMMA 
-	  | System Punto Exit PARENT_on INTEGER_LITERAL PARENT_off DOTCOMMA
-          | ID Statementc Igual_Asig Statementd 
-	  | Statementb Punto ID  PARENT_on  ExpList PARENT_off ;
+ExpLists ::= ExpLists:el _coma Exp:e
+    {:
+        RESULT = new varExpListsAST(e,el);
+    :} 
+    |  
+    {:
+        RESULT = null; 
+    :} 
+;
 
 // Regla 30)
-Statementa ::= Else Statement | ;
+ExpI ::= Types:t ExpI:ei
+    {:
+        RESULT = new tipExpAST(t,ei);
+    :} 
+    | 
+    {:
+        RESULT = null; 
+    :}  
+;
 
 // Regla 31)
-Statementb ::= This | ID ;
+Types ::=  _punto _id:i _redondoizq ExpList:el _redondoder
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i);
+        RESULT = new TipoListaAST(id,el);
+    :}
+    | Op:o Exp:e
+    {:
+        RESULT = new TipoOpAST(o,e);
+    :}  
+    | _cuadradoizq Exp:e _cuadradoder
+    {:
+        RESULT = new TipoCuadrAST(e);
+    :} 
+    | _punto _length 
+    {:
+        RESULT= new TipoLengthAST();
+    :}
+;
 
 // Regla 32)
-Statementc ::= Corchete_on  Exp  Corchete_off | ; 
+StatementA ::= Else Statement:S
+    {:
+        RESULT = new elseStatAST(s);  *************************
+    :} 
+    |
+    {:
+        RESULT = null;
+    :} 
+;
 
 // Regla 33)
-Statementd ::= Exp | PARENT_on  Type PARENT_off System Punto In Punto Read PARENT_on PARENT_off DOTCOMMA ;
+IDAux ::=  _this 
+    {:
+        RESULT = new ThisconThisAST();
+    :}
+    | _id:i
+    {:
+        Symbol id = new Symbol(sym._id,ileft,iright,i);
+        RESULT = new ThisconIDAST(id);
+    :}
+;
 
 // Regla 34)
-Statements ::= Statement Statementsa ;
+ExpB ::=  _cuadradoizq Exp:e _cuadradoder
+    {:
+        RESULT = new unaExpAST(e);
+    :}  
+;
 
 // Regla 35)
-Statementsa ::= | Statements ;
-
-// Regla 36)
-Exp ::= Exp_Simpl Exps ;
-
-// Regla 37)
-Exps ::= PARENT_on Expsa PARENT_off Expsb ;
-
-// Regla 38)
-Expsa ::= Op Exp |  Corchete_on  Exp  Corchete_off  |  Punto  Length |  Punto  ID  PARENT_on  ExpList PARENT_off ;
-
-// Regla 39)
-Expsb ::= Exps | ;
-         
-// Regla 40)
-Exp_Simpl ::= INTEGER_LITERAL
-          | True
-          | False
-          | ID
-          | This
-          | New INT  Corchete_on  Exp  Corchete_off 
-          | New ID  PARENT_on ExpList PARENT_off
-          | Negacion Exp
-          | PARENT_on  Exp PARENT_off
-	  | STRING_CONSTANT ;
-
-// Regla 41)
-ExpList ::= Exp ExpLists | ;
-
-// Regla 42)
-ExpLists ::= COMA Exp ExpListsa ;
-
-// Regla 43)
-ExpListsa ::= | ExpLists ;
-
-// Regla 44)
-Op ::= Suma | Resta | MULT | Div | Diferencia | Igual_Comp | Menor | Menor_Igual | Mayor_Igual | Mayor | OR | AND ;
+Statements ::=	Statements:ss Statement:s 
+    {:
+        RESULT = new varStatementsAST(s,ss); 
+    :} 
+    |
+    {:   
+        RESULT = null;
+    :}
+;
