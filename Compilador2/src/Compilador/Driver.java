@@ -25,17 +25,17 @@ public class Driver {
             throw new UnsupportedOperationException("Not supported yet.");
         }
     };*/
-    public static void tokens(File text) throws Exception{
+    public static void driver(File text) throws Exception{
     try{
       Scanner s = new Scanner(new FileReader(text));
      // parser p = new parser(s);
           //p.parse();
           
-        System.out.println("IMPRESION DEL ARBOL:");
+        System.out.println("Arbol:");
         System.out.println("");
         //printer.imprimir(p.raiz);
         System.out.println("");
-        System.out.println("FIN DE IMPERSION");
+        System.out.println("Fin");
 
     }
     catch(Exception e){

@@ -4,7 +4,7 @@
  */
 package Compilador;
 
-//import Asintactico.Driver;
+import Compilador.Driver;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -17,6 +17,8 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.Utilities;
 import java.io.StringReader;
 import java.io.*;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -216,17 +218,24 @@ public class Ventana extends javax.swing.JFrame {
 
     private void mnuAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAbrirActionPerformed
         // TODO add your handling code here:
-      fileChooser.showOpenDialog(this);
-        //if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
-        fileName = fileChooser.getSelectedFile();    
-        if (fileName != null) {
-                try { 
-                    txtTexto.setText(new Scanner(fileName).useDelimiter("\\Z").next());
-                } catch (Exception ex) {
-                    System.out.println("Error.");
+       FileNameExtensionFilter filter= new FileNameExtensionFilter("Archivos de Texto","txt");
+            fileChooser.setFileFilter(filter);
+            fileChooser.setDialogTitle("Abrir archivo...");
+            File ruta= new File("C:");
+            fileChooser.setCurrentDirectory(ruta);
+            int retval = fileChooser.showOpenDialog(Ventana.this);
+            if (retval == JFileChooser.APPROVE_OPTION) {
+                fileName = fileChooser.getSelectedFile();
+                try {
+                    FileReader reader = new FileReader(fileName);
+                    txtTexto.read(reader, "");  
+                } catch (IOException ioex) {
+                    //System.out.println(e);
+                    //JOptionPane.showMessageDialog(Ventana.this, ioex);
+                    System.exit(1);
                 }
             }
-        //}
+        
     }//GEN-LAST:event_mnuAbrirActionPerformed
 
     private void mnuGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuGuardarActionPerformed
@@ -239,6 +248,11 @@ public class Ventana extends javax.swing.JFrame {
 
     private void mnuCompilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCompilarActionPerformed
         // TODO add your handling code here:
+        try {
+                    Driver.driver(fileName);
+                } catch (Exception ex) {
+                    
+                }
     }//GEN-LAST:event_mnuCompilarActionPerformed
 
     /**
