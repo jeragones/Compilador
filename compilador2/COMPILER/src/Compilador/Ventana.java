@@ -23,6 +23,9 @@ import java.io.*;
  * @author jdbr
  */
 public class Ventana extends javax.swing.JFrame {
+    
+    private JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
+    private File fileName = null;
 
     /**
      * Creates new form Ventana
@@ -48,8 +51,6 @@ public class Ventana extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblFila = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        btnEjecutar = new javax.swing.JButton();
-        btnCompilar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuNuevo = new javax.swing.JMenuItem();
@@ -58,7 +59,6 @@ public class Ventana extends javax.swing.JFrame {
         mnuCerrar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnuCompilar = new javax.swing.JMenuItem();
-        mnuEjecutar = new javax.swing.JMenuItem();
         mnuASM = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,20 +83,6 @@ public class Ventana extends javax.swing.JFrame {
         lblFila.setText("0");
 
         jLabel1.setText("Fila:");
-
-        btnEjecutar.setText("Ejecutar");
-        btnEjecutar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEjecutarActionPerformed(evt);
-            }
-        });
-
-        btnCompilar.setText("Compilar");
-        btnCompilar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCompilarActionPerformed(evt);
-            }
-        });
 
         jMenu1.setText("Archivo");
 
@@ -144,9 +130,6 @@ public class Ventana extends javax.swing.JFrame {
         });
         jMenu2.add(mnuCompilar);
 
-        mnuEjecutar.setText("Correr");
-        jMenu2.add(mnuEjecutar);
-
         mnuASM.setText("Código ASM");
         jMenu2.add(mnuASM);
 
@@ -163,10 +146,7 @@ public class Ventana extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCompilar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEjecutar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblFila, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,12 +160,10 @@ public class Ventana extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCompilar)
-                    .addComponent(btnEjecutar)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFila)
@@ -221,24 +199,23 @@ public class Ventana extends javax.swing.JFrame {
         lblColumna.setText(String.valueOf(colNum));
     }//GEN-LAST:event_txtTextoCaretUpdate
 
-    private void btnEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjecutarActionPerformed
-       
-    }//GEN-LAST:event_btnEjecutarActionPerformed
-
-    private void btnCompilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompilarActionPerformed
-
-       
-
-            //}
-    }//GEN-LAST:event_btnCompilarActionPerformed
-
     private void mnuNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuNuevoActionPerformed
        
     }//GEN-LAST:event_mnuNuevoActionPerformed
 
     private void mnuAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAbrirActionPerformed
         // TODO add your handling code here:
-    
+      fileChooser.showOpenDialog(this);
+        //if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+        fileName = fileChooser.getSelectedFile();    
+        if (fileName != null) {
+                try { 
+                    txtTexto.setText(new Scanner(fileName).useDelimiter("\\Z").next());
+                } catch (Exception ex) {
+                    System.out.println("Error.");
+                }
+            }
+        //}
     }//GEN-LAST:event_mnuAbrirActionPerformed
 
     private void mnuGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuGuardarActionPerformed
@@ -288,8 +265,6 @@ public class Ventana extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCompilar;
-    private javax.swing.JButton btnEjecutar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -303,7 +278,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuAbrir;
     private javax.swing.JMenuItem mnuCerrar;
     private javax.swing.JMenuItem mnuCompilar;
-    private javax.swing.JMenuItem mnuEjecutar;
     private javax.swing.JMenuItem mnuGuardar;
     private javax.swing.JMenuItem mnuNuevo;
     private static javax.swing.JTextArea txtErrores;
