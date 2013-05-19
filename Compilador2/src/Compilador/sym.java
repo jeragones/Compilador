@@ -48,7 +48,7 @@ public class sym {
   public static final int OR = 52;
   public static final int IN = 33;
   public static final int ASTERISCO = 4;
-  public static final int LENGHT = 37;
+  public static final int LENGTH = 37;
   public static final int PUNTO_AST = 54;
   public static final int SYSTEM = 27;
   public static final int PUNTO = 3;
