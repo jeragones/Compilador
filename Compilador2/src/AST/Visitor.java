@@ -33,4 +33,14 @@ public interface Visitor {
     public Object visit_Type_Int_AST(Type_Int_AST aThis, Object arg);
     public Object visit_c_Void_AST(c_Void_AST aThis, Object arg);
     public Object visit_PuntoAst_AST(PuntoAst_AST aThis, Object arg);
+    public Object visitvarias_Statements_AST(varias_Statements_AST aThis, Object arg);
+    public Object visit_u_Expression_AST(u_Expression_AST aThis, Object arg);
+    public Object visitThis_IDAST(THIS_ID_AST aThis, Object arg);
+    public Object visitThis_This_AST(THIS_THIS_AST aThis, Object arg);
+
+    public Object visitType_Op_AST(Type_Op_AST aThis, Object arg);
+
+    public Object visitType_EList_AST(Type_EList_AST aThis, Object arg);
+
+    public Object visitExq_TyE_AST(Exp_TyE_AST aThis, Object arg);
 }
