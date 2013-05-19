@@ -22,7 +22,7 @@ public class Type_EList_AST extends TipysAST {
     }
     
     public Object visit(Visitor v,Object arg) {
-       return v.visitType_EList_AST(this, arg);
+       return v.visit_Type_EList_AST(this, arg);
    }
     
     

@@ -20,6 +20,6 @@ public class Exp_TyE_AST extends ExpresionInt_AST {
         this.h2 = ei;
     }
     public Object visit(Visitor v,Object arg) {
-       return v.visitExq_TyE_AST(this, arg);
+       return v.visit_Exq_TyE_AST(this, arg);
    }
 }

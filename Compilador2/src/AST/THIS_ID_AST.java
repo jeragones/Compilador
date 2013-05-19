@@ -19,7 +19,7 @@ public class THIS_ID_AST extends IdAux_AST {
         this.id = i;
     }
     public Object visit(Visitor v,Object arg) {
-       return v.visitThis_IDAST(this, arg);
+       return v.visit_This_IDAST(this, arg);
    }
     
 }

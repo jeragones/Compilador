@@ -20,7 +20,7 @@ public class varias_Statements_AST extends Statements_AST {
         this.h1 = s;
         this.h2 = ss;
     }
-     public Object visit(Visitor v,Object arg) {
-       return v.visitvarias_Statements_AST(this, arg);
-   }
+    public Object visit(Visitor v,Object arg) {
+       return v.visit_Varias_Statements_AST(this, arg);
+    }
 }

@@ -21,7 +21,7 @@ public class Type_Op_AST extends TipysAST {
         this.h2 = e;
     }
     public Object visit(Visitor v,Object arg) {
-       return v.visitType_Op_AST(this, arg);
+       return v.visit_Type_Op_AST(this, arg);
    }
     
 }

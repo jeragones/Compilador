@@ -878,8 +878,8 @@ class CUP$parser$actions {
           case 76: // IDAux ::= ID 
             {
               IdAux_AST RESULT =null;
-		int ileft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
-		int iright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
+		int izq = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
+		int der = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String i = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
         Symbol id = new Symbol(sym.ID,izq,der,i);
@@ -919,7 +919,7 @@ class CUP$parser$actions {
 		int Sright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Statement_AST S = (Statement_AST)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-        RESULT = new ELSE_Statement_AST(s);  
+        RESULT = new ELSE_Statement_AST(S);  
     
               CUP$parser$result = parser.getSymbolFactory().newSymbol("StatementA",32, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }

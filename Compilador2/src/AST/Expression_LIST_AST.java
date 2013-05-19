@@ -22,7 +22,7 @@ public class Expression_LIST_AST extends ExpresionList_AST {
     }
     
     public Object visit(Visitor v,Object arg) {
-       return v.visitExpression_LIST_AST(this, arg);
+       return v.visit_Expression_LIST_AST(this, arg);
    }
     
 }

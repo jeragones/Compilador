@@ -33,20 +33,22 @@ public interface Visitor {
     public Object visit_Type_Int_AST(Type_Int_AST aThis, Object arg);
     public Object visit_c_Void_AST(c_Void_AST aThis, Object arg);
     public Object visit_PuntoAst_AST(PuntoAst_AST aThis, Object arg);
-    public Object visitvarias_Statements_AST(varias_Statements_AST aThis, Object arg);
+    public Object visit_Varias_Statements_AST(varias_Statements_AST aThis, Object arg);
     public Object visit_u_Expression_AST(u_Expression_AST aThis, Object arg);
-    public Object visitThis_IDAST(THIS_ID_AST aThis, Object arg);
-    public Object visitThis_This_AST(THIS_THIS_AST aThis, Object arg);
+    public Object visit_This_IDAST(THIS_ID_AST aThis, Object arg);
+    public Object visit_This_This_AST(THIS_THIS_AST aThis, Object arg);
 
-    public Object visitType_Op_AST(Type_Op_AST aThis, Object arg);
+    public Object visit_Type_Op_AST(Type_Op_AST aThis, Object arg);
 
-    public Object visitType_EList_AST(Type_EList_AST aThis, Object arg);
+    public Object visit_Type_EList_AST(Type_EList_AST aThis, Object arg);
 
-    public Object visitExq_TyE_AST(Exp_TyE_AST aThis, Object arg);
+    public Object visit_Exq_TyE_AST(Exp_TyE_AST aThis, Object arg);
 
-    public Object visitvarias_Expresion_Lists_AST(varias_Expression_LIST_AST aThis, Object arg);
+    public Object visit_Varias_Expresion_Lists_AST(varias_Expression_LIST_AST aThis, Object arg);
 
-    public Object visitExpression_LIST_AST(Expression_LIST_AST aThis, Object arg);
+    public Object visit_Expression_LIST_AST(Expression_LIST_AST aThis, Object arg);
 
-    public Object visitExp_Simple_STRING_AST(Exp_Simple_STRING_AST aThis, Object arg);
+    public Object visit_Exp_Simple_STRING_AST(Exp_Simple_STRING_AST aThis, Object arg);
+
+    public Object visit_Type_Names_AST(Type_Names_AST aThis, Object arg);
 }
