@@ -1587,7 +1587,7 @@ class CUP$parser$actions {
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 29: // ConstrDecl ::= PUBLIC ID PARENT_ON FormalList PARENT_OFF LLAVE_ON VarDecl Statement LLAVE_OFF 
+          case 29:  
             {
               ConstrDeclaration_AST RESULT =null;
 		int ileft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-7)).left;
@@ -1603,7 +1603,7 @@ class CUP$parser$actions {
 		int sright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
 		Statement_AST s = (Statement_AST)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
 		
-        Symbol id = new Symbol(sym.ID,izq,der,i); *****************
+        Symbol id = new Symbol(sym.ID,izq,der,i); 
         RESULT = new DefConstrAST(id,fl,vd,s); 
     
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ConstrDecl",15, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-8)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
