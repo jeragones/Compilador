@@ -107,4 +107,32 @@ public interface Visitor {
     public Object visit_varVarDecls_AST(varVarDeclsAST aThis, Object arg);
 
     public Object visit_varias_FormalList_AST(varias_FormalList_AST aThis, Object arg);
+
+    public Object visit_MethodDecl_AST(MethodDecl_AST aThis, Object arg);
+
+    public Object visit_Expre_Stat_AST(Expre_Stat_AST aThis, Object arg);
+
+    public Object visit_Explist_Stat_AST(Explist_Stat_AST aThis, Object arg);
+
+    public Object visit_Exp_AST(Exp_AST aThis, Object arg);
+
+    public Object visit_D_Return_AST(D_Return_AST aThis, Object arg);
+
+    public Object visit_varias_FormalLists_AST(varias_FormalLists_AST aThis, Object arg);
+
+    public Object visit_var_Statement_AST(var_Statement_AST aThis, Object arg);
+
+    public Object visit_println_Statement_AST(println_Statement_AST aThis, Object arg);
+
+    public Object visit_if_else_Statement_AST(if_else_Statement_AST aThis, Object arg);
+
+    public Object visit_exit_Stat_AST(exit_Stat_AST aThis, Object arg);
+
+    public Object visit_c_Id_AST(c_Id_AST aThis, Object arg);
+
+    public Object visit_asignacion_Stat_AST(asignacion_Stat_AST aThis, Object arg);
+
+    public Object visit_MainC_AST(MainC_AST aThis, Object arg);
+
+    public Object visit_Tid_AST(Tid_AST aThis, Object arg);
 }
