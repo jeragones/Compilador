@@ -53,4 +53,20 @@ public interface Visitor {
     public Object visit_Type_Names_AST(Type_Names_AST aThis, Object arg);
 
     public Object visit_Body_AST(Body_AST aThis, Object arg);
+
+    public Object visit_varias_CLass_Declarations_AST(varias_Class_Declarations_AST aThis, Object arg);
+
+    public Object visit_ImpD_ClassD_MainC_AST(ImpD_ClassD_MainC_AST aThis, Object arg);
+
+    public Object visit_DeclarationB_AST(Class_DeclarationB_AST aThis, Object arg);
+
+    public Object visitD_Exp_AST(D_Exp_AST aThis, Object arg);
+
+    public Object visitExp_Simple_NUMERO_AST(Exp_Simple_NUMERO_AST aThis, Object arg);
+
+    public Object visitExpre_NEGACION_AST(Expre_NEGACION_AST aThis, Object arg);
+
+    public Object visitExpre_NEWID_AST(Expre_NEWID_AST aThis, Object arg);
+
+    public Object visitExpre_NEWINT_AST(Expre_NEWINT_AST aThis, Object arg);
 }
