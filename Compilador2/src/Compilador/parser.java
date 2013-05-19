@@ -1227,7 +1227,7 @@ class CUP$parser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 51: // ExpA ::= PARENT_ON Type PARENT_OFF SYSTEM PUNTO IN PUNTO READ PARENT_ON PARENT_OFF 
             {
-              ExpresionA_AST RESULT =null;
+              ExpressionA_AST RESULT =null;
 		int tleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-8)).left;
 		int tright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-8)).right;
 		Type_AST t = (Type_AST)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-8)).value;
@@ -1241,7 +1241,7 @@ class CUP$parser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 50: // ExpA ::= Exp 
             {
-              ExpresionA_AST RESULT =null;
+              ExpressionA_AST RESULT =null;
 		int eleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int eright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Expresion_AST e = (Expresion_AST)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
@@ -1344,7 +1344,7 @@ class CUP$parser$actions {
 		ExpresionB_AST eb = (ExpresionB_AST)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-3)).value;
 		int ealeft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left;
 		int earight = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
-		ExpresionA_AST ea = (ExpresionA_AST)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
+		ExpressionA_AST ea = (ExpressionA_AST)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
 		
         Symbol id = new Symbol(sym.ID,izq,der,i);
         RESULT = new Expre_Stat_AST(id,eb,ea);
