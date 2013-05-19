@@ -1614,8 +1614,8 @@ class CUP$parser$actions {
           case 28: // Type ::= ID2 
             {
               Type_AST RESULT =null;
-		int ileft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
-		int iright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
+		int izq = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
+		int der = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String i = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
         Symbol id = new Symbol(sym.ID2,izq,der,i);
