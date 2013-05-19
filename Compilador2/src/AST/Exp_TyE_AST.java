@@ -12,7 +12,7 @@ import AST.TipysAST;
  * @author jdbr
  */
 public class Exp_TyE_AST extends ExpresionInt_AST {
-     public TipysAST h1;
+    public TipysAST h1;
     public ExpresionInt_AST h2;
     public Exp_TyE_AST(TipysAST t, ExpresionInt_AST ei) {
         super();
@@ -21,5 +21,5 @@ public class Exp_TyE_AST extends ExpresionInt_AST {
     }
     public Object visit(Visitor v,Object arg) {
        return v.visit_Exq_TyE_AST(this, arg);
-   }
+    }
 }

@@ -51,4 +51,6 @@ public interface Visitor {
     public Object visit_Exp_Simple_STRING_AST(Exp_Simple_STRING_AST aThis, Object arg);
 
     public Object visit_Type_Names_AST(Type_Names_AST aThis, Object arg);
+
+    public Object visit_Body_AST(Body_AST aThis, Object arg);
 }
