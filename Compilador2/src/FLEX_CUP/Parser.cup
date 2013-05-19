@@ -132,47 +132,47 @@ public String errores(int sys)
 	public void syntax_error(Symbol cur_token2)
 	{
                 if (cur_token.sym == 2)
-                        report_error("No se esperaba una Palabra Reservada", cur_token2);
+                        report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 3)
-			report_error("No se esperaba un Punto", cur_token2);
+			report_error("No se esperaba un .", cur_token2);
 		else if (cur_token.sym == 4)
-			report_error("No se esperaba un Asterisco", cur_token2);
+			report_error("No se esperaba un *", cur_token2);
 		else if (cur_token.sym == 5)
-			report_error("No se esperaba un Punto y coma", cur_token2);
+			report_error("No se esperaba un ;", cur_token2);
 		else if (cur_token.sym == 6)
 			report_error("No se esperaba un ID", cur_token2);
 		else if (cur_token.sym == 7)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 8)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 9)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 10)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 11)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 12)
-			report_error("No se esperaba un Tipo String", cur_token2);
+			report_error("No se esperaba un Tipo STRING", cur_token2);
 		else if (cur_token.sym == 13)
-			report_error("No se esperaba un Parentesis Abierto", cur_token2);
+			report_error("No se esperaba un [", cur_token2);
 		else if (cur_token.sym == 14)
-			report_error("No se esparaba un Parentesis Cerrado", cur_token2);
+			report_error("No se esparaba un ]", cur_token2);
 		else if (cur_token.sym == 15)
-			report_error("No se esperaba un Parentesis Abierto", cur_token2);
+			report_error("No se esperaba un (", cur_token2);
 		else if (cur_token.sym == 16)
-			report_error("No se esperaba un Parentesis Cerrado", cur_token2);
+			report_error("No se esperaba un )", cur_token2);
 		else if (cur_token.sym == 17)
-			report_error("No se esperaba un Parentesis Abierto", cur_token2);
+			report_error("No se esperaba un }", cur_token2);
 		else if (cur_token.sym == 18)
-			report_error("No se esperaba un Parentesis Cerrado", cur_token2);
+			report_error("No se esperaba un {", cur_token2);
 		else if (cur_token.sym == 19)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 20)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 21)
-			report_error("No se esperaba un Return", cur_token2);
+			report_error("No se esperaba un RETURN", cur_token2);
 		else if (cur_token.sym == 22)
-			report_error("No se esparaba una Coma", cur_token2);
+			report_error("No se esparaba una ,", cur_token2);
 		else if (cur_token.sym == 23)
 			report_error("No se esperaba un Boolean", cur_token2);
 		else if (cur_token.sym == 24)
@@ -182,67 +182,67 @@ public String errores(int sys)
 		else if (cur_token.sym == 26)
 			report_error("No se esperaba un WHILE", cur_token2);
 		else if (cur_token.sym == 27)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 28)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 29)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 30)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 31)
-			report_error("No se esperaba un Tipo Entero", cur_token2);
+			report_error("No se esperaba un Tipo INT", cur_token2);
 		else if (cur_token.sym == 32)
-			report_error("No se esperaba un Igual", cur_token2);
+			report_error("No se esperaba un =", cur_token2);
 		else if (cur_token.sym == 33)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 34)
 			report_error("No se esperaba un Numero", cur_token2);
 		else if (cur_token.sym == 35)
-			report_error("No se esparaba una Palabra Reservada", cur_token2);
+			report_error("No se esparaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 36)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 37)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 38)
 			report_error("No se esperaba un TRUE", cur_token2);
 		else if (cur_token.sym == 39)
 			report_error("No se esperaba un FALSE", cur_token2);
 		else if (cur_token.sym == 40)
-			report_error("No se esperaba una Palabra Reservada", cur_token2);
+			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 41)
-			report_error("No se esparaba una Negacion", cur_token2);
+			report_error("No se esparaba una !", cur_token2);
 		else if (cur_token.sym == 42)
 			report_error("No se esperaba un STRING", cur_token2);
 		else if (cur_token.sym == 43)
-			report_error("No se esperaba una Suma", cur_token2);
+			report_error("No se esperaba una +", cur_token2);
 		else if (cur_token.sym == 44)
-			report_error("No se esperaba una Resta", cur_token2);
+			report_error("No se esperaba una -", cur_token2);
 		else if (cur_token.sym == 45)
-			report_error("No se esperaba una Division", cur_token2);
+			report_error("No se esperaba una /", cur_token2);
 		else if (cur_token.sym == 46)
-			report_error("No se esperaba un Diferente A", cur_token2);
+			report_error("No se esperaba un !=", cur_token2);
 		else if (cur_token.sym == 47)
-			report_error("No se esperaba un Igual A", cur_token2);
+			report_error("No se esperaba un ==", cur_token2);
 		else if (cur_token.sym == 48)
-			report_error("No se esperaba un Menor Que", cur_token2);
+			report_error("No se esperaba un <", cur_token2);
 		else if (cur_token.sym == 49)
-			report_error("No se esperaba un Menor Igual", cur_token2);
+			report_error("No se esperaba un <=", cur_token2);
 		else if (cur_token.sym == 50)
-			report_error("No se esperaba un Mayor Igual", cur_token2);
+			report_error("No se esperaba un >=", cur_token2);
 		else if (cur_token.sym == 51)
-			report_error("No se esperaba un Mayor Que", cur_token2);
+			report_error("No se esperaba un >", cur_token2);
 		else if (cur_token.sym == 52)
 			report_error("No se esperaba un OR", cur_token2);
 		else if (cur_token.sym == 53)
 			report_error("No se esperaba un AND", cur_token2);
 		else if (cur_token.sym == 54)
-			report_error("No se esperaba un Punto Asterisco", cur_token2);
+			report_error("No se esperaba un .*", cur_token2);
 		else if (cur_token.sym == 55)
-			report_error("No se esperaba un Tipo int[]", cur_token2);
+			report_error("No se esperaba un Tipo INT[]", cur_token2);
 		else if (cur_token.sym == 56)
 			report_error("No se esperaba un ID", cur_token2);
 		else if (cur_token.sym == 57)
-			report_error("No se esperaba un Tipo int", cur_token2);
+			report_error("No se esperaba un Tipo INT", cur_token2);
 		else 
 			report_error("Error: ", cur_token2);
 	
@@ -272,102 +272,102 @@ public void report_fatal_error(String message, Object info) 	{
 
 :}
 
-terminal Symbol NEGACION;
-terminal Symbol NEW;
-terminal Symbol SUMA;
-terminal Symbol EXIT;
-terminal Symbol MENOR_IGUAL;
-terminal Symbol MAIN;
-terminal Symbol RESTA;
-terminal Symbol THIS;
-terminal Symbol PARENT_ON;
-terminal Symbol MENOR;
-terminal Symbol PRINTLN;
-terminal Symbol RETURN;
-terminal Symbol LLAVE_OFF;
-terminal Symbol DIFERENCIA;
-terminal Symbol TRUE;
-terminal Symbol COMA;
-terminal Symbol MAYOR_IGUAL;
-terminal Symbol IGUAL;
-terminal Symbol CORCHETE_ON;
-terminal Symbol VOID;
-terminal Symbol IMPORT;
-terminal Symbol CLASS;
-terminal Symbol ID2;
-terminal Symbol ELSE;
-terminal Symbol TSTRING;
-terminal Symbol READ;
-terminal Symbol DIV;
-terminal Symbol BOOLEAN;
-terminal Symbol PUBLIC;
-terminal Symbol EOF;
-terminal Symbol PARENT_OFF;
-terminal Symbol ERROR;
-terminal Symbol OR;
-terminal Symbol IN;
-terminal Symbol ASTERISCO;
-terminal Symbol LENGHT;
-terminal Symbol PUNTO_AST;
-terminal Symbol SYSTEM;
-terminal Symbol PUNTO;
-terminal Symbol NUMERO;
-terminal Symbol IF;
-terminal Symbol INT;
-terminal Symbol CORCHETE_OFF;
-terminal Symbol ID;
-terminal Symbol WHILE;
-terminal Symbol LLAVE_ON;
-terminal Symbol IMPLEMENTS;
-terminal Symbol OUT;
-terminal Symbol EXTENDS;
-terminal Symbol IGUAL_COMP;
-terminal Symbol MAYOR;
-terminal Symbol AND;
-terminal Symbol FALSE;
-terminal Symbol PUNTO_COMA;
-terminal Symbol TINT;
-terminal Symbol STATIC;
-terminal Symbol STRING;
+terminal  NEGACION;
+terminal  NEW;
+terminal  SUMA;
+terminal  EXIT;
+terminal  MENOR_IGUAL;
+terminal  MAIN;
+terminal  RESTA;
+terminal  THIS;
+terminal  PARENT_ON;
+terminal  MENOR;
+terminal  PRINTLN;
+terminal  RETURN;
+terminal  LLAVE_OFF;
+terminal  DIFERENCIA;
+terminal  TRUE;
+terminal  COMA;
+terminal  MAYOR_IGUAL;
+terminal  IGUAL;
+terminal  CORCHETE_ON;
+terminal  VOID;
+terminal  IMPORT;
+terminal  CLASS;
+terminal  String ID2;
+terminal  ELSE;
+terminal  TSTRING;
+terminal  READ;
+terminal  DIV;
+terminal  BOOLEAN;
+terminal  PUBLIC;
+terminal  EOF;
+terminal  PARENT_OFF;
+terminal  ERROR;
+terminal  OR;
+terminal  IN;
+terminal  ASTERISCO;
+terminal  LENGHT;
+terminal  PUNTO_AST;
+terminal  SYSTEM;
+terminal  PUNTO;
+terminal  String NUMERO;
+terminal  IF;
+terminal  INT;
+terminal  CORCHETE_OFF;
+terminal  String ID;
+terminal  WHILE;
+terminal  LLAVE_ON;
+terminal  IMPLEMENTS;
+terminal  OUT;
+terminal  EXTENDS;
+terminal  IGUAL_COMP;
+terminal  MAYOR;
+terminal  AND;
+terminal  FALSE;
+terminal  PUNTO_COMA;
+terminal  TINT;
+terminal  STATIC;
+terminal  String STRING;
 
 
 
-non terminal ProgramAST Program;
-non terminal ImportDeclsAST ImportDecls;
-non terminal ImportDeclAST ImportDecl;
-non terminal TypeNameAST TypeName;
-non terminal TypeNamesAST TypeNames;
-non terminal ImportDecl_1AST ImportDeclA;
-non terminal ClassDeclsAST ClassDecls;
-non terminal ClassDeclAST ClassDecl;
-non terminal ClassDecl_1AST ClassDeclA;
-non terminal ClassDecl_2AST ClassDeclB;
-non terminal ClassDecl_3AST ClassDeclC;
-non terminal BodyDeclAST BodyDecl;
-non terminal BodyDecl_1AST BodyDeclA;
-non terminal VarDeclAST VarDecl;
-non terminal TypeAST Type;
-non terminal ConstrDeclAST ConstrDecl;
-non terminal VarDeclsAST VarDecls;
-non terminal FormalListAST FormalList;
-non terminal FormalListsAST FormalLists;
-non terminal MethodDeclAST MethodDecl;
-non terminal IdVoidAST IdAux;
-non terminal ReturnAST Auxiliar;
-non terminal MainClassAST MainClass;
-non terminal StatementAST Statement;
-non terminal Exp_DemasAST ExpA;
-non terminal ExpAST Exp;
-non terminal Exp_SimplAST ExpSimpl;
-non terminal ExpListAST ExpList;
-non terminal ExpListsAST ExpLists;
-non terminal Expr_IntAST ExpI;
-non terminal TiposAST Types;
-non terminal OpAST Op;
-non terminal ElseStatementAST StatementA;
-non terminal ThisIdAST IDAux;
-non terminal Cuad_ExpAST ExpB;
-non terminal StatementsAST Statements;
+non terminal Program_AST Program;
+non terminal ImportDeclarations_AST ImportDecls;
+non terminal ImportDeclaration_AST ImportDecl;
+non terminal TypeName_AST TypeName;
+non terminal TypeNames_AST TypeNames;
+non terminal ImportDeclarationA_AST ImportDeclA;
+non terminal ClassDeclarationsAST ClassDecls;
+non terminal ClassDeclaration_AST ClassDecl;
+non terminal ClassDeclarationA_AST ClassDeclA;
+non terminal ClassDeclarationB_AST ClassDeclB;
+non terminal ClassDeclarationC_AST ClassDeclC;
+non terminal BodyDeclaration_AST BodyDecl;
+non terminal BodyDeclarationA_AST BodyDeclA;
+non terminal VarDeclaration_AST VarDecl;
+non terminal Type_AST Type;
+non terminal ConstrDeclaration_AST ConstrDecl;
+non terminal VarDeclarations_AST VarDecls;
+non terminal FormalList_AST FormalList;
+non terminal FormalLists_AST FormalLists;
+non terminal MethodDeclaration_AST MethodDecl;
+non terminal IdAux_AST IdAux;
+non terminal Return_AST Auxiliar;
+non terminal MainClass_AST MainClass;
+non terminal Statement_AST Statement;
+non terminal ExpresionA_AST ExpA;
+non terminal Expresion_AST Exp;
+non terminal ExpresionSimpl_AST ExpSimpl;
+non terminal ExpresionList_AST ExpList;
+non terminal ExpresionLists_AST ExpLists;
+non terminal ExpresionInt_AST ExpI;
+non terminal TipysAST Types;
+non terminal Op_AST Op;
+non terminal StatementA_AST StatementA;
+non terminal IdAux_AST IDAux;
+non terminal ExpresionB_AST ExpB;
+non terminal Statements_AST Statements;
 
 
 precedence left ID;
@@ -376,7 +376,7 @@ precedence left MAYOR;
 precedence left MENOR_IGUAL;
 precedence left MAYOR_IGUAL;
 precedence left DIFERENCIA;
-precedence left IGUAL;
+precedence left IGUAL_COMP;
 precedence left ELSE;
 precedence left PUNTO;
 precedence left CORCHETE_ON;
@@ -392,7 +392,7 @@ start with Program;
 // Regla 01)
 Program ::= ImportDecls:id ClassDecls:cd MainClass:mc
     {:
-        parser.raiz = new ImpClssMnAST(id,cd,mc); ******************************************************
+        parser.raiz = new ImpD_ClassD_MainC(id,cd,mc); ******************************************************
     :}
 ;
 

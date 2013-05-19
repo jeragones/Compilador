@@ -1138,9 +1138,9 @@ public class Scanner implements java_cup.runtime.Scanner {
           }
         case 122: break;
         case 61: 
-          { String m="Token: " + yytext() + "Fila: " + yyline + " Columna: " + yycolumn+". Valor: "+sym.LENGHT+"\n" ;
+          { String m="Token: " + yytext() + "Fila: " + yyline + " Columna: " + yycolumn+". Valor: "+sym.LENGTH+"\n" ;
                                  token.add(m); 
-                                return symbol(sym.LENGHT, yytext());
+                                return symbol(sym.LENGTH, yytext());
           }
         case 123: break;
         case 17: 
