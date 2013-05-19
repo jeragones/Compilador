@@ -210,13 +210,13 @@ public String errores(int sys)
 		else if (cur_token.sym == 40)
 			report_error("No se esperaba un TOKEN", cur_token2);
 		else if (cur_token.sym == 41)
-			report_error("No se esparaba una !", cur_token2);
+			report_error("No se esparaba un !", cur_token2);
 		else if (cur_token.sym == 42)
 			report_error("No se esperaba un STRING", cur_token2);
 		else if (cur_token.sym == 43)
-			report_error("No se esperaba una +", cur_token2);
+			report_error("No se esperaba un +", cur_token2);
 		else if (cur_token.sym == 44)
-			report_error("No se esperaba una -", cur_token2);
+			report_error("No se esperaba un -", cur_token2);
 		else if (cur_token.sym == 45)
 			report_error("No se esperaba una /", cur_token2);
 		else if (cur_token.sym == 46)
@@ -232,13 +232,13 @@ public String errores(int sys)
 		else if (cur_token.sym == 51)
 			report_error("No se esperaba un >", cur_token2);
 		else if (cur_token.sym == 52)
-			report_error("No se esperaba un OR", cur_token2);
+			report_error("No se esperaba un ||", cur_token2);
 		else if (cur_token.sym == 53)
-			report_error("No se esperaba un AND", cur_token2);
+			report_error("No se esperaba un &&", cur_token2);
 		else if (cur_token.sym == 54)
 			report_error("No se esperaba un .*", cur_token2);
 		else if (cur_token.sym == 55)
-			report_error("No se esperaba un Tipo INT[]", cur_token2);
+			report_error("No se esperaba un Tipo TINT[]", cur_token2);
 		else if (cur_token.sym == 56)
 			report_error("No se esperaba un ID", cur_token2);
 		else if (cur_token.sym == 57)
@@ -301,13 +301,11 @@ terminal  READ;
 terminal  DIV;
 terminal  BOOLEAN;
 terminal  PUBLIC;
-terminal  EOF;
 terminal  PARENT_OFF;
-terminal  ERROR;
 terminal  OR;
 terminal  IN;
 terminal  ASTERISCO;
-terminal  LENGHT;
+terminal  LENGTH;
 terminal  PUNTO_AST;
 terminal  SYSTEM;
 terminal  PUNTO;
@@ -392,14 +390,14 @@ start with Program;
 // Regla 01)
 Program ::= ImportDecls:id ClassDecls:cd MainClass:mc
     {:
-        parser.raiz = new ImpD_ClassD_MainC(id,cd,mc); ******************************************************
+        parser.raiz = new ImpD_ClassD_MainC_AST(id,cd,mc); 
     :}
 ;
 
 // Regla 02)
-ImportDecls ::= ImportDecls:ids ImportDecl:id ; 
+ImportDecls ::= ImportDecls:ids ImportDecl:id 
     {:
-        RESULT = new varImportAST(s,d); ************************************************
+        RESULT = new Varias_Import_AST(ids,id);
     :} 
     | 
     {:
@@ -410,23 +408,23 @@ ImportDecls ::= ImportDecls:ids ImportDecl:id ;
 // Regla 03)
 ImportDecl ::= IMPORT TypeName:tn ImportDeclA:id PUNTO_COMA
     {:
-        RESULT = new impTypeAST(tn,imp1); ***********************************************		
+        RESULT = new Import_Type_AST(tn,id); 
     :} 
 ;
 
 // Regla 04)
 TypeName ::= ID:i TypeNames:tn
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i);  ************************************
-        RESULT = new varTypeNameAST(id,tn);         ****************
+        Symbol id = new Symbol(sym.ID,izq,der,i);  
+        RESULT = new varias_TypeName_AST(id,tn);        
     :}
 ;
 
 // Regla 05)
-TypeNames ::= TypeNames:tn PUNTO ID:i
+TypeNames ::= TypeNames:tns PUNTO ID:i
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i);  *******************************
-        RESULT = new TNamesAST(id,tns); ***************
+        Symbol id = new Symbol(sym.ID,izq,der,i);  
+        RESULT = new Type_Names_AST(id,tns); 
     :}
     |
     {:
@@ -437,7 +435,7 @@ TypeNames ::= TypeNames:tn PUNTO ID:i
 // Regla 06)
 ImportDeclA ::= PUNTO_AST
     {:
-        RESULT= new conPuntoAsteriscoAST();    *******************************************
+        RESULT= new PuntoAst_AST();    
     :}
     |
     {:
@@ -448,7 +446,7 @@ ImportDeclA ::= PUNTO_AST
 // Regla 07) 
 ClassDecls ::=  ClassDecls:cds ClassDecl:cd
     {:
-        RESULT = new varClassDeclsAST(cd,cds); ****************************************
+        RESULT = new varias_Class_Declarations_AST(cd,cds); 
     :}
     | 
     {:
@@ -457,17 +455,17 @@ ClassDecls ::=  ClassDecls:cds ClassDecl:cd
 ;
 
 // Regla 08)
-ClassDecl ::= ClassDeclA:cd LLAVE_ON BodyDecl:bd LLAVE_OF  ;
+ClassDecl ::= ClassDeclA:cd LLAVE_ON BodyDecl:bd LLAVE_OFF  
     {:
-        RESULT = new BodyCD1AST(cd,bd);    ******************************************
+        RESULT = new Body_AST(cda,bd);    
     :}
 ;
 
 // Regla 09)
-ClassDeclA ::= CLASS ID:i ClassDeclB:cd
+ClassDeclA ::= CLASS ID:i ClassDeclB:cdb
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i); ******************************** 
-        RESULT = new CD2AST(id,cd);  **************************
+        Symbol id = new Symbol(sym.ID,izq,der,i); 
+        RESULT = new Class_DeclarationA_AST(id,cdb);  
     :}
     |
     {:
@@ -476,28 +474,28 @@ ClassDeclA ::= CLASS ID:i ClassDeclB:cd
 ;
 
 // Regla 10)
-ClassDeclB ::= ClassDeclC:cd ID:i
+ClassDeclB ::= ClassDeclC:cdc ID:i
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i); ********************************
-        RESULT = new CD3AST(id,cd); ******************************************
+        Symbol id = new Symbol(sym.ID,izq,der,i); 
+        RESULT = new Class_DeclarationB_AST(id,cdc); 
     :}
 ;
 
 // Regla 11)
-ClassDeclC ::= Extends
+ClassDeclC ::= EXTENDS
     {:
-        RESULT = new conEXTENDSAST();  *****************************
+        RESULT = new Extends_AST(); 
     :}	
     | IMPLEMENTS
     {:
-        RESULT = new conImplementsAST();  **************************
+        RESULT = new Implements_AST();  
     :}
 ;
 
 // Regla 12)
 BodyDecl ::= BodyDecl:bd BodyDeclA:bda
     {:
-        RESULT = new varBodyDeclAST(bda,bd);   *****************************
+        RESULT = new varias_Body_Declaration_AST(bda,bd);   
     :} 
     |
     {:	
@@ -506,64 +504,64 @@ BodyDecl ::= BodyDecl:bd BodyDeclA:bda
 ;
 
 // Regla 13)
-BodyDeclA ::= VarDecl:vd     -> BodyDecl_1
+BodyDeclA ::= VarDecl:vd
     {:
-        RESULT = new VariableDAST(vd);  ************************
+        RESULT = new VarDeclarationA_AST(vd);  
     :}
     | ConstrDecl:cd
     {:
-        RESULT = new ConstructorDAST(cd);  ***************************
+        RESULT = new Construct_Declaration_AST(cd);  
     :} 
     | MethodDecl:md
     {:
-        RESULT = new MethodDAST(md);   ***********************
+        RESULT = new Method_Declaration_AST(md);   
     :}
     | ClassDecl:cd
     {:
-        RESULT = new ClassDAST(cd);   ****************************
+        RESULT = new Class_Declaration_AST(cd);  
     :}
 ;
 
 // Regla 14)
-VarDecl ::= Type:t ID:i  PUNTO_COMA  **************************************
+VarDecl ::= Type:t ID:i  PUNTO_COMA
     {:
-        Symbol id = new Symbol(sym.ID,i2left,i2right,i);  **********************
-        RESULT = new TididAST(tp,id);   *********************
+        Symbol id = new Symbol(sym.ID,izq2,der2,i);  
+        RESULT = new Tid_AST(t,id);   
     :}
 ;
 
 // Regla 15)
-Type ::= _intcc
+Type ::= INT
     {:
-        RESULT = new TypeconIntccAST();
+        RESULT = new Type_Int_AST();
     :}
     | BOOLEAN
     {:
-        RESULT = new TypeconBooleanAST();
+        RESULT = new Type_Boolean_AST();
     :}
-    | _int
+    | TINT
     {:
-        RESULT = new TypeconIntAST();
+        RESULT = new Type_TInt_AST();
     :}       
-    | IDT:i
+    | ID2:i
     {:
-        Symbol id = new Symbol(sym.IDT,ileft,iright,i);
-        RESULT = new TypeconIdAST(id);
+        Symbol id = new Symbol(sym.ID2,izq,der,i);
+        RESULT = new Type_Id_AST(id);
     :}
 ;
 
 // Regla 16)
-ConstrDecl ::= PUBLIC ID:i PARENT_on  FormalList:fl PARENT_off Llave_on VarDecl:vd Statement:s Llave_off
+ConstrDecl ::= PUBLIC ID:i PARENT_ON  FormalList:fl PARENT_OFF LLAVE_ON VarDecl:vd Statement:s LLAVE_OFF
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i); *****************
-        RESULT = new DefConstrAST(id,fl,vd,s); ***************************
+        Symbol id = new Symbol(sym.ID,izq,der,i); *****************
+        RESULT = new DefConstrAST(id,fl,vd,s); 
     :}	
 ;
 
 // Regla 17)
 VarDecls ::=	VarDecls:vds VarDecl:vd 
     {:
-        RESULT = new varVarDeclsAST(vd,vds);   ********************************
+        RESULT = new varVarDeclsAST(vd,vds);   
     :}
     |
     {:
@@ -574,8 +572,8 @@ VarDecls ::=	VarDecls:vds VarDecl:vd
 // Regla 18)
 FormalList ::= Type:t ID:i FormalLists:fl
     {:
-        Symbol id = new Symbol(sym.ID,i2left,i2right,i); *********************************
-        RESULT = new varFormalListAST(t,id,fl);       ***************************************
+        Symbol id = new Symbol(sym.ID,izq2,der2,i); 
+        RESULT = new varias_FormalList_AST(t,id,fl);       
     :} 
     |
     {:
@@ -584,10 +582,10 @@ FormalList ::= Type:t ID:i FormalLists:fl
 ;
 
 // Regla 19)
-FormalLists ::=	 FormalLists:fl COMA Type:t ID:i
+FormalLists ::=	 FormalLists:fls COMA Type:t ID:i
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i);
-        RESULT = new varFormalListsAST(t,id,fl);
+        Symbol id = new Symbol(sym.ID,izq,der,i);
+        RESULT = new varias_FormalLists_AST(t,id,fls);
     :} 
     |  
     {:
@@ -596,28 +594,28 @@ FormalLists ::=	 FormalLists:fl COMA Type:t ID:i
 ;
 
 // Regla 20)
-MethodDecl ::= PUBLIC IdAux:ia ID:i PARENT_on  FormalList:fl  PARENT_off Llave_on VarDecls:vd Statements:s Auxiliar:a Llave_off
+MethodDecl ::= PUBLIC IdAux:ia ID:i PARENT_ON  FormalList:fls  PARENT_OFF LLAVE_ON VarDecls:vd Statements:s Auxiliar:a LLAVE_OFF
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i);  **********************************
-        RESULT = new DefMethodDeclAST(id,ia,fl,vd,s,a);   ******************************** 
+        Symbol id = new Symbol(sym.ID,izq,der,i);  
+        RESULT = new MethodDecl_AST(id,ia,fls,vd,s,a);   
     :} 	
 ;
 
 // Regla 21)
 IdAux ::=  Type:t
     {:
-        RESULT = new conIdAST(t);
+        RESULT = new c_Id_AST(t);
     :} 
     | VOID
     {:
-        RESULT = new conVoidAST();
+        RESULT = new c_Void_AST();
     :}
 ;
 
 // Regla 22)
 Auxiliar ::=  RETURN Exp:e PUNTO_COMA
     {:
-        RESULT = new DefReturnAST(e);
+        RESULT = new D_Return_AST(e);
     :}  
     | 
     {:
@@ -626,122 +624,122 @@ Auxiliar ::=  RETURN Exp:e PUNTO_COMA
 ;
 
 // Regla 23)
-MainClass ::= Class ID:i1 Llave_on PUBLIC STATIC Void Main  PARENT_on  STRING Corchete_on ID:i2 PARENT_off Llave_on Statement:s Llave_off Llave_off
+MainClass ::= CLASS ID:i1 LLAVE_ON PUBLIC STATIC VOID MAIN  PARENT_ON  TSTRING  ID:i2 PARENT_OFF LLAVE_ON Statement:s LLAVE_OFF LLAVE_OFF
     {:
-        Symbol i1 = new Symbol(sym.ID,i1left,i1right,i1);    ************************************
-        Symbol i2 = new Symbol(sym.ID,i2left,i2right,i2); **************
-        RESULT = new DefMainAST(i1,i2,s);  *************
+        Symbol i1 = new Symbol(sym.ID,izq1,der2,i1);    
+        Symbol i2 = new Symbol(sym.ID,izq2,der2,i2); 
+        RESULT = new MainC_AST(i1,i2,s);  
     :}
 ;
 
 // Regla 24)
 Statement ::=	ID:i IGUAL ExpA:ea PUNTO_COMA
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i);
-        RESULT = new asigStatAST(id,ea);
+        Symbol id = new Symbol(sym.ID,izq,der,i);
+        RESULT = new asignacion_Stat_AST(id,ea);
     :} 
     | IDAux:ia PUNTO ID:i PARENT_ON ExpList:el PARENT_OFF PUNTO_COMA
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i);
-        RESULT = new ExplistStatAST(id,ia,el);
-    :}     | ID:i Cuad_Exp:ce IGUAL Exp_Demas:ed PUNTO_COMA
+        Symbol id = new Symbol(sym.ID,izq,der,i);
+        RESULT = new Explist_Stat_AST(id,ia,el);
+    :}     
     | ID:i ExpB:eb IGUAL ExpA:ea PUNTO_COMA
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i);
-        RESULT = new ExpStatAST(id,eb,ea);
+        Symbol id = new Symbol(sym.ID,izq,der,i);
+        RESULT = new Expre_Stat_AST(id,eb,ea);
     :} 
-    | SYSTEM PUNTO EXIT PARENT_ON _numero:n PARENT_OFF PUNTO_COMA
+    | SYSTEM PUNTO EXIT PARENT_ON NUMERO:n PARENT_OFF PUNTO_COMA
     {:
-        Symbol n = new Symbol(sym._numero,nleft,nright,n);
-        RESULT = new exitStatAST(n1);
+        Symbol n = new Symbol(sym.NUMERO,izq,der,n);
+        RESULT = new exit_Stat_AST(n1);
     :}
     |CORCHETE_ON Statements:s CORCHETE_OFF
     {:
-        RESULT = new varStatAST(s);
+        RESULT = new var_Statement_AST(s);
     :}
     | IF PARENT_ON Exp:e PARENT_OFF Statement:s StatementA:ea
     {:
-        RESULT = new ifelseStatAST(e,s,ea);
+        RESULT = new if_else_Statement_AST(e,s,ea);
     :} 
     | WHILE PARENT_ON Exp:e PARENT_OFF Statement:s
     {:
-        RESULT = new whileStatAST(e,s);
+        RESULT = new while_Statement_AST(e,s);
     :}
     | SYSTEM PUNTO OUT PUNTO PRINTLN PARENT_ON Exp:e PARENT_OFF PUNTO_COMA
     {:
-        RESULT = new printlnStatAST(e);
+        RESULT = new println_Statement_AST(e);
     :} 
 ;
 
 // Regla 25)
 ExpA ::=  Exp:e
     {:
-        RESULT = new  solaExpAST(e);
+        RESULT = new  Exp_AST(e);
     :}  
-    | PARENT_ON Type:t PARENT_OFF SYSTEM PUNTO IN PUNTO _read PARENT_ON PARENT_OFF
+    | PARENT_ON Type:t PARENT_OFF SYSTEM PUNTO IN PUNTO READ PARENT_ON PARENT_OFF
     {:
-        RESULT = new ExpReadAST(t);
+        RESULT = new Expression_Read_AST(t);
     :}
 ;
 
 // Regla 26)
 Exp ::= ExpSimpl:es ExpI:ei
     {:
-            RESULT = new DefExpAST(es,ei);
+            RESULT = new D_Exp_AST(es,ei);
     :} 
 ;
 
 // Regla 27)
 ExpSimpl ::= ID:i
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i);
-        RESULT = new Exp_SimplIdAST(id);
+        Symbol id = new Symbol(sym.ID,izq,der,i);
+        RESULT = new Exp_Simple_lId_AST(id);
     :}
-    | _true
+    | TRUE
     {:
-        RESULT= new Exp_SimpltrueAST();
+        RESULT= new Exp_Simple_TRUE_AST();
     :}
-    | _false
+    | FALSE
     {:
-        RESULT= new Exp_SimplfalseAST();
+        RESULT= new Exp_Simple_FALSE_AST();
     :}
-    | _numero:n
+    | NUMERO:n
     {:
-        Symbol nn = new Symbol(sym._numero,nleft,nright,n);
-        RESULT= new Exp_SimplNumeroAST(nn);
+        Symbol nn = new Symbol(sym.NUMERO,izq,der,n);
+        RESULT= new Exp_Simple_NUMERO_AST(nn);
     :}
-    | _this
+    | THIS
     {:
-        RESULT= new Exp_SimplthisAST();
+        RESULT= new Exp_Simple_THIS_AST();
     :}
-    | _new TINT CORCHETE_ON Exp:e CORCHETE_OFF
+    | NEW TINT CORCHETE_ON Exp:e CORCHETE_OFF
     {:
-        RESULT = new ExpnewIntAST(e);
+        RESULT = new Expre_NEWINT_AST(e);
     :} 
-    | _new ID:i PARENT_ON ExpList:e PARENT_OFF
+    | NEW ID:i PARENT_ON ExpList:e PARENT_OFF
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i);
-        RESULT = new ExpnewidAST(id,e);
+        Symbol id = new Symbol(sym.ID,izq,der,i);
+        RESULT = new Expre_NEWID_AST(id,e);
     :} 
-    | _negacion Exp:e
+    | NEGACION Exp:e
     {:
-        RESULT = new ExpnegAST(e);
+        RESULT = new Expre_NEGACION_AST(e);
     :} 
     | PARENT_ON Exp:e PARENT_OFF
     {:
-        RESULT = new ExpredAST(e);
+        RESULT = new Expre_AST(e);
     :} 
-    | _String:s
+    | STRING:s
     {:
-        Symbol ss = new Symbol(sym._String,sleft,sright,s);
-        RESULT = new Exp_SimplStringAST(ss);
+        Symbol ss = new Symbol(sym.STRING,izq,der,s);
+        RESULT = new Exp_Simple_STRING_AST(ss);
     :}
 ;
 
 // Regla 28)
 ExpList ::= Exp:e ExpLists:el
     {:
-        RESULT = new  ExplAST(e,el); 
+        RESULT = new  Expression_LIST_AST(e,el); 
     :} 
     | 
     {:
@@ -752,7 +750,7 @@ ExpList ::= Exp:e ExpLists:el
 // Regla 29)
 ExpLists ::= ExpLists:el COMA Exp:e
     {:
-        RESULT = new varExpListsAST(e,el);
+        RESULT = new varias_Expression_LIST_AST(e,el);
     :} 
     |  
     {:
@@ -763,7 +761,7 @@ ExpLists ::= ExpLists:el COMA Exp:e
 // Regla 30)
 ExpI ::= Types:t ExpI:ei
     {:
-        RESULT = new tipExpAST(t,ei);
+        RESULT = new Exp_TyE_AST(t,ei);
     :} 
     | 
     {:
@@ -774,27 +772,27 @@ ExpI ::= Types:t ExpI:ei
 // Regla 31)
 Types ::=  PUNTO ID:i PARENT_ON ExpList:el PARENT_OFF
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i);
-        RESULT = new TipoListaAST(id,el);
+        Symbol id = new Symbol(sym.ID,izq,der,i);
+        RESULT = new Type_EList_AST(id,el);
     :}
     | Op:o Exp:e
     {:
-        RESULT = new TipoOpAST(o,e);
+        RESULT = new Type_Op_AST(o,e);
     :}  
     | CORCHETE_ON Exp:e CORCHETE_OFF
     {:
-        RESULT = new TipoCuadrAST(e);
+        RESULT = new Type_E_C_AST(e);
     :} 
-    | PUNTO _length 
+    | PUNTO LENGTH
     {:
-        RESULT= new TipoLengthAST();
+        RESULT= new Type_LENGTH_AST();
     :}
 ;
 
 // Regla 32)
 StatementA ::= ELSE Statement:S
     {:
-        RESULT = new elseStatAST(s);  *************************
+        RESULT = new ELSE_Statement_AST(s);  
     :} 
     |
     {:
@@ -803,31 +801,82 @@ StatementA ::= ELSE Statement:S
 ;
 
 // Regla 33)
-IDAux ::=  _this 
+IDAux ::=  THIS
     {:
-        RESULT = new ThisconThisAST();
+        RESULT = new THIS_THIS_AST();
     :}
     | ID:i
     {:
-        Symbol id = new Symbol(sym.ID,ileft,iright,i);
-        RESULT = new ThisconIDAST(id);
+        Symbol id = new Symbol(sym.ID,izq,der,i);
+        RESULT = new THIS_ID_AST(id);
     :}
 ;
 
 // Regla 34)
 ExpB ::=  CORCHETE_ON Exp:e CORCHETE_OFF
     {:
-        RESULT = new unaExpAST(e);
+        RESULT = new u_Expression_AST(e);
     :}  
 ;
 
 // Regla 35)
 Statements ::=	Statements:ss Statement:s 
     {:
-        RESULT = new varStatementsAST(s,ss); 
+        RESULT = new varias_Statements_AST(s,ss); 
     :} 
     |
     {:   
         RESULT = null;
     :}
 ;
+
+
+Op ::=	SUMA
+	{:
+		RESULT = new Op_SUMA_AST();
+	:}
+        | RESTA
+	{:
+		RESULT = new Op_RESTA_AST();
+	:}
+        | ASTERISCO
+	{:
+		RESULT = new Op_ASTERISCO_AST();
+	:}
+        | DIV
+	{:
+		RESULT = new Op_DIV_AST();
+	:}
+        | DIFERENCIA
+	{:
+		RESULT = new Op_DIFERENCIA_AST();
+	:}
+        | IGUAL_COMP
+	{:
+		RESULT = new Op_IGUAL_AST();
+	:}
+        | MENOR
+	{:
+		RESULT = new Op_MENOR_AST();
+	:}
+        | MENOR_IGUAL
+	{:
+		RESULT = new Op_MENOR_IGUAL_AST();
+	:}
+        | MAYOR_IGUAL
+	{:
+		RESULT = new Op_MAYOR_IGUAL_AST();
+	:}
+        | MAYOR
+	{:
+		RESULT = new Op_MAYOR_AST();
+	:}
+        | OR
+	{:
+		RESULT = new Op_OR_AST();
+	:}
+        | AND
+	{:
+		RESULT = new Op_AND_AST();
+	:}
+	;
