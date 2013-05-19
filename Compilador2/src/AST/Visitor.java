@@ -75,4 +75,28 @@ public interface Visitor {
     public Object visitType_E_C_AST(Type_E_C_AST aThis, Object arg);
 
     public Object visitExpre_AST(Expre_AST aThis, Object arg);
+
+    public Object visit_varias_Body_Declaration_AST(varias_Body_Declaration_AST aThis, Object arg);
+
+    public Object visit_while_Statement_AST(while_Statement_AST aThis, Object arg);
+
+    public Object visit_varias_TypeName_AST(varias_TypeName_AST aThis, Object arg);
+
+    public Object visit_Varias_Import_AST(Varias_Import_AST aThis, Object arg);
+
+    public Object visit_VarDeclarationA_AST(VarDeclarationA_AST aThis, Object arg);
+
+    public Object visitExp_Simple_lId_AST(Exp_Simple_lId_AST aThis, Object arg);
+
+    public Object visitExpression_Read_AST(Expression_Read_AST aThis, Object arg);
+
+    public Object visit_Import_Type_AST(Import_Type_AST aThis, Object arg);
+
+    public Object visit_Method_Declaration_AST(Method_Declaration_AST aThis, Object arg);
+
+    public Object visit_Construct_Declaration_AST(Construct_Declaration_AST aThis, Object arg);
+
+    public Object visit_Class_Declaration_AST(Class_Declaration_AST aThis, Object arg);
+
+    public Object visit_Class_Declaration_AST(Class_DeclarationA_AST aThis, Object arg);
 }
