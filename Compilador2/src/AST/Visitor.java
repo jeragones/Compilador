@@ -16,4 +16,5 @@ public interface Visitor {
     public Object visit_Op_MAYOR_IGUAL_AST(Op_MAYOR_IGUAL_AST aThis, Object arg);
     public Object visit_Op_MENOR_IGUAL_AST(Op_MENOR_IGUAL_AST aThis, Object arg);
     public Object visit_Op_MENOR_AST(Op_MENOR_AST aThis, Object arg);
+    public Object visit_Op_IGUAL_AST(Op_IGUAL_AST aThis, Object arg);
 }
