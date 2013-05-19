@@ -4,10 +4,7 @@
  */
 package AST;
 
-import AST.ConstrDeclaration_AST;
-import AST.FormalList_AST;
-import AST.Statement_AST;
-import AST.VarDeclaration_AST;
+
 import java_cup.runtime.Symbol;
 
 /**

@@ -99,4 +99,12 @@ public interface Visitor {
     public Object visit_Class_Declaration_AST(Class_Declaration_AST aThis, Object arg);
 
     public Object visit_Class_Declaration_AST(Class_DeclarationA_AST aThis, Object arg);
+
+    public Object visit_DefConstr_AST(DefConstrAST aThis, Object arg);
+
+    public Object visit_Type_Id_AST(Type_Id_AST aThis, Object arg);
+
+    public Object visit_varVarDecls_AST(varVarDeclsAST aThis, Object arg);
+
+    public Object visit_varias_FormalList_AST(varias_FormalList_AST aThis, Object arg);
 }
