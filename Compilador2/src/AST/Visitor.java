@@ -43,4 +43,10 @@ public interface Visitor {
     public Object visitType_EList_AST(Type_EList_AST aThis, Object arg);
 
     public Object visitExq_TyE_AST(Exp_TyE_AST aThis, Object arg);
+
+    public Object visitvarias_Expresion_Lists_AST(varias_Expression_LIST_AST aThis, Object arg);
+
+    public Object visitExpression_LIST_AST(Expression_LIST_AST aThis, Object arg);
+
+    public Object visitExp_Simple_STRING_AST(Exp_Simple_STRING_AST aThis, Object arg);
 }
