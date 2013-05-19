@@ -10,14 +10,13 @@ package AST;
  *
  * @author jdbr
  */
-public class Expre_AST extends ExpresionSimpl_AST {
-    public Expresion_AST h1;
-    public Expre_AST(Expresion_AST e) {
+public class ELSE_Statement_AST extends StatementA_AST {
+    public Statement_AST h1;
+    public ELSE_Statement_AST(Statement_AST s) {
         super();
-        this.h1 = e;
+        this.h1 = s;
     }
     public Object visit(Visitor v,Object arg) {
-       return v.visitExpre_AST(this, arg);
+       return v.visitELSE_Statement_AST(this, arg);
    }
-    
 }

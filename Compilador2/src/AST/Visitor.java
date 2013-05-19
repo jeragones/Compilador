@@ -69,4 +69,10 @@ public interface Visitor {
     public Object visitExpre_NEWID_AST(Expre_NEWID_AST aThis, Object arg);
 
     public Object visitExpre_NEWINT_AST(Expre_NEWINT_AST aThis, Object arg);
+
+    public Object visitELSE_Statement_AST(ELSE_Statement_AST aThis, Object arg);
+
+    public Object visitType_E_C_AST(Type_E_C_AST aThis, Object arg);
+
+    public Object visitExpre_AST(Expre_AST aThis, Object arg);
 }
