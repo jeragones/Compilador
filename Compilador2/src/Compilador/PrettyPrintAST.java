@@ -77,7 +77,7 @@ public abstract class PrettyPrintAST implements Visitor {
     tree+=c.getClass().getName()+"------->"+c.h1.value+"\n";
     System.out.println(c.getClass().getName()+"------->"+c.h1.value);
     if (c.h1!=null)
-      c.h1.visit(this,new Integer(numaux+1));
+      c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
@@ -488,14 +488,14 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitTididAST( TididAST c, Object arg)
+  public Object visit_Tid_AST( Tid_AST c, Object arg)
   {
       int numaux = ((Integer)arg).intValue();
     printtab(numaux);
-    tree+=c.getClass().getName()+"------->"+c.id2.value+"\n";
-    System.out.println(c.getClass().getName()+"------->"+c.id2.value);
-    if (c.t!=null)
-      c.t.visit(this,new Integer(numaux+1));
+    tree+=c.getClass().getName()+"------->"+c.id.value+"\n";
+    System.out.println(c.getClass().getName()+"------->"+c.id.value);
+    if (c.h1!=null)
+      c.h1.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
