@@ -4,8 +4,7 @@
  */
 package AST;
 
-import AST.ClassDeclarationB_AST;
-import AST.ClassDeclarationC_AST;
+
 import java_cup.runtime.Symbol;
 
 /**

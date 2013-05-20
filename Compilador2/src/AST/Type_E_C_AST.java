@@ -17,7 +17,7 @@ public class Type_E_C_AST extends TipysAST {
         this.h1 = e;
     }
     public Object visit(Visitor v,Object arg) {
-       return v.visitType_E_C_AST(this, arg);
+       return v.visit_Type_E_C_AST(this, arg);
    }
     
 }

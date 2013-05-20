@@ -20,7 +20,7 @@ public class Expre_NEWINT_AST extends ExpresionSimpl_AST {
     }
     
     public Object visit(Visitor v,Object arg) {
-       return v.visitExpre_NEWINT_AST(this, arg);
+       return v.visit_Expre_NEWINT_AST(this, arg);
    }
     
 }

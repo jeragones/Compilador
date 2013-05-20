@@ -19,6 +19,6 @@ public class Exp_Simple_NUMERO_AST extends ExpresionSimpl_AST {
         this.num = n;
     }
      public Object visit(Visitor v,Object arg) {
-       return v.visitExp_Simple_NUMERO_AST(this, arg);
+       return v.visit_Exp_Simple_NUMERO_AST(this, arg);
    }
 }

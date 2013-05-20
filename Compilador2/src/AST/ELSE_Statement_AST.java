@@ -17,6 +17,6 @@ public class ELSE_Statement_AST extends StatementA_AST {
         this.h1 = s;
     }
     public Object visit(Visitor v,Object arg) {
-       return v.visitELSE_Statement_AST(this, arg);
+       return v.visit_ELSE_Statement_AST(this, arg);
    }
 }

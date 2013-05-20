@@ -17,7 +17,7 @@ public class Expre_AST extends ExpresionSimpl_AST {
         this.h1 = e;
     }
     public Object visit(Visitor v,Object arg) {
-       return v.visitExpre_AST(this, arg);
+       return v.visit_Expre_AST(this, arg);
    }
     
 }

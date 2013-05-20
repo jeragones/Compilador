@@ -19,6 +19,6 @@ public class Expre_NEWID_AST extends ExpresionSimpl_AST {
         h1=e;
     }
     public Object visit(Visitor v,Object arg) {
-       return v.visitExpre_NEWID_AST(this, arg);
+       return v.visit_Expre_NEWID_AST(this, arg);
     }
 }

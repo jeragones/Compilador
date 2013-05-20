@@ -17,7 +17,7 @@ public class Expre_NEGACION_AST extends ExpresionSimpl_AST {
         this.h1 = e;
     }
      public Object visit(Visitor v,Object arg) {
-       return v.visitExpre_NEGACION_AST(this, arg);
+       return v.visit_Expre_NEGACION_AST(this, arg);
    }
     
 }

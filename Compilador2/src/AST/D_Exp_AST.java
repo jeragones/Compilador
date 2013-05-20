@@ -20,7 +20,7 @@ public class D_Exp_AST extends Expresion_AST {
     }
     
     public Object visit(Visitor v,Object arg) {
-       return v.visitD_Exp_AST(this, arg);
+       return v.visit_D_Exp_AST(this, arg);
    }
     
 }

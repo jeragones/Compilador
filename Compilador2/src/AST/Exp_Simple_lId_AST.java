@@ -19,7 +19,7 @@ public class Exp_Simple_lId_AST extends ExpresionSimpl_AST {
         this.id = id;
     }
     public Object visit(Visitor v,Object arg) {
-       return v.visitExp_Simple_lId_AST(this, arg);
+       return v.visit_Exp_Simple_lId_AST(this, arg);
    }
     
 }

@@ -70,12 +70,12 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
   
-  public Object visitCD3AST( Class_DeclarationB_AST c, Object arg)
+  public Object visit_Class_DeclarationB_AST( Class_DeclarationB_AST c, Object arg)
     {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
-    tree+=c.getClass().getName()+"------->"+c.id.value+"\n";
-    System.out.println(c.getClass().getName()+"------->"+c.id.value);
+    tree+=c.getClass().getName()+"------->"+c.h1.value+"\n";
+    System.out.println(c.getClass().getName()+"------->"+c.h1.value);
     if (c.h1!=null)
       c.h1.visit(this,new Integer(numaux+1));
     else
@@ -87,7 +87,7 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
   
-  public Object visitClassDAST( ClassDAST c, Object arg)
+  public Object visit_Class_Declaration_AST( Class_Declaration_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -104,7 +104,7 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
   
-  public Object visitConstructorDAST( ConstructorDAST c, Object arg)
+  public Object visit_Construct_Declaration_AST( Construct_Declaration_AST c, Object arg)
     {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -121,7 +121,7 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
   
-  public Object visitDefConstrAST( DefConstrAST c, Object arg)
+  public Object visit_DefConstrAST( DefConstrAST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -154,7 +154,7 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
          
-  public Object visitDefExpAST( DefExpAST c, Object arg)
+  public Object visit_D_Exp_AST( D_Exp_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -179,14 +179,14 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
           
-  public Object visitDefMainAST( DefMainAST c, Object arg)
+  public Object visit_MainC_AST( MainC_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
-    tree+=c.getClass().getName()+"------->"+c.id1.value+"------->"+c.id2.value+"\n";
-    System.out.println(c.getClass().getName()+"------->"+c.id1.value+"------->"+c.id2.value);
+    tree+=c.getClass().getName()+"------->"+c.h1.value+"------->"+c.h2.value+"\n";
+    System.out.println(c.getClass().getName()+"------->"+c.h1.value+"------->"+c.h2.value);
     if (c.h1!=null)
-      c.h1.visit(this,new Integer(numaux+1));
+      c.h3.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
@@ -196,7 +196,7 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
   
-  public Object visitDefMethodDeclAST( DefMethodDeclAST c, Object arg)
+  public Object visit_MethodDecl_AST( MethodDecl_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -244,7 +244,7 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitDefReturnAST( DefReturnAST c, Object arg)
+  public Object visit_D_Return_AST( D_Return_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -260,7 +260,7 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitExpReadAST( ExpReadAST c, Object arg)
+  public Object visit_Expression_Read_AST( Expression_Read_AST c, Object arg)
   {
       int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -277,7 +277,7 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
   
-  public Object visitExpStatAST( ExpStatAST c, Object arg)
+  public Object visit_Expre_Stat_AST( Expre_Stat_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -301,16 +301,16 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitExp_SimplStringAST( Exp_SimplStringAST c, Object arg)
+  public Object visit_Exp_Simple_STRING_AST( Exp_Simple_STRING_AST c, Object arg)
   {
       int numaux = ((Integer)arg).intValue();
         printtab(numaux);
-        tree+=c.getClass().getName()+"------->"+c.string1.value+"\n";
-        System.out.println(c.getClass().getName()+"------->"+c.string1.value);
+        tree+=c.getClass().getName()+"------->"+c.str.value+"\n";
+        System.out.println(c.getClass().getName()+"------->"+c.str.value);
       return null;
   }
   
-  public Object visitExplAST( ExplAST c, Object arg)
+  public Object visit_Expression_LIST_AST( Expression_LIST_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -334,7 +334,7 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitExplistStatAST( ExplistStatAST c, Object arg)
+  public Object visit_Explist_Stat_AST( Explist_Stat_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -358,7 +358,7 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitExpnegAST( ExpnegAST c, Object arg)
+  public Object visit_Expre_NEGACION_AST( Expre_NEGACION_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -374,7 +374,7 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitExpnewIntAST( ExpnewIntAST c, Object arg)
+  public Object visit_Expre_NEWINT_AST( Expre_NEWINT_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -390,7 +390,7 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitExpnewidAST( ExpnewidAST c, Object arg)
+  public Object visit_Expre_NEWID_AST( Expre_NEWID_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -406,7 +406,7 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitExpredAST( ExpredAST c, Object arg)
+  public Object visit_Expre_AST( Expre_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -422,7 +422,7 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitImpClssMnAST( ImpClssMnAST c, Object arg)
+  public Object visit_ImpD_ClassD_MainC_AST(ImpD_ClassD_MainC_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -454,7 +454,7 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitMethodDAST( MethodDAST c, Object arg)
+  public Object visit_Method_Declaration_AST( Method_Declaration_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -472,14 +472,14 @@ public abstract class PrettyPrintAST implements Visitor {
   }
 
   
-  public Object visitTNamesAST( TNamesAST c, Object arg)
+  public Object visit_Type_Names_AST( Type_Names_AST c, Object arg)
     {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
-    tree+=c.getClass().getName()+"------->"+c.id.value+"\n";
-    System.out.println(c.getClass().getName()+"------->"+c.id.value);
+    tree+=c.getClass().getName()+"------->"+c.h1.value+"\n";
+    System.out.println(c.getClass().getName()+"------->"+c.h1.value);
     if (c.h1!=null)
-      c.h1.visit(this,new Integer(numaux+1));
+      c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
