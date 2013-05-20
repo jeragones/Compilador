@@ -10,7 +10,7 @@ package AST;
  */
 public abstract class ClassDeclaration_AST extends AST{
     public ClassDeclaration_AST(){ 
-    super();
+        super();
     }
     public abstract Object visit(Visitor v,Object arg);
 }
