@@ -22,7 +22,7 @@ public class Class_DeclarationA_AST extends ClassDeclarationA_AST {
         h1=cdb;
     }
     public Object visit(Visitor v,Object arg) {
-       return v.visit_Class_Declaration_AST(this, arg);
+       return v.visit_Class_DeclarationA_AST(this, arg);
     }
     
 }

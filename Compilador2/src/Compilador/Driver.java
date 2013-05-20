@@ -8,6 +8,7 @@ package Compilador;
 import java.io.*;
 import java.util.ArrayList;
 import Compilador.MyException;
+import AST.*;
 /**
  *
  * @author jdbr
@@ -18,22 +19,22 @@ public class Driver {
     //public static java_cup.runtime.Scanner s;
     //Scanner s;
     public static String E=null;
-    /*public static PrettyPrintAST printer = new PrettyPrintAST() {
+    public static PrettyPrintAST printer = new PrettyPrintAST() {
 
         @Override
-        public Object visitTypeconIdAST(TypeconIdAST c, Object arg) {
+        public Object visit_Type_Id_AST(Type_Id_AST c, Object arg) {
             throw new UnsupportedOperationException("Not supported yet.");
         }
-    };*/
+    };
     public static void driver(File text) throws Exception{
     try{
       Scanner s = new Scanner(new FileReader(text));
-     // parser p = new parser(s);
-          //p.parse();
+     parser p = new parser(s);
+          p.parse();
           
         System.out.println("Arbol:");
         System.out.println("");
-        //printer.imprimir(p.raiz);
+        printer.imprimir(p.raiz);
         System.out.println("");
         System.out.println("Fin");
 
