@@ -11,11 +11,11 @@ import java.util.ArrayList;
  *
  * @author GeOrge
  */
-public class TablaSimbolos {
+public class TablaIdentificadores {
     private ArrayList tabla;
     public int nivel;
     
-    public TablaSimbolos() {
+    public TablaIdentificadores() {
         tabla = new ArrayList();
         nivel = 0;
     }
