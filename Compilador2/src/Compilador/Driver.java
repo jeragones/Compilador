@@ -19,13 +19,7 @@ public class Driver {
     //public static java_cup.runtime.Scanner s;
     //Scanner s;
     public static String E=null;
-    public static PrettyPrintAST IMPRIME = new PrettyPrintAST() {
-
-        @Override
-        public Object visit_Type_Id_AST(Type_Id_AST c, Object arg) {
-            throw new UnsupportedOperationException("Not supported yet.");
-        }
-    };
+    public static PrettyPrintAST IMPRIME = new PrettyPrintAST();
     public static void driver(File text) throws Exception{
     try{
       Scanner s = new Scanner(new FileReader(text));
