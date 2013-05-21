@@ -6,7 +6,7 @@ package Compilador;
 
 
 import java.io.*;
-import java.util.ArrayList;
+
 import Compilador.MyException;
 import AST.*;
 /**

@@ -4,7 +4,7 @@
  */
 package Compilador;
 
-import Compilador.Driver;
+import Compilador.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -46,7 +46,7 @@ public class Ventana extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtErrores = new javax.swing.JTextArea();
+        txtConsola = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtTexto = new javax.swing.JTextArea();
         lblColumna = new javax.swing.JLabel();
@@ -67,9 +67,9 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtErrores.setColumns(20);
-        txtErrores.setRows(5);
-        jScrollPane2.setViewportView(txtErrores);
+        txtConsola.setColumns(20);
+        txtConsola.setRows(5);
+        jScrollPane2.setViewportView(txtConsola);
 
         txtTexto.setColumns(20);
         txtTexto.setRows(5);
@@ -250,9 +250,12 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
                     Driver.driver(fileName);
-                } catch (Exception ex) {
+                } 
+        catch (Exception ex) {
                     
                 }
+        txtConsola.setText(" ");
+        txtConsola.setText(Compilador.PrettyPrintAST.tree);
     }//GEN-LAST:event_mnuCompilarActionPerformed
 
     /**
@@ -307,7 +310,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuCompilar;
     private javax.swing.JMenuItem mnuGuardar;
     private javax.swing.JMenuItem mnuNuevo;
-    private static javax.swing.JTextArea txtErrores;
+    public static javax.swing.JTextArea txtConsola;
     private javax.swing.JTextArea txtTexto;
     // End of variables declaration//GEN-END:variables
 }
