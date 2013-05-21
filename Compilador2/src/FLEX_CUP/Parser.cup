@@ -653,7 +653,7 @@ Statement ::=	ID:i IGUAL ExpA:ea PUNTO_COMA
         Symbol n = new Symbol(sym.NUMERO,izq,der,n);
         RESULT = new exit_Stat_AST(n1);
     :}
-    |CORCHETE_ON Statements:s CORCHETE_OFF
+    | CORCHETE_ON Statements:s CORCHETE_OFF
     {:
         RESULT = new var_Statement_AST(s);
     :}
@@ -832,51 +832,51 @@ Statements ::=	Statements:ss Statement:s
 
 
 Op ::=	SUMA
-	{:
-		RESULT = new Op_SUMA_AST();
-	:}
-        | RESTA
-	{:
-		RESULT = new Op_RESTA_AST();
-	:}
-        | ASTERISCO
-	{:
-		RESULT = new Op_ASTERISCO_AST();
-	:}
-        | DIV
-	{:
-		RESULT = new Op_DIV_AST();
-	:}
-        | DIFERENCIA
-	{:
-		RESULT = new Op_DIFERENCIA_AST();
-	:}
-        | IGUAL_COMP
-	{:
-		RESULT = new Op_IGUAL_AST();
-	:}
-        | MENOR
-	{:
-		RESULT = new Op_MENOR_AST();
-	:}
-        | MENOR_IGUAL
-	{:
-		RESULT = new Op_MENOR_IGUAL_AST();
-	:}
-        | MAYOR_IGUAL
-	{:
-		RESULT = new Op_MAYOR_IGUAL_AST();
-	:}
-        | MAYOR
-	{:
-		RESULT = new Op_MAYOR_AST();
-	:}
-        | OR
-	{:
-		RESULT = new Op_OR_AST();
-	:}
-        | AND
-	{:
-		RESULT = new Op_AND_AST();
-	:}
-	;
+    {:
+        RESULT = new Op_SUMA_AST();
+    :}
+    | RESTA
+    {:
+        RESULT = new Op_RESTA_AST();
+    :}
+    | ASTERISCO
+    {:
+        RESULT = new Op_ASTERISCO_AST();
+    :}
+    | DIV
+    {:
+        RESULT = new Op_DIV_AST();
+    :}
+    | DIFERENCIA
+    {:
+        RESULT = new Op_DIFERENCIA_AST();
+    :}
+    | IGUAL_COMP
+    {:
+        RESULT = new Op_IGUAL_AST();
+    :}
+    | MENOR
+    {:
+        RESULT = new Op_MENOR_AST();
+    :}
+    | MENOR_IGUAL
+    {:
+        RESULT = new Op_MENOR_IGUAL_AST();
+    :}
+    | MAYOR_IGUAL
+    {:
+        RESULT = new Op_MAYOR_IGUAL_AST();
+    :}
+    | MAYOR
+    {:
+        RESULT = new Op_MAYOR_AST();
+    :}
+    | OR
+    {:
+        RESULT = new Op_OR_AST();
+    :}
+    | AND
+    {:
+        RESULT = new Op_AND_AST();
+    :}
+;
