@@ -5,6 +5,7 @@
 package Compilador.Tablas;
 
 import AST.AST;
+import AST.VarDeclaration_AST;
 import java.util.ArrayList;
 
 /**
