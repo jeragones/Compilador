@@ -505,7 +505,7 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
    
-  public Object visitTipoCuadrAST( TipoCuadrAST c, Object arg)
+  public Object visit_Type_E_C_AST( Type_E_C_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -521,7 +521,7 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitTipoLengthAST( TipoLengthAST c, Object arg)
+  public Object visit_Type_LENGTH_AST( Type_LENGTH_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
         printtab(numaux);
@@ -530,7 +530,7 @@ public abstract class PrettyPrintAST implements Visitor {
       return null;
   }
   
-  public Object visitTipoListaAST( TipoListaAST c, Object arg)
+  public Object visit_Type_EList_AST( Type_EList_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -547,7 +547,7 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
   
-  public Object visitTipoOpAST( TipoOpAST c, Object arg)
+  public Object visit_Type_Op_AST( Type_Op_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -571,7 +571,7 @@ public abstract class PrettyPrintAST implements Visitor {
     }
     return null;
   }
-  public Object visitVariableDAST( VariableDAST c, Object arg)
+  public Object visit_VarDeclarationA_AST( VarDeclarationA_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -588,7 +588,7 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
   
-  public Object visitasigStatAST( asigStatAST c, Object arg)
+  public Object visit_asignacion_Stat_AST( asignacion_Stat_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -605,7 +605,7 @@ public abstract class PrettyPrintAST implements Visitor {
     return null;
   }
   
-public Object visitconExtendsoImplementsAST( conExtendsAST c, Object arg)
+public Object visit_Extends_AST( Extends_AST c, Object arg)
 {
     int numaux = ((Integer)arg).intValue();
         printtab(numaux);
@@ -614,16 +614,8 @@ public Object visitconExtendsoImplementsAST( conExtendsAST c, Object arg)
     return null;
 }
   
-  /*public Object visitconIdoVoidAST( conIdAST c, Object arg)
-  {
-    int numaux = ((Integer)arg).intValue();
-        printtab(numaux);
-        tree+=c.getClass().getName()+"------->"+c.id.value+"\n";
-        System.out.println(c.getClass().getName()+"------->"+c.id.value);
-      return null;
-}*/
 
-  public Object visitconPuntoAsteriscoAST( conPuntoAsteriscoAST c, Object arg)
+  public Object visit_PuntoAst_AST( PuntoAst_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
         printtab(numaux);
@@ -631,7 +623,7 @@ public Object visitconExtendsoImplementsAST( conExtendsAST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
 }
-  public Object visitThisconIDAST( ThisconIDAST c, Object arg)
+  public Object visit_THIS_ID_AST( THIS_ID_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
         printtab(numaux);
@@ -639,7 +631,7 @@ public Object visitconExtendsoImplementsAST( conExtendsAST c, Object arg)
         System.out.println(c.getClass().getName()+"------->"+c.id.value);
       return null;
 }
-  public Object visitelseStatAST( elseStatAST c, Object arg)
+  public Object visit_ELSE_Statement_ASTT( ELSE_Statement_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -655,17 +647,17 @@ public Object visitconExtendsoImplementsAST( conExtendsAST c, Object arg)
     }
     return null;
   }
-  public Object visitexitStatAST( exitStatAST c, Object arg)
+  public Object visit_exit_Stat_AST( exit_Stat_AST c, Object arg)
   {
       int numaux = ((Integer)arg).intValue();
         printtab(numaux);
-        tree+=c.getClass().getName()+"------->"+c.numero.value+"\n";
-        System.out.println(c.getClass().getName()+"------->"+c.numero.value);
+        tree+=c.getClass().getName()+"------->"+c.nn.value+"\n";
+        System.out.println(c.getClass().getName()+"------->"+c.nn.value);
       return null;
   }
   
  
-  public Object visitifelseStatAST( ifelseStatAST c, Object arg)
+  public Object visiti_if_else_Statement_AST( if_else_Statement_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -697,7 +689,7 @@ public Object visitconExtendsoImplementsAST( conExtendsAST c, Object arg)
     }
     return null;
   }
-  public Object visitimpTypeAST( impTypeAST c, Object arg)
+  public Object visit_Import_Type_AST( Import_Type_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -721,7 +713,7 @@ public Object visitconExtendsoImplementsAST( conExtendsAST c, Object arg)
     }
     return null;
   }
-  public Object visitprintlnStatAST( printlnStatAST c, Object arg)
+  public Object visit_println_Statement_AST( println_Statement_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -737,7 +729,7 @@ public Object visitconExtendsoImplementsAST( conExtendsAST c, Object arg)
     }
     return null;
   }
-  public Object visitsolaExpAST( solaExpAST c, Object arg)
+  public Object visit_Exp_AST( Exp_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
