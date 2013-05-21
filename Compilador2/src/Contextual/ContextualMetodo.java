@@ -11,7 +11,7 @@ import AST.Visitor;
  *
  * @author GeOrge
  */
-public class ContextualMetodo implements Visitor {
+public abstract class ContextualMetodo implements Visitor {
     
     public TablaMetodos tabla = new TablaMetodos();
   
