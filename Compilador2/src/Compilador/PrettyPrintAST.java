@@ -747,7 +747,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
   }
   
   
-  public Object visittipExpAST( tipExpAST c, Object arg)
+  public Object visit_Exp_TyE_AST( Exp_TyE_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -771,7 +771,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     }
     return null;
   }
-  public Object visitunaExpAST( unaExpAST c, Object arg)
+  public Object visit_u_Expression_AST( u_Expression_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -787,31 +787,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     }
     return null;
   }
-  public Object visitvarBodyDeclAST( varBodyDeclAST c, Object arg)
-  {
-    int numaux = ((Integer)arg).intValue();
-    printtab(numaux);
-    tree+=c.getClass().getName()+"\n";
-    System.out.println(c.getClass().getName());
-    if (c.h1!=null)
-      c.h1.visit(this,new Integer(numaux+1));
-    else
-    {
-      printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
-    }
-    if (c.h2!=null)
-      c.h2.visit(this,new Integer(numaux+1));
-    else
-    {
-      printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
-    }
-    return null;
-  }
-  public Object visitvarClassDeclsAST( varClassDeclsAST c, Object arg)
+  public Object visit_varias_Body_Declaration_AST( varias_Body_Declaration_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -835,7 +811,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     }
     return null;
   }
-  public Object visitvarExpListsAST( varExpListsAST c, Object arg)
+  public Object visit_varias_Class_Declarations_AST( varias_Class_Declarations_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -859,12 +835,12 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     }
     return null;
   }
-  public Object visitvarFormalListAST( varFormalListAST c, Object arg)
+  public Object visit_( varias_Expression_LIST_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
-    tree+=c.getClass().getName()+"------->"+c.id2.value+"\n";
-    System.out.println(c.getClass().getName()+"------->"+c.id2.value);
+    tree+=c.getClass().getName()+"\n";
+    System.out.println(c.getClass().getName());
     if (c.h1!=null)
       c.h1.visit(this,new Integer(numaux+1));
     else
@@ -873,8 +849,8 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
       tree+="NULL\n";
       System.out.println("NULL");
     }
-    if (c.t!=null)
-      c.t.visit(this,new Integer(numaux+1));
+    if (c.h2!=null)
+      c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
@@ -883,12 +859,36 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     }
     return null;
   }
-  public Object visitvarFormalListsAST( varFormalListsAST c, Object arg)
+  public Object visit_varias_FormalList_AST( varias_FormalList_AST c, Object arg)
+  {
+    int numaux = ((Integer)arg).intValue();
+    printtab(numaux);
+    tree+=c.getClass().getName()+"------->"+c.id.value+"\n";
+    System.out.println(c.getClass().getName()+"------->"+c.id.value);
+    if (c.h1!=null)
+      c.h1.visit(this,new Integer(numaux+1));
+    else
+    {
+      printtab(numaux+1);
+      tree+="NULL\n";
+      System.out.println("NULL");
+    }
+    if (c.h2!=null)
+      c.h2.visit(this,new Integer(numaux+1));
+    else
+    {
+      printtab(numaux+1);
+      tree+="NULL\n";
+      System.out.println("NULL");
+    }
+    return null;
+  }
+  public Object visit_varias_FormalLists_AST( varias_FormalLists_AST c, Object arg)
           {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
-    tree+=c.getClass().getName()+"------->"+c.id2.value+"\n";
-    System.out.println(c.getClass().getName()+"------->"+c.id2.value);
+    tree+=c.getClass().getName()+"------->"+c.id.value+"\n";
+    System.out.println(c.getClass().getName()+"------->"+c.id.value);
     if (c.h1!=null)
       c.h1.visit(this,new Integer(numaux+1));
     else
@@ -897,8 +897,8 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
       tree+="NULL\n";
       System.out.println("NULL");
     }
-    if (c.t!=null)
-      c.t.visit(this,new Integer(numaux+1));
+    if (c.h2!=null)
+      c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
@@ -907,7 +907,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     }
     return null;
   }
-  public Object visitvarImportAST( varImportAST c, Object arg)
+  public Object visit_Varias_Import_AST( Varias_Import_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -931,7 +931,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     }
     return null;
   }
-  public Object visitvarStatAST( varStatAST c, Object arg)
+  public Object visit_var_Statement_AST( var_Statement_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -948,7 +948,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     return null;
   }
   
-  public Object visitvarStatementsAST( varStatementsAST c, Object arg)
+  public Object visit_varias_Statements_AST( varias_Statements_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -972,7 +972,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     }
     return null;
   }
-  public Object visitvarTypeNameAST( varTypeNameAST c, Object arg)
+  public Object visit_varias_TypeName_AST( varias_TypeName_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -1012,7 +1012,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     }
     return null;
   }
-  public Object visitwhileStatAST( whileStatAST c, Object arg)
+  public Object visit_while_Statement_AST( while_Statement_AST c, Object arg)
   {
     int numaux = ((Integer)arg).intValue();
     printtab(numaux);
@@ -1036,7 +1036,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     }
     return null;
   }
-  public Object visitconVoidAST( conVoidAST c, Object arg){
+  public Object visit_c_Void_AST( c_Void_AST c, Object arg){
       
    int numaux = ((Integer)arg).intValue();
         printtab(numaux);
@@ -1044,7 +1044,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitconIdAST( conIdAST c, Object arg)
+  public Object visit_c_Id_AST(c_Id_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1053,7 +1053,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitThisconThisAST( ThisconThisAST c, Object arg)
+  public Object visit_THIS_THIS_AST( THIS_THIS_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1062,7 +1062,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitconExtendsAST( conExtendsAST c, Object arg)
+  public Object visit_Extends2_AST( Extends_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1071,7 +1071,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitconImplementsAST(conImplementsAST c,Object arg)
+  public Object visit_Implements_AST(Implements_AST c,Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1080,16 +1080,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitExp_SimplNumeroAST(Exp_SimplNumeroAST c, Object arg)
+  public Object visit_Exp_Simple_NUMERO_AST(Exp_Simple_NUMERO_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
         printtab(numaux);
-        tree+=c.getClass().getName()+"------->"+c.numero.value+"\n";
-        System.out.println(c.getClass().getName()+"------->"+c.numero.value);
+        tree+=c.getClass().getName()+"------->"+c.num.value+"\n";
+        System.out.println(c.getClass().getName()+"------->"+c.num.value);
       return null;
   }
-  public Object visitExp_SimplIdAST(Exp_SimplIdAST c, Object arg){
+  public Object visit_Exp_Simple_lId_AST(Exp_Simple_lId_AST c, Object arg){
       
    int numaux = ((Integer)arg).intValue();
         printtab(numaux);
@@ -1097,7 +1097,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName()+"------->"+c.id.value);
       return null;
   }
-  public Object visitExp_SimpltrueAST(Exp_SimpltrueAST c, Object arg){
+  public Object visit_Exp_Simple_TRUE_AST(Exp_Simple_TRUE_AST c, Object arg){
       
    int numaux = ((Integer)arg).intValue();
         printtab(numaux);
@@ -1105,7 +1105,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitExp_SimplfalseAST(Exp_SimplfalseAST c, Object arg){
+  public Object visit_Exp_Simple_FALSE_AST(Exp_Simple_FALSE_AST c, Object arg){
       
    int numaux = ((Integer)arg).intValue();
         printtab(numaux);
@@ -1113,7 +1113,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitExp_SimplthisAST(Exp_SimplthisAST c, Object arg)
+  public Object visit_Exp_Simple_THIS_AST(Exp_Simple_THIS_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1123,7 +1123,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
       return null;
   }
   
-    public Object visitOpSumaAST( OpSumaAST c, Object arg)
+    public Object visit_Op_SUMA_AST( Op_SUMA_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1133,7 +1133,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
       return null;
   }
     
-  public Object visitOpRestaAST( OpRestaAST c, Object arg)
+  public Object visitOpRestaAST( Op_RESTA_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1142,7 +1142,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitOpAsteriscoAST( OpAsteriscoAST c, Object arg)
+  public Object visit_Op_ASTERISCO_AST( Op_ASTERISCO_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1151,7 +1151,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitOpDivisionAST( OpDivisionAST c, Object arg)
+  public Object visitOpDivisionAST( Op_DIV_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1160,7 +1160,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitOpDiferenteaAST( OpDiferenteaAST c, Object arg)
+  public Object visit_Op_DIFERENCIA_AST( Op_DIFERENCIA_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1169,7 +1169,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitOpIgualaAST( OpIgualaAST c, Object arg)
+  public Object visit_Op_IGUAL_AST( Op_IGUAL_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1178,7 +1178,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitOpMenorqueAST( OpMenorqueAST c, Object arg)
+  public Object visit_Op_IGUAL_AST( Op_MENOR_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1187,7 +1187,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitOpMenorigualAST( OpMenorigualAST c, Object arg)
+  public Object visit_Op_MENOR_IGUAL_AST( Op_MENOR_IGUAL_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1196,7 +1196,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitOpMayorigualAST( OpMayorigualAST c, Object arg)
+  public Object visit_Op_MAYOR_IGUAL_AST( Op_MAYOR_IGUAL_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1205,7 +1205,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitOpMayorqueAST( OpMayorqueAST c, Object arg)
+  public Object visitOpMayorqueAST( Op_MAYOR_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1214,7 +1214,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitOpOrAST( OpOrAST c, Object arg)
+  public Object visitOpOrAST( Op_OR_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1223,7 +1223,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
         System.out.println(c.getClass().getName());
       return null;
   }
-  public Object visitOpAndAST( OpAndAST c, Object arg)
+  public Object visitOpAndAST( Op_AND_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1233,7 +1233,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
       return null;
   }
      
-   public Object visitTypeconIntccAST( TypeconIntccAST c, Object arg)
+   public Object visit_Type_Int_AST( Type_Int_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1243,7 +1243,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
       return null;
   }
    
-   public Object visitTypeconBooleanAST( TypeconBooleanAST c, Object arg)
+   public Object visit_Type_Boolean_AST( Type_Boolean_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();
@@ -1253,7 +1253,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
       return null;
   }
    
-   public Object visitTypeconIntAST( TypeconIntAST c, Object arg)
+   public Object visit_Type_TInt_AST( Type_TInt_AST c, Object arg)
   {
       
    int numaux = ((Integer)arg).intValue();

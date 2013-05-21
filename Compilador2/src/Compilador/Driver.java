@@ -19,7 +19,7 @@ public class Driver {
     //public static java_cup.runtime.Scanner s;
     //Scanner s;
     public static String E=null;
-    public static PrettyPrintAST printer = new PrettyPrintAST() {
+    public static PrettyPrintAST IMPRIME = new PrettyPrintAST() {
 
         @Override
         public Object visit_Type_Id_AST(Type_Id_AST c, Object arg) {
@@ -34,12 +34,12 @@ public class Driver {
           
         System.out.println("Arbol:");
         System.out.println("");
-        printer.imprimir(p.raiz);
+        IMPRIME.imprimir(p.raiz);
         System.out.println("");
         System.out.println("Fin");
 
     }
-    catch(Exception e){
+    catch(MyException e){
         
        System.out.println(e.getMessage());
        E=e.getMessage();
