@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Compilador.Tablas;
+package Contextual;
 
 import AST.AST;
 import java.util.ArrayList;
@@ -11,11 +11,12 @@ import java.util.ArrayList;
  *
  * @author GeOrge
  */
-public class TablaIdentificadores {
+public class TablaClases {
+    
     private ArrayList tabla;
     public int nivel;
     
-    public TablaIdentificadores() {
+    public TablaClases() {
         tabla = new ArrayList();
         nivel = 0;
     }

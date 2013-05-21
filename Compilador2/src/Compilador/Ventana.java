@@ -173,7 +173,7 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -182,7 +182,7 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(lblFila)
                     .addComponent(lblColumna))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -254,8 +254,23 @@ public class Ventana extends javax.swing.JFrame {
         catch (Exception ex) {
                     
                 }
+         
         txtConsola.setText(" ");
-        txtConsola.setText(Compilador.PrettyPrintAST.tree);
+        int largo= Compilador.Scanner.Ltokens.size();
+       
+        txtConsola.append("\n=====================================================");
+        txtConsola.append("\n                                               Lista de Tokens");
+        txtConsola.append("\n=====================================================");
+        txtConsola.append("\n");
+        for (int i=0;i<largo;i++){
+            txtConsola.append(Compilador.Scanner.Ltokens.get(i).toString());
+        }
+       txtConsola.append("\n=====================================================");
+        txtConsola.append("\n                                            Fin Lista de Tokens");
+        txtConsola.append("\n=====================================================");
+        txtConsola.append("\n");
+         txtConsola.append(" ");
+        txtConsola.append(Compilador.PrettyPrintAST.tree);
     }//GEN-LAST:event_mnuCompilarActionPerformed
 
     /**

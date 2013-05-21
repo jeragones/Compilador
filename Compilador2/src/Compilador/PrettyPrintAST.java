@@ -1260,7 +1260,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
        return null;
    }
 
-    @Override
+    //@Override
     public Object visit_Op_AND_AST(Op_AND_AST aThis, Object arg) {
        int numaux = ((Integer)arg).intValue();
        printtab(numaux);
@@ -1269,7 +1269,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
        return null;
     }
 
-    @Override
+    //@Override
     public Object visit_Op_OR_AST(Op_OR_AST aThis, Object arg) {
        int numaux = ((Integer)arg).intValue();
        printtab(numaux);
@@ -1278,7 +1278,7 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
        return null;
     }
 
-    @Override
+   // @Override
     public Object visit_MAYOR_AND_AST(Op_MAYOR_AST aThis, Object arg) {
        int numaux = ((Integer)arg).intValue();
        printtab(numaux);

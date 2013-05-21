@@ -16,8 +16,7 @@ import AST.*;
 public class Driver {
     
     
-    //public static java_cup.runtime.Scanner s;
-    //Scanner s;
+    
     public static String E=null;
     public static PrettyPrintAST IMPRIME = new PrettyPrintAST();
     public static void driver(File text) throws Exception{
