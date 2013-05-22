@@ -14,18 +14,18 @@ public class PrettyPrintAST implements Visitor {
       public static String tree=""; 
   public void imprimir(AST raiz)
   {
-    tree+="IMPRESION DEL ARBOL:\n\n";
+    tree+="\nARBOL:\n\n";
     raiz.visit(this,new Integer(0));
-    tree+="\nFIN DE IMPERSION\n";
+    tree+="\nFIN\n";
   }
   
   public void printtab(int n)
   {
     for(int num=n; num != 0; num--){
-     System.out.print("+++");
+     System.out.print("---");
     System.out.print(">");
-    tree+="+++";
-    tree+=">";}
+    tree+="---";
+    tree+="";}
       
   }
   
@@ -39,16 +39,16 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -64,8 +64,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -81,8 +81,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -98,8 +98,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -115,8 +115,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -132,24 +132,24 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h3!=null)
       c.h3.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -165,16 +165,16 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -190,8 +190,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -207,40 +207,40 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h3!=null)
       c.h3.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h4!=null)
       c.h4.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h5!=null)
       c.h5.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -255,8 +255,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -271,8 +271,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -288,16 +288,16 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -321,16 +321,16 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -345,16 +345,16 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -369,8 +369,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -385,8 +385,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -401,8 +401,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -417,8 +417,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -433,24 +433,24 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h3!=null)
       c.h3.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -465,8 +465,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -483,8 +483,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -499,8 +499,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -516,8 +516,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -541,8 +541,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -558,16 +558,16 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -582,8 +582,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -599,8 +599,8 @@ public class PrettyPrintAST implements Visitor {
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -642,8 +642,8 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -668,24 +668,24 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h3!=null)
       c.h3.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -700,16 +700,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -724,8 +724,8 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -740,8 +740,8 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -758,16 +758,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -782,8 +782,8 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -798,16 +798,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -822,16 +822,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -846,16 +846,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -870,16 +870,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -894,16 +894,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -918,16 +918,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -942,8 +942,8 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -959,16 +959,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -983,8 +983,8 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -999,16 +999,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
@@ -1023,16 +1023,16 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     if (c.h2!=null)
       c.h2.visit(this,new Integer(numaux+1));
     else
     {
       printtab(numaux+1);
-      tree+="NULL\n";
-      System.out.println("NULL");
+      tree+="Null\n";
+      System.out.println("Null");
     }
     return null;
   }
