@@ -53,6 +53,8 @@ public class Ventana extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblFila = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtTree = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuNuevo = new javax.swing.JMenuItem();
@@ -85,6 +87,10 @@ public class Ventana extends javax.swing.JFrame {
         lblFila.setText("0");
 
         jLabel1.setText("Fila:");
+
+        txtTree.setColumns(20);
+        txtTree.setRows(5);
+        jScrollPane3.setViewportView(txtTree);
 
         jMenu1.setText("Archivo");
 
@@ -145,8 +151,7 @@ public class Ventana extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -154,24 +159,31 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblColumna, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblColumna, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFila)
-                    .addComponent(lblColumna))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFila)
+                            .addComponent(lblColumna))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         pack();
@@ -201,7 +213,10 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTextoCaretUpdate
 
     private void mnuNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuNuevoActionPerformed
-       
+        fileName = null;
+        txtTexto.setText("");
+        txtConsola.setText("");
+        txtTree.setText("");
     }//GEN-LAST:event_mnuNuevoActionPerformed
 
     private void mnuAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAbrirActionPerformed
@@ -227,7 +242,19 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuAbrirActionPerformed
 
     private void mnuGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuGuardarActionPerformed
-     
+        fileChooser.setCurrentDirectory(new File( "./"));
+        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            fileName = new File( fileChooser.getSelectedFile( ) + ".java");
+            BufferedWriter outFile;
+            try {
+                outFile = new BufferedWriter( new FileWriter(fileName));
+                outFile.write(txtTexto.getText()); //put in textfile
+                outFile.flush(); // redundant, done by close()
+                outFile.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_mnuGuardarActionPerformed
 
     private void mnuCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCerrarActionPerformed
@@ -236,6 +263,19 @@ public class Ventana extends javax.swing.JFrame {
 
     private void mnuCompilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCompilarActionPerformed
         // TODO add your handling code here:
+         fileChooser.setCurrentDirectory(new File( "./"));
+        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            fileName = new File( fileChooser.getSelectedFile( ) + ".java");
+            BufferedWriter outFile;
+            try {
+                outFile = new BufferedWriter( new FileWriter(fileName));
+                outFile.write(txtTexto.getText()); //put in textfile
+                outFile.flush(); // redundant, done by close()
+                outFile.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         try {
                     Driver.driver(fileName);
                 } 
@@ -244,6 +284,7 @@ public class Ventana extends javax.swing.JFrame {
                 }
          
         txtConsola.setText(" ");
+        txtTree.setText(" ");
         int largo= Compilador.Scanner.Ltokens.size();
        
         txtConsola.append("\n=====================================================");
@@ -257,8 +298,11 @@ public class Ventana extends javax.swing.JFrame {
         txtConsola.append("\n                                            Fin Lista de Tokens");
         txtConsola.append("\n=====================================================");
         txtConsola.append("\n");
-         txtConsola.append(" ");
-        txtConsola.append(Compilador.PrettyPrintAST.tree);
+        txtConsola.append(" ");
+        txtConsola.append("\n");
+        txtConsola.append(Compilador.parser.mensaje);
+        txtTree.append(Compilador.PrettyPrintAST.tree);
+        
     }//GEN-LAST:event_mnuCompilarActionPerformed
 
     /**
@@ -303,6 +347,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblColumna;
     private javax.swing.JLabel lblFila;
     private javax.swing.JMenuItem mnuASM;
@@ -313,5 +358,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuNuevo;
     public static javax.swing.JTextArea txtConsola;
     private javax.swing.JTextArea txtTexto;
+    private javax.swing.JTextArea txtTree;
     // End of variables declaration//GEN-END:variables
 }

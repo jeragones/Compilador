@@ -651,7 +651,7 @@ public String errores(int sys)
 			report_error("Error: ", cur_token2);
 	
 	}
-
+public static String mensaje;
 public void report_error(String message, Object info) {
 	StringBuffer m = new StringBuffer("Error ");
 	
@@ -664,7 +664,8 @@ public void report_error(String message, Object info) {
 	}
 	m.append(" : "+message);
 	m.append(" y en su lugar viene " + ((java_cup.runtime.Symbol)info).value.toString());
-
+        
+        mensaje=m.toString();
 	System.out.println(m);
 }
 
