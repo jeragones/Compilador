@@ -664,7 +664,8 @@ public void report_error(String message, Object info) {
 	}
 	m.append(" : "+message);
 	m.append(" y en su lugar viene " + ((java_cup.runtime.Symbol)info).value.toString());
-
+        
+        
 	System.out.println(m);
 }
 
