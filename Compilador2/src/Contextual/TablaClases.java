@@ -53,4 +53,20 @@ public class TablaClases {
         }
         nivel--;
     }
+    
+    public void llenar(){
+        tabla.add(new NodoTabla("Button", 0,null));
+        tabla.add(new NodoTabla("Label", 0,null));
+        tabla.add(new NodoTabla("TextField", 0,null));
+        tabla.add(new NodoTabla("ClassActions", 0,null));
+        tabla.add(new NodoTabla("Frame", 0,null));
+        tabla.add(new NodoTabla("String", 0,null));
+        tabla.add(new NodoTabla("Integer", 0,null));
+        tabla.add(new NodoTabla("ClassActions", 0,null));
+        tabla.add(new NodoTabla("ActionListener", 0,null));
+        tabla.add(new NodoTabla("ActionEvent", 0,null));
+        tabla.add(new NodoTabla("Object", 0,null));
+        tabla.add(new NodoTabla("WindowAdapter", 0,null));
+        }
 }
+

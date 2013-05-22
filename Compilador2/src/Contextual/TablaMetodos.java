@@ -52,4 +52,20 @@ public class TablaMetodos {
         }
         nivel--;
     }
+    
+    public void llenar(){
+        tabla.add(new NodoTabla("parseInt", 0, null));
+        tabla.add(new NodoTabla("valueOf", 0, null));
+        tabla.add(new NodoTabla("getText", 0, null));
+        tabla.add(new NodoTabla("setText", 0, null));
+        tabla.add(new NodoTabla("getSourse", 0, null));
+        tabla.add(new NodoTabla("setVisible", 0, null));
+        tabla.add(new NodoTabla("addActionListener", 0, null));
+        tabla.add(new NodoTabla("setBounds", 0, null));
+        tabla.add(new NodoTabla("setSize", 0, null));
+        tabla.add(new NodoTabla("setTitle", 0, null));
+        tabla.add(new NodoTabla("addWindowListener", 0, null));
+        
+    }
+    
 }
