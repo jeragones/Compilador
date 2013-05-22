@@ -13,7 +13,7 @@ import Contextual.TablaMetodos;
  */
 
 public class Contextual implements Visitor {
-    
+   
     public TablaMetodos tabMetodo = new TablaMetodos();
     public TablaIdentificadores tabIdentificador = new TablaIdentificadores();
     
@@ -105,6 +105,7 @@ public class Contextual implements Visitor {
             return -1;
         }
     }
+    
 
     public Object visit_Implements_AST(Implements_AST aThis, Object arg) {
         

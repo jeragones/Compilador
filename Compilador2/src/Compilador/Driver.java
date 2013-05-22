@@ -8,6 +8,7 @@ package Compilador;
 import java.io.*;
 import Compilador.MyException;
 import AST.*;
+import Contextual.*;
 /**
  *
  * @author jdbr
@@ -20,9 +21,11 @@ public class Driver {
     public static PrettyPrintAST IMPRIME = new PrettyPrintAST();
     public static void driver(File text) throws Exception{
     try{
-      Scanner s = new Scanner(new FileReader(text));
-     parser p = new parser(s);
-          p.parse();
+        Scanner s = new Scanner(new FileReader(text));
+        parser p = new parser(s);
+        Contextual contextual = new Contextual();
+        p.parse();
+        p.raiz.visit(Contextual,null);
           
         System.out.println("Arbol:");
         System.out.println("");

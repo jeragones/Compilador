@@ -213,7 +213,10 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTextoCaretUpdate
 
     private void mnuNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuNuevoActionPerformed
-       
+        fileName = null;
+        txtTexto.setText("");
+        txtConsola.setText("");
+        txtTree.setText("");
     }//GEN-LAST:event_mnuNuevoActionPerformed
 
     private void mnuAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAbrirActionPerformed
@@ -239,7 +242,19 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuAbrirActionPerformed
 
     private void mnuGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuGuardarActionPerformed
-     
+        fileChooser.setCurrentDirectory(new File( "./"));
+        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            fileName = new File( fileChooser.getSelectedFile( ) + ".java");
+            BufferedWriter outFile;
+            try {
+                outFile = new BufferedWriter( new FileWriter(fileName));
+                outFile.write(txtTexto.getText()); //put in textfile
+                outFile.flush(); // redundant, done by close()
+                outFile.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_mnuGuardarActionPerformed
 
     private void mnuCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCerrarActionPerformed
@@ -248,6 +263,19 @@ public class Ventana extends javax.swing.JFrame {
 
     private void mnuCompilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCompilarActionPerformed
         // TODO add your handling code here:
+         fileChooser.setCurrentDirectory(new File( "./"));
+        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            fileName = new File( fileChooser.getSelectedFile( ) + ".java");
+            BufferedWriter outFile;
+            try {
+                outFile = new BufferedWriter( new FileWriter(fileName));
+                outFile.write(txtTexto.getText()); //put in textfile
+                outFile.flush(); // redundant, done by close()
+                outFile.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         try {
                     Driver.driver(fileName);
                 } 
@@ -271,8 +299,8 @@ public class Ventana extends javax.swing.JFrame {
         txtConsola.append("\n=====================================================");
         txtConsola.append("\n");
         txtConsola.append(" ");
-        txtConsola.append("");
-       
+        txtConsola.append("\n");
+        txtConsola.append(Compilador.parser.mensaje);
         txtTree.append(Compilador.PrettyPrintAST.tree);
         
     }//GEN-LAST:event_mnuCompilarActionPerformed
