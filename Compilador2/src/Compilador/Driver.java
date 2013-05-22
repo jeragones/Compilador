@@ -25,7 +25,7 @@ public class Driver {
         parser p = new parser(s);
         Contextual contextual = new Contextual();
         p.parse();
-        p.raiz.visit(Contextual,null);
+        p.raiz.visit(contextual,null);
           
         System.out.println("Arbol:");
         System.out.println("");
