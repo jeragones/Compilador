@@ -377,6 +377,13 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_MainC_AST(MainC_AST aThis, Object arg) {
+        if(tabClase.retrieve(aThis.h1.value.toString())==null) {
+            tabClase.openScope();
+            tabClase.enter(aThis.h1.value.toString(), aThis);
+            if(tabMetodo.retrieve(aThis.h2.value.toString())==null)
+        } else {
+        
+        }
         tabClase.openScope();
         tabClase.enter(aThis.h1.value.toString(), aThis);
         tabMetodo.openScope();
