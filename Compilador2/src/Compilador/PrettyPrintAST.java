@@ -10,22 +10,22 @@ import AST.*;
  *
  * @author jdbr
  */
-public abstract class PrettyPrintAST implements Visitor {
+public class PrettyPrintAST implements Visitor {
       public static String tree=""; 
   public void imprimir(AST raiz)
   {
-    tree+="IMPRESION DEL ARBOL:\n\n";
+    tree+="\nARBOL:\n\n";
     raiz.visit(this,new Integer(0));
-    tree+="\nFIN DE IMPERSION\n";
+    tree+="\nFIN\n";
   }
   
   public void printtab(int n)
   {
     for(int num=n; num != 0; num--){
-     System.out.print("+++");
+     System.out.print("---");
     System.out.print(">");
-    tree+="+++";
-    tree+=">";}
+    tree+="---";
+    tree+="";}
       
   }
   

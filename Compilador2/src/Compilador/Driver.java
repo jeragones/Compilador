@@ -6,7 +6,6 @@ package Compilador;
 
 
 import java.io.*;
-
 import Compilador.MyException;
 import AST.*;
 /**
@@ -18,11 +17,7 @@ public class Driver {
     
     
     public static String E=null;
-    public static PrettyPrintAST IMPRIME = new PrettyPrintAST(){
-          public Object visitTypeconIdAST(Type_Id_AST c, Object arg) {
-            throw new UnsupportedOperationException("Not supported yet.");
-        }
-    };
+    public static PrettyPrintAST IMPRIME = new PrettyPrintAST();
     public static void driver(File text) throws Exception{
     try{
       Scanner s = new Scanner(new FileReader(text));
