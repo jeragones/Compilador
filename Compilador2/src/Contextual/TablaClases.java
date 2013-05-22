@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class TablaClases {
     
-    private ArrayList tabla;
+    public ArrayList tabla;
     public int nivel;
     
     public TablaClases() {

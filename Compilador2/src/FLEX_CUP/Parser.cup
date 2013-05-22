@@ -571,7 +571,7 @@ VarDecls ::=	VarDecls:vds VarDecl:vd
 
 // Regla 18)
 FormalList ::= Type:t ID:i FormalLists:fl
-    {:
+    {:  
         Symbol id = new Symbol(sym.ID,izq2,der2,i); 
         RESULT = new varias_FormalList_AST(t,id,fl);       
     :} 

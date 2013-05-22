@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author GeOrge
  */
 public class TablaIdentificadores {
-    private ArrayList tabla;
+    public ArrayList tabla;
     public int nivel;
     
     public TablaIdentificadores() {

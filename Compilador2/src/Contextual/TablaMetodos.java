@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author GeOrge
  */
 public class TablaMetodos {
-    private ArrayList tabla;
+    public ArrayList tabla;
     public int nivel;
     
     public TablaMetodos() {

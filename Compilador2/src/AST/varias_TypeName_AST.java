@@ -4,8 +4,6 @@
  */
 package AST;
 
-import AST.TypeName_AST;
-import AST.TypeNames_AST;
 import java_cup.runtime.Symbol;
 
 /**
