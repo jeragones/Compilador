@@ -15,7 +15,7 @@ public abstract class ContextualMetodo implements Visitor {
     
     public TablaMetodos tabla = new TablaMetodos();
   
-  public Object visitcondeclAST(MethodDecl_AST c, Object arg){ 
+/*  public Object visitcondeclAST(MethodDecl_AST c, Object arg){ 
     c.h1.visit(this,arg); //se visita para hacer manejo de tabla de las declaraciones
     c.h2.visit(this,arg); //se visita para hacer chequeo de tipos de los statemens
     return null; 
@@ -169,4 +169,4 @@ public abstract class ContextualMetodo implements Visitor {
     return c.h1.visit(this,null);
     //return null;
   }
-}
+*/}
