@@ -10,7 +10,7 @@ import AST.*;
  *
  * @author jdbr
  */
-public abstract class PrettyPrintAST implements Visitor {
+public class PrettyPrintAST implements Visitor {
       public static String tree=""; 
   public void imprimir(AST raiz)
   {
@@ -1259,167 +1259,272 @@ public Object visit_Extends_AST( Extends_AST c, Object arg)
        System.out.println(c.getClass().getName());
        return null;
    }
-
-    //@Override
+    
     public Object visit_Op_AND_AST(Op_AND_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        return null;
     }
 
-    //@Override
     public Object visit_Op_OR_AST(Op_OR_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        return null;
     }
 
-   // @Override
+    
     public Object visit_MAYOR_AND_AST(Op_MAYOR_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        return null;
     }
 
-  //  @Override
     public Object visit_Op_MENOR_AST(Op_MENOR_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        return null;
     }
 
-  //  @Override
     public Object visit_Op_DIV_AST(Op_DIV_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        return null;
     }
 
-    //@Override
     public Object visit_Op_RESTA_AST(Op_RESTA_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-    //@Override
-    public Object visit_Varias_Statements_AST(varias_Statements_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-    //@Override
-    public Object visit_This_IDAST(THIS_ID_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-    //@Override
-    public Object visit_This_This_AST(THIS_THIS_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-    //@Override
-    public Object visit_Exq_TyE_AST(Exp_TyE_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-//    @Override
-    public Object visit_Varias_Expresion_Lists_AST(varias_Expression_LIST_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-  //  @Override
-    public Object visit_varias_CLass_Declarations_AST(varias_Class_Declarations_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-    //@Override
-    public Object visit_DeclarationB_AST(Class_DeclarationB_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-    //@Override
-    public Object visit_ELSE_Statement_AST(ELSE_Statement_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-    //@Override
-    public Object visit_DefConstr_AST(DefConstrAST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-   // @Override
-    public Object visit_Type_Id_AST(Type_Id_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-   // @Override
-    public Object visit_varVarDecls_AST(varVarDeclsAST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
-    }
-
-    //@Override
-    public Object visit_if_else_Statement_AST(if_else_Statement_AST aThis, Object arg) {
-       int numaux = ((Integer)arg).intValue();
-       printtab(numaux);
-       tree+=aThis.getClass().getName()+"\n";
-       System.out.println(aThis.getClass().getName());
-       return null;
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        return null;
     }
     
+    public Object visit_Varias_Statements_AST(varias_Statements_AST aThis, Object arg) {
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        if (aThis.h1!=null)
+            aThis.h1.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        if (aThis.h2!=null)
+            aThis.h2.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        return null;
+    }
+
+    public Object visit_This_IDAST(THIS_ID_AST aThis, Object arg) {
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"------->"+aThis.id.value+"\n";
+        System.out.println(aThis.getClass().getName()+"------->"+aThis.id.value);
+        return null;
+    }
+
+    public Object visit_This_This_AST(THIS_THIS_AST aThis, Object arg) {
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        return null;
+    }
+
+    public Object visit_Exq_TyE_AST(Exp_TyE_AST aThis, Object arg) {
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        if (aThis.h1!=null)
+            aThis.h1.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        if (aThis.h2!=null)
+            aThis.h2.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        return null;
+    }
+
+    public Object visit_Varias_Expresion_Lists_AST(varias_Expression_LIST_AST aThis, Object arg) {
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        if (aThis.h1!=null)
+            aThis.h1.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        if (aThis.h2!=null)
+            aThis.h2.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        return null;
+    }
+
+    public Object visit_varias_CLass_Declarations_AST(varias_Class_Declarations_AST aThis, Object arg) {
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        if (aThis.h1!=null)
+            aThis.h1.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        if (aThis.h2!=null)
+        aThis.h2.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        return null;
+    }
+
+    public Object visit_DeclarationB_AST(Class_DeclarationB_AST aThis, Object arg) {
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"------->"+aThis.h1.value+"\n";
+        System.out.println(aThis.getClass().getName()+"------->"+aThis.h1.value);
+        if (aThis.h2!=null)
+            aThis.h2.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        return null;
+    }
+
+    public Object visit_ELSE_Statement_AST(ELSE_Statement_AST aThis, Object arg) {
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        if (aThis.h1!=null)
+            aThis.h1.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        return null;
+    }
+
+    public Object visit_DefConstr_AST(DefConstrAST aThis, Object arg) {
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"------->"+aThis.id.value+"\n";
+        System.out.println(aThis.getClass().getName()+"------->"+aThis.id.value);
+        if (aThis.h1!=null)
+            aThis.h1.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        if (aThis.h2!=null)
+            aThis.h2.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        if (aThis.h3!=null)
+            aThis.h3.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        return null;
+    }
+
+    public Object visit_Type_Id_AST(Type_Id_AST aThis, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public Object visit_varVarDecls_AST(varVarDeclsAST aThis, Object arg) {
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        if (aThis.h1!=null)
+            aThis.h1.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        if (aThis.h2!=null)
+            aThis.h2.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        return null;
+    }
+
+    public Object visit_if_else_Statement_AST(if_else_Statement_AST aThis, Object arg) {
+        int numaux = ((Integer)arg).intValue();
+        printtab(numaux);
+        tree+=aThis.getClass().getName()+"\n";
+        System.out.println(aThis.getClass().getName());
+        if (aThis.h1!=null)
+            aThis.h1.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        if (aThis.h2!=null)
+            aThis.h2.visit(this,new Integer(numaux+1));
+        else {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        if (aThis.h3!=null)
+            aThis.h3.visit(this,new Integer(numaux+1));
+        else
+        {
+            printtab(numaux+1);
+            tree+="NULL\n";
+            System.out.println("NULL");
+        }
+        return null;
+    }
 }

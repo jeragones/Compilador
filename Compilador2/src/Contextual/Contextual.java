@@ -14,64 +14,71 @@ import Contextual.TablaMetodos;
 
 public class Contextual implements Visitor {
     
-    public TablaMetodos tabla = new TablaMetodos();
+    public TablaMetodos tabMetodo = new TablaMetodos();
+    public TablaIdentificadores tabIdentificador = new TablaIdentificadores();
     
-    public Object visitcondeclAST(MethodDecl_AST c, Object arg){ 
-        c.h1.visit(this,arg); //se visita para hacer manejo de tabla de las declaraciones
-        c.h2.visit(this,arg); //se visita para hacer chequeo de tipos de los statemens
-        return null; 
+    public Object visitcondeclAST(MethodDecl_AST aThis, Object arg) { 
+        tabMetodo.openScope();
+        tabMetodo.enter(aThis.id.value.toString(), aThis);
+        tabMetodo.closeScope();
+        aThis.h1.visit(this, arg);
+        aThis.h2.visit(this, arg);
+        aThis.h3.visit(this, arg);
+        aThis.h4.visit(this, arg);
+        aThis.h5.visit(this, arg);
+        return null;
     }
  
     public Object visit_Op_AND_AST(Op_AND_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
  
     public Object visit_Op_OR_AST(Op_OR_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
  
     public Object visit_MAYOR_AND_AST(Op_MAYOR_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Op_MAYOR_IGUAL_AST(Op_MAYOR_IGUAL_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Op_MENOR_IGUAL_AST(Op_MENOR_IGUAL_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
     
     public Object visit_Op_MENOR_AST(Op_MENOR_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Op_IGUAL_AST(Op_IGUAL_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Op_DIFERENCIA_AST(Op_DIFERENCIA_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Op_DIV_AST(Op_DIV_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Op_ASTERISCO_AST(Op_ASTERISCO_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Op_SUMA_AST(Op_SUMA_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Op_RESTA_AST(Op_RESTA_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Type_LENGTH_AST(Type_LENGTH_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Exp_Simple_THIS_AST(Exp_Simple_THIS_AST aThis, Object arg) {
@@ -79,31 +86,36 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_Exp_Simple_FALSE_AST(Exp_Simple_FALSE_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Exp_Simple_TRUE_AST(Exp_Simple_TRUE_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Type_TInt_AST(Type_TInt_AST aThis, Object arg) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    
+    /*/////////////////////////////////////////////////////////////////////////////////////////////////////*/
     public Object visit_Type_Boolean_AST(Type_Boolean_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(aThis.tipo==4) {
+            return 4;
+        } else {
+            return -1;
+        }
     }
 
     public Object visit_Implements_AST(Implements_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Extends_AST(Extends_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_Type_Int_AST(Type_Int_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     public Object visit_c_Void_AST(c_Void_AST aThis, Object arg) {
@@ -111,10 +123,12 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_PuntoAst_AST(PuntoAst_AST aThis, Object arg) {
+        
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public Object visit_Varias_Statements_AST(varias_Statements_AST aThis, Object arg) {
+        
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -155,7 +169,11 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_Type_Names_AST(Type_Names_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        tabIdentificador.openScope();
+        tabIdentificador.enter(aThis.h1.value.toString(), aThis); 
+        tabIdentificador.closeScope();
+        aThis.h2.visit(this, arg);
+        return null;
     }
 
     public Object visit_Body_AST(Body_AST aThis, Object arg) {
@@ -235,10 +253,12 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_Import_Type_AST(Import_Type_AST aThis, Object arg) {
+        
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public Object visit_Method_Declaration_AST(Method_Declaration_AST aThis, Object arg) {
+        
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -247,10 +267,12 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_Class_Declaration_AST(Class_Declaration_AST aThis, Object arg) {
+        
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public Object visit_Class_DeclarationA_AST(Class_DeclarationA_AST aThis, Object arg) {
+        
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -259,10 +281,12 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_Type_Id_AST(Type_Id_AST aThis, Object arg) {
+        aThis.id
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public Object visit_varVarDecls_AST(varVarDeclsAST aThis, Object arg) {
+        
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -271,7 +295,15 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_MethodDecl_AST(MethodDecl_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        tabMetodo.openScope();
+        tabMetodo.enter(aThis.id.value.toString(), aThis);
+        tabMetodo.closeScope();
+        aThis.h1.visit(this, arg);
+        aThis.h2.visit(this, arg);
+        aThis.h3.visit(this, arg);
+        aThis.h4.visit(this, arg);
+        aThis.h5.visit(this, arg);
+        return null;
     }
 
     public Object visit_Expre_Stat_AST(Expre_Stat_AST aThis, Object arg) {
@@ -287,6 +319,7 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_D_Return_AST(D_Return_AST aThis, Object arg) {
+        aThis.h1
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

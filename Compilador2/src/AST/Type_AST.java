@@ -9,8 +9,10 @@ package AST;
  * @author jdbr
  */
 public abstract class Type_AST extends AST{
-     public Type_AST(){
-        super();
-    }
+    public int tipo = -1;
+    
+//    public Type_AST(){
+//        super();
+//    }
     public abstract Object visit(Visitor v,Object arg);
 }

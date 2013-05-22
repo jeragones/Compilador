@@ -13,6 +13,7 @@ import java_cup.runtime.Symbol;
  */
 public class Exp_Simple_STRING_AST extends ExpresionSimpl_AST {
     public Symbol str;
+    
     public Exp_Simple_STRING_AST(Symbol ss) {
          super();
         this.str = ss;

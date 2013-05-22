@@ -4,8 +4,6 @@
  */
 package AST;
 
-import AST.IdAux_AST;
-
 /**
  *
  * @author jdbr

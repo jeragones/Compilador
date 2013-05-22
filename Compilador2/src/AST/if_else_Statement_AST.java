@@ -4,10 +4,6 @@
  */
 package AST;
 
-import AST.Expresion_AST;
-import AST.StatementA_AST;
-import AST.Statement_AST;
-
 /**
  *
  * @author GeOrge
