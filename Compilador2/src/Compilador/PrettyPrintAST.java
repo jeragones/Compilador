@@ -10,7 +10,7 @@ import AST.*;
  *
  * @author jdbr
  */
-public class PrettyPrintAST implements Visitor {
+public abstract class PrettyPrintAST implements Visitor {
       public static String tree=""; 
   public void imprimir(AST raiz)
   {
