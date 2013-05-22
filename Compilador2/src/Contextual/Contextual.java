@@ -17,6 +17,7 @@ public class Contextual implements Visitor {
     public TablaMetodos tabMetodo = new TablaMetodos();
     public TablaIdentificadores tabIdentificador = new TablaIdentificadores();
     public TablaClases tabClase = new TablaClases();
+  
     
     public Object visitcondeclAST(MethodDecl_AST aThis, Object arg) { 
         tabMetodo.openScope();
@@ -112,7 +113,6 @@ public class Contextual implements Visitor {
 
     public Object visit_Type_TInt_AST(Type_TInt_AST aThis, Object arg) {
         
-            
     }
     
     /*/////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -184,7 +184,12 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_Exp_Simple_STRING_AST(Exp_Simple_STRING_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(aThis.tipo==3) {
+            return 3;
+        } else {
+            System.out.println("No es de tipo String");
+            return -1;
+        }
     }
 
     public Object visit_Type_Names_AST(Type_Names_AST aThis, Object arg) {
@@ -198,19 +203,32 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_Body_AST(Body_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        aThis.h1.visit(this, arg);
+        aThis.h2.visit(this, arg);
+        return null;
     }
 
     public Object visit_varias_CLass_Declarations_AST(varias_Class_Declarations_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        aThis.h1.visit(this, arg);
+        aThis.h2.visit(this, arg);
+        return null;
     }
 
     public Object visit_ImpD_ClassD_MainC_AST(ImpD_ClassD_MainC_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        aThis.h1.visit(this, arg);
+        aThis.h2.visit(this, arg);
+        aThis.h3.visit(this, arg);
+        return null;
     }
 
     public Object visit_DeclarationB_AST(Class_DeclarationB_AST aThis, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(tabClase.retrieve(aThis.h1.value.toString()) != null) {
+            aThis.h2.visit(this, arg);
+            return null;
+        } else {
+            System.out.println("La clase "+ aThis.h1.value.toString() +" no existe");
+            return null;
+        }
     }
 
     public Object visit_D_Exp_AST(D_Exp_AST aThis, Object arg) {
@@ -297,7 +315,7 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_Class_DeclarationA_AST(Class_DeclarationA_AST aThis, Object arg) {
-        
+        aThis.id
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -344,6 +362,7 @@ public class Contextual implements Visitor {
     }
 
     public Object visit_D_Return_AST(D_Return_AST aThis, Object arg) {
+        
         aThis.h1.visit(this, arg);
         return null;
     }
@@ -380,18 +399,21 @@ public class Contextual implements Visitor {
         if(tabClase.retrieve(aThis.h1.value.toString())==null) {
             tabClase.openScope();
             tabClase.enter(aThis.h1.value.toString(), aThis);
-            if(tabMetodo.retrieve(aThis.h2.value.toString())==null)
+            if(tabMetodo.retrieve(aThis.h2.value.toString())==null) {
+                tabMetodo.openScope();
+                tabMetodo.enter(aThis.h2.value.toString(), aThis);
+                aThis.h3.visit(this, arg);
+                tabMetodo.closeScope();
+            } else {
+                System.out.println("El metodo ya existe");
+                return -1;
+            }
+            tabClase.closeScope();
+            return null;
         } else {
-        
-        }
-        tabClase.openScope();
-        tabClase.enter(aThis.h1.value.toString(), aThis);
-        tabMetodo.openScope();
-        tabMetodo.enter(aThis.h2.value.toString(), aThis);
-        aThis.h3.visit(this, arg);
-        tabMetodo.closeScope();
-        tabClase.closeScope();
-        return null;
+            System.out.println("La clase ya existe");
+            return -1;
+        } 
     }
 
     public Object visit_Tid_AST(Tid_AST aThis, Object arg) {

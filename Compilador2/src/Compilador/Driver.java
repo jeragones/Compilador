@@ -24,6 +24,10 @@ public class Driver {
         Scanner s = new Scanner(new FileReader(text));
         parser p = new parser(s);
         Contextual contextual = new Contextual();
+        
+        contextual.tabClase.llenar();
+        contextual.tabMetodo.llenar();
+        
         p.parse();
         p.raiz.visit(contextual,null);
           
