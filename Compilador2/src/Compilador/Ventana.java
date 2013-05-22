@@ -4,7 +4,7 @@
  */
 package Compilador;
 
-import Compilador.Driver;
+import Compilador.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -46,7 +46,7 @@ public class Ventana extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtErrores = new javax.swing.JTextArea();
+        txtConsola = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtTexto = new javax.swing.JTextArea();
         lblColumna = new javax.swing.JLabel();
@@ -67,9 +67,9 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtErrores.setColumns(20);
-        txtErrores.setRows(5);
-        jScrollPane2.setViewportView(txtErrores);
+        txtConsola.setColumns(20);
+        txtConsola.setRows(5);
+        jScrollPane2.setViewportView(txtConsola);
 
         txtTexto.setColumns(20);
         txtTexto.setRows(5);
@@ -173,7 +173,7 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -182,7 +182,7 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(lblFila)
                     .addComponent(lblColumna))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -250,9 +250,27 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
                     Driver.driver(fileName);
-                } catch (Exception ex) {
+                } 
+        catch (Exception ex) {
                     
                 }
+         
+        txtConsola.setText(" ");
+        int largo= Compilador.Scanner.Ltokens.size();
+       
+        txtConsola.append("\n=====================================================");
+        txtConsola.append("\n                                               Lista de Tokens");
+        txtConsola.append("\n=====================================================");
+        txtConsola.append("\n");
+        for (int i=0;i<largo;i++){
+            txtConsola.append(Compilador.Scanner.Ltokens.get(i).toString());
+        }
+       txtConsola.append("\n=====================================================");
+        txtConsola.append("\n                                            Fin Lista de Tokens");
+        txtConsola.append("\n=====================================================");
+        txtConsola.append("\n");
+         txtConsola.append(" ");
+        txtConsola.append(Compilador.PrettyPrintAST.tree);
     }//GEN-LAST:event_mnuCompilarActionPerformed
 
     /**
@@ -307,7 +325,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuCompilar;
     private javax.swing.JMenuItem mnuGuardar;
     private javax.swing.JMenuItem mnuNuevo;
-    private static javax.swing.JTextArea txtErrores;
+    public static javax.swing.JTextArea txtConsola;
     private javax.swing.JTextArea txtTexto;
     // End of variables declaration//GEN-END:variables
 }
