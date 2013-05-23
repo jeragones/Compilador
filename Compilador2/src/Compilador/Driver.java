@@ -29,13 +29,14 @@ public class Driver {
         contextual.tabMetodo.llenar();
         
         p.parse();
-        p.raiz.visit(contextual,null);
+        
           
         System.out.println("Arbol:");
         System.out.println("");
         IMPRIME.imprimir(p.raiz);
         System.out.println("");
         System.out.println("Fin");
+        p.raiz.visit(contextual,null);
 
     }
     catch(MyException e){

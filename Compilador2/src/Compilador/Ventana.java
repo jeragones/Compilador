@@ -300,8 +300,9 @@ public class Ventana extends javax.swing.JFrame {
         txtConsola.append("\n");
         txtConsola.append(" ");
         txtConsola.append("\n");
-        txtConsola.append(Compilador.parser.mensaje);
         txtTree.append(Compilador.PrettyPrintAST.tree);
+        txtConsola.append(Compilador.parser.mensaje);
+        
         
     }//GEN-LAST:event_mnuCompilarActionPerformed
 
